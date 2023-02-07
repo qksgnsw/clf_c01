@@ -3,6 +3,7 @@
 ### 1. 회사는 인프라를 온프레미스 데이터 센터에서 AWS 클라우드로 이동할 계획입니다.   
 ### 다음 중 회사가 AWS 클라우드에서 솔루션을 구축하는 데 적합한 AWS 서비스를 적용 할 수 있도록 어떤 옵션을 권장 하시겠습니까? (2개 선택)
 - [x] <mark>**AWS Service Catalog**</mark>
+- [x] <span style="background-color:yellow">**AWS Service Catalog**</span>
 - [ ] Amazon CloudWatch
 - [ ] AWS CloudTrail
 - [x] <mark>**AWS Partner Network**</mark>
