@@ -221,7 +221,7 @@
 - [ ] Infrastructure as a Service(IaaS)
 - [x] <mark>**Platform as a Service(Paas)**</mark>
 - [ ] Software as a Service(SaaS)
-<img src="./../pic/iaas-paas-saas-diagram.png"  width="50%" height="50%">
+<img src="./../pic/iaas-paas-saas-diagram.png">
 
 #### 32. 다음 AWS 서비스 중 계정 전체에서 AWS WAF 규칙을 구성하는 보안 관리 도구를 제공하는 것은 무엇입니까?
 - [x] <mark>**AWS Firewall Manager**</mark>
@@ -326,7 +326,7 @@
 - [x] <mark>**NAT Gatewat manage AWS**</mark>
 - [ ] SG have allow rule and deny rule
 
-<img src="./../pic/acl-sg.jpg"  width="80%" height="80%">
+<img src="./../pic/acl-sg.jpg">
 
 #### 47. 서버리스 컴퓨팅으로 전환 할 때 얻을 수 있는 주요 이점은 무엇입니까?
 - [x] <mark>**관리에 대한 오버헤드가 없으므로 어플리케이션에 집중 가능**</mark>
@@ -348,8 +348,8 @@
 > - 다중 응답 라우팅 정책 – Route 53이 DNS 쿼리에 무작위로 선택된 최대 8개의 정상 레코드로 응답하게 하려는 경우에 사용합니다.
 > - 가중치 기반 라우팅 정책 – 사용자가 지정하는 비율에 따라 여러 리소스로 트래픽을 라우팅하려는 경우에 사용합니다.
 
-<img src="./../pic/route53-simple-weighted-policy.jpg"  width="80%" height="80%">
-<img src="./../pic/route53-latency-failover-policy.jpg"  width="80%" height="80%">
+<img src="./../pic/route53-simple-weighted-policy.jpg">
+<img src="./../pic/route53-latency-failover-policy.jpg">
 
 #### 49. ID 및 액세스 관리 (IAM) 사용자의 보안을 개선하기 위해 구현할 수 있는 것은 무엇입니까?
 - [x] <mark>**MFA 활성화 및 강력한 암호 정책**</mark>
@@ -389,7 +389,7 @@
 > - 속도가 빠른 완전관리형 클라우드 데이터 웨어하우스
 > - 모든 데이터를 표준 SQL 및 기존 BI(비즈니스 인텔리전스) 도구를 사용하여 간편하고 비용 효율적으로 분석
 
-<img src="./../pic/redshift.jpg"  width="80%" height="80%">
+<img src="./../pic/redshift.jpg">
 
 
 
