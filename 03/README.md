@@ -431,7 +431,7 @@
 - [ ] Amazon Toure 53
 - [ ] Amazon CloudFront
 > 해설
-> - [Global Accelerator에 대한 설명](#📍9-다음-중-aws-global-accelerator와-관련하여-올바른-설명은-무엇입니까-2개-선택)
+> - [Global Accelerator에 대한 설명](#9-다음-중-aws-global-accelerator와-관련하여-올바른-설명은-무엇입니까-2개-선택)
 
 > 오답 해설
 > - Amazon CloudFront는 개발자 친화적 환경에서 짧은 지연 시간과 빠른 전송 속도로 데이터, 동영상, 애플리케이션 및 API를 전 세계 고객에게 안전하게 전송하는 고속 콘텐츠 전송 네트워크(CDN) 서비스입니다.
