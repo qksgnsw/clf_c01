@@ -1,0 +1,2073 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>README.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="aws-%EA%B3%B5%EC%9D%B8-%ED%81%B4%EB%9D%BC%EC%9A%B0%EB%93%9C-%EC%A0%84%EB%AC%B8%EA%B0%80-clf-c01-%EC%97%B0%EC%8A%B5%EB%AC%B8%EC%A0%9C">AWS 공인 클라우드 전문가 CLF-C01 연습문제</h1>
+<h4 id="%F0%9F%93%8D1-%EB%8B%A4%EC%9D%8C-%EC%A4%91-aws-%EC%84%9C%EB%B9%84%EC%8A%A4%EC%97%90-%EB%8C%80%ED%95%B4-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%95%94%ED%98%B8%ED%99%94%EA%B0%80-%EC%9E%90%EB%8F%99%EC%9C%BC%EB%A1%9C-%ED%99%9C%EC%84%B1%ED%99%94%EC%97%90-%EC%82%AC%EC%9A%A9%EB%90%98%EB%8A%94-%EC%84%9C%EB%B9%84%EC%8A%A4%EB%8A%94-%EB%AC%B4%EC%97%87%EC%9D%BC%EA%B9%8C%EC%9A%94-2%EA%B0%9C-%EC%84%A0%ED%83%9D">📍1. 다음 중 AWS 서비스에 대해 데이터 암호화가 자동으로 활성화에 사용되는 서비스는 무엇일까요 (2개 선택)?</h4>
+<ul>
+<li><input type="checkbox" id="checkbox0" checked="true"><label for="checkbox0"></label><mark><strong>AWS Storage Gateway</strong></mark></li>
+<li><input type="checkbox" id="checkbox1" checked="true"><label for="checkbox1"></label><mark><strong>Amazon S3 Glacier</strong></mark></li>
+<li><input type="checkbox" id="checkbox2"><label for="checkbox2">Amazon EFS</label></li>
+<li><input type="checkbox" id="checkbox3"><label for="checkbox3">Amazon Redshift</label></li>
+<li><input type="checkbox" id="checkbox4"><label for="checkbox4">Amazon EBS</label></li>
+</ul>
+<blockquote>
+<p>해설</p>
+<ul>
+<li>Amazon S3 Glacier<br>
+Amazon S3 Glacier(S3 Glacier)는 자주 사용하지 않는 데이터 또는 &quot;콜드 데이터&quot;에 최적화된 스토리지 서비스입니다. S3 Glacier에 저장된 저장 데이터는 AWS에서 유지 관리하는 키로써 256비트 고급 암호화 표준(AES-256)으로 서버 측에서 자동으로 암호화됩니다.</li>
+<li>AWS Storage Gateway<br>
+AWS Storage Gateway는 사실상 무제한의 클라우드 스토리지에 대한 온프레미스 액세스를 제공하는 하이브리드 클라우드 스토리지 서비스입니다. 게이트웨이와 AWS 스토리지 간에 전송되는 모든 데이터는 SSL을 사용하여 암호화됩니다 (파일, 볼륨 및 테이프 게이트웨이의 세 가지 유형의 게이트웨이 모두).</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>오답:</p>
+<ul>
+<li>Amazon EBS 볼륨<br>
+Amazon EBS 볼륨은 기본적으로 암호화되지 않고, 생성한 새 EBS 볼륨 및 스냅샷 복사본의 암호화를 적용하도록 AWS 계정을 구성합니다..</li>
+<li>Amazon RedShift<br>
+암호화는 Amazon Redshift의 선택적 설정입니다. 클러스터에 대해 암호화를 활성화하면 클러스터와 해당 스냅샷에 대해 데이터 블록 및 시스템 메타데이터가 암호화됩니다.</li>
+<li>Amazon EFS 드라이브<br>
+암호화는 기본 설정이 아닌 EFS 드라이브에 대한 선택적 구성입니다. Amazon EFS는 파일 시스템에 대해 전송 중 데이터 암호화와 저장 데이터 암호화라는 두 가지 형식의 암호화를 지원합니다.</li>
+</ul>
+</blockquote>
+<h4 id="%F0%9F%93%8D2-it-%ED%9A%8C%EC%82%AC%EC%97%90%EC%84%9C-%EB%A7%A4%EC%A3%BC-%EC%9B%94%EC%9A%94%EC%9D%BC-%EC%98%A4%EC%A0%84-2%EC%8B%9C%EC%97%90-%EB%A1%9C%EA%B7%B8-%EB%B0%B1%EC%97%85-%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4%EB%A5%BC-%EC%8B%A4%ED%96%89%ED%95%98%EB%A0%A4%EA%B3%A0-%ED%95%98%EB%A9%B0-%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4%EC%9D%98-%EC%9D%BC%EB%B0%98%EC%A0%81%EC%9D%B8-%EB%9F%B0%ED%83%80%EC%9E%84%EC%9D%80-5%EB%B6%84%EC%9E%85%EB%8B%88%EB%8B%A4-%ED%81%B4%EB%9D%BC%EC%9A%B0%EB%93%9C-%EC%A0%84%EB%AC%B8%EA%B0%80%EB%A1%9C%EC%84%9C-%EC%9D%B4-%EC%82%AC%EC%9A%A9-%EC%82%AC%EB%A1%80%EC%97%90-%EB%8C%80%ED%95%9C-%EC%84%9C%EB%B2%84%EB%A6%AC%EC%8A%A4-%EC%86%94%EB%A3%A8%EC%85%98%EC%9D%84-%EA%B5%AC%EC%B6%95%ED%95%98%EA%B8%B0-%EC%9C%84%ED%95%B4-%EC%96%B4%EB%96%A4-aws-%EC%84%9C%EB%B9%84%EC%8A%A4%EB%A5%BC-%EC%B6%94%EC%B2%9C%ED%95%98%EC%8B%9C%EA%B2%A0%EC%8A%B5%EB%8B%88%EA%B9%8C-2%EA%B0%9C-%EC%84%A0%ED%83%9D">📍2. IT 회사에서 매주 월요일 오전 2시에 로그 백업 프로세스를 실행하려고 하며, 프로세스의 일반적인 런타임은 5분입니다. 클라우드 전문가로서 이 사용 사례에 대한 서버리스 솔루션을 구축하기 위해 어떤 AWS 서비스를 추천하시겠습니까? (2개 선택)</h4>
+<ul>
+<li><input type="checkbox" id="checkbox5" checked="true"><label for="checkbox5"></label><mark><strong>CloudWatch</strong></mark></li>
+<li><input type="checkbox" id="checkbox6" checked="true"><label for="checkbox6"></label><mark><strong>Lambda</strong></mark></li>
+<li><input type="checkbox" id="checkbox7"><label for="checkbox7">Step Function</label></li>
+<li><input type="checkbox" id="checkbox8"><label for="checkbox8">EC2</label></li>
+<li><input type="checkbox" id="checkbox9"><label for="checkbox9">Systems Manager</label></li>
+</ul>
+<blockquote>
+<p>해설</p>
+<ul>
+<li>CloudWatch<br>
+Amazon CloudWatch는 모니터링 및 관찰 가능성 서비스를 DevOps 엔지니어, 개발자, 사이트 안정성 엔지니어(SRE) 및 IT 관리자에게 제공하기 위해 구축되었습니다. CloudWatch는 데이터와 실행 가능한 통찰력을 제공하여 애플리케이션을 모니터링하고, 시스템 전체의 성능 변화에 대응하고, 리소스 활용도를 최적화하고, 운영 상태에 대한 통합 보기를 얻습니다.</li>
+<li>Lambda<br>
+AWS Lambda는 서버를 프로비저닝하거나 관리하지 않고도 코드를 실행하게 해줍니다. 사용한 컴퓨팅 시간에 대해서만 비용을 지불합니다. Lambda의 최대 실행 시간은 15분이므로 이 로그 백업 프로세스를 실행하는 데 사용합니다.</li>
+<li>주어진 사용 사례에 대한 솔루션을 구축하기 위해 cron 표현식링크 일정에 따라 트리거되는 CloudWatch 이벤트 규칙을 생성하고 Lambda를 이 규칙의 대상으로 설정할 수 있습니다.</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>오답:</p>
+<ul>
+<li>AWS Systems Manager<br>
+Systems Manager는 통합 사용자 인터페이스를 제공하므로 여러 AWS 서비스의 운영 데이터를 통해 AWS 리소스 운영 작업을 전반적으로 자동화할 수 있습니다. Systems Manager 사용링크 Amazon EC2 인스턴스, Amazon S3 버킷 또는 Amazon RDS 인스턴스와 같은 리소스를 애플리케이션별로 그룹화하고, 모니터링 및 문제 해결을 위해 운영 데이터를 보고, 리소스 그룹에 대해 조치를 취할 수 있습니다. Secrets Manager는 일정에 따라 프로세스를 실행하는 데 사용할 수 없습니다.</li>
+<li>EC2 인스턴스<br>
+Amazon Elastic Compute Cloud(Amazon EC2)는 초당 비용을 지원, 클라우드에서 안전하고 크기 조정 가능한 컴퓨팅 용량을 제공하는 웹 서비스입니다. 기본 OS 액세스 가장 쉬운 방법으로 AWS 클라우드에서서버를 프로비저닝합니다. 회사는 서버리스 솔루션을 원하므로 이 옵션은 제외됩니다.</li>
+<li>Step Function<br>
+AWS Step Function은 여러 AWS 서비스를 서버리스 워크플로로 조정할 수 있습니다. AWS Lambda, AWS Glue 및 Amazon SageMaker와 같은 서비스를 결합하는 워크플로를 설계하고 실행할 수 있습니다. 일정에 따라 프로세스를 실행하는 데 Step Function을 사용할 수 없습니다.</li>
+</ul>
+</blockquote>
+<h4 id="%F0%9F%93%8D3-%EB%8B%A4%EC%9D%8C-aws-%EC%84%9C%EB%B9%84%EC%8A%A4-%EC%A4%91-%EB%B8%94%EB%A1%9D-%EC%88%98%EC%A4%80-%EC%8A%A4%ED%86%A0%EB%A6%AC%EC%A7%80%EB%A5%BC-%EC%A0%9C%EA%B3%B5%ED%95%98%EB%8A%94-%EC%84%9C%EB%B9%84%EC%8A%A4%EB%8A%94-%EB%AC%B4%EC%97%87%EC%9D%BC%EA%B9%8C%EC%9A%94-2%EA%B0%9C-%EC%84%A0%ED%83%9D">📍3. 다음 AWS 서비스 중 블록 수준 스토리지를 제공하는 서비스는 무엇일까요? (2개 선택)</h4>
+<ul>
+<li><input type="checkbox" id="checkbox10" checked="true"><label for="checkbox10"></label><mark><strong>EBS</strong></mark></li>
+<li><input type="checkbox" id="checkbox11" checked="true"><label for="checkbox11"></label><mark><strong>Instance Store</strong></mark></li>
+<li><input type="checkbox" id="checkbox12"><label for="checkbox12">EFS</label></li>
+<li><input type="checkbox" id="checkbox13"><label for="checkbox13">S3</label></li>
+<li><input type="checkbox" id="checkbox14"><label for="checkbox14">ECS</label></li>
+</ul>
+<blockquote>
+<p>해설</p>
+<ul>
+<li>EBS<br>
+Amazon Elastic Block Store(EBS)는 사용하기 쉬운 고성능 블록 스토리지 서비스로 모든 규모의 처리량 및 트랜잭션 집약적 워크로드에 대해 Amazon Elastic Compute Cloud(EC2)와 함께 사용하도록 설계되었습니다. 관계형 및 비관계형 데이터베이스, 엔터프라이즈 애플리케이션, 컨테이너화된 애플리케이션, 빅 데이터 분석 엔진, 파일 시스템 및 미디어 워크플로와 같은 광범위한 워크로드가 Amazon EBS에 널리 배포됩니다.</li>
+<li>인스턴스 스토어<br>
+인스턴스 스토어는 EC2 인스턴스를 위한 임시 블록 레벨 스토리지를 제공합니다. 이 저장소는 호스트 컴퓨터에 물리적으로 연결된 디스크에 위치해 있습니다. 인스턴스 저장소는 버퍼, 캐시, 스크래치 데이터 및 기타 임시 콘텐츠와 같이 자주 변경되는 정보의 임시 저장소 또는 웹 서버의 로드 밸런싱된 풀과 같이 인스턴스 집합 전체에 복제되는 데이터에 적합합니다. 인스턴스 스토리지는 일시적이며 인스턴스에 장애가 발생 또는 종료시 데이터 손실이 일어납니다. EC2 인스턴스 스토어는 인스턴스 간 파일 공유에 사용할 수 없습니다.</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>오답:</p>
+<ul>
+<li>EFS<br>
+Amazon Elastic File System(Amazon EFS)은 탄력적인 완전 관리형 NFS 파일 시스템으로 사용 간단한 확장 가능 서비스를 제공합니다. 애플리케이션을 중단하지 않고 온디맨드로 페타바이트까지 확장할 수 있도록 구축되었으며, 파일을 추가 및 제거할 때 자동으로 확장 및 축소되므로 늘어나는 부분 수용을 위한 용량 프로비저닝 또는 관리의 필요성이 없습니다. Amazon EFS는 수천 개의 Amazon EC2 인스턴스에 대한 대규모 병렬 공유 액세스 제공을 위해 설계되어 애플리케이션이 짧은 지연 시간으로 높은 수준의 집계 처리량과 IOPS를 달성할 수 있도록 합니다.</li>
+<li>S3<br>
+Amazon Simple Storage Service(Amazon S3)는 객체 스토리지 서비스 중 업계 최고의 확장성, 데이터 가용성, 보안 및 성능을 제공합니다. 모든 규모와 산업의 고객이 웹 사이트, 모바일 애플리케이션, 백업 및 복원, 아카이브, 엔터프라이즈 애플리케이션, IoT 장치, 빅 데이터 분석과 같은 다양한 사용 사례에 대해 모든 양의 데이터를 저장하고 보호하는 데 사용할 수 있습니다.</li>
+<li>ECS<br>
+Amazon Elastic Container Service(ECS)는 Docker 컨테이너를 지원하고 Amazon EC2 인스턴스의 관리형 클러스터에서 애플리케이션을 쉽게 실행할 수 있는 확장성이 뛰어난 고성능 컨테이너 관리 서비스입니다. 이것은 저장 서비스가 아니며 방해 요소로 추가되었습니다.</li>
+</ul>
+</blockquote>
+<h4 id="%F0%9F%93%8D4-%EB%8B%A4%EC%9D%8C-%EC%A4%91-aws-organizations%EB%A5%BC-%EC%82%AC%EC%9A%A9%ED%95%A0-%EB%95%8C-%EA%B0%80%EC%9E%A5-%EC%A2%8B%EC%9D%80-%EB%B0%A9%EB%B2%95%EC%9D%80-%EB%AC%B4%EC%97%87%EC%9D%BC%EA%B9%8C%EC%9A%94-2%EA%B0%9C-%EC%84%A0%ED%83%9D">📍4. 다음 중 AWS Organizations를 사용할 때 가장 좋은 방법은 무엇일까요? (2개 선택)</h4>
+<ul>
+<li><input type="checkbox" id="checkbox15" checked="true"><label for="checkbox15"></label><mark><strong>서비스 제어 정책(SCP)을 사용하여 계정 권한 제한</strong></mark></li>
+<li><input type="checkbox" id="checkbox16" checked="true"><label for="checkbox16"></label><mark><strong>부서별 계정 생성</strong></mark></li>
+<li><input type="checkbox" id="checkbox17"><label for="checkbox17">AWS 계정 생성 자동화를 위해 AWS Organizations를 사용하지 않음</label></li>
+<li><input type="checkbox" id="checkbox18"><label for="checkbox18">결제에 태그를 사용하지 않음</label></li>
+<li><input type="checkbox" id="checkbox19"><label for="checkbox19">여러 계정에서 CloudTrail 비활성화</label></li>
+</ul>
+<blockquote>
+<p>해설</p>
+<ul>
+<li>부서별 계정 생성</li>
+<li>서비스 제어 정책(SCP)을 사용하여 계정 권한 제한<br>
+AWS Organizations는 AWS에서 워크로드를 확장하고 확장할 때 환경을 중앙에서 제어할 수 있도록 도와줍니다. 성장하는 스타트업이든 대기업이든 관계없이 Organizations는 중앙에서 청구를 관리하고 액세스, 규정 준수 및 보안을 제어하며, AWS 계정 간에 리소스를 공유할 수 있도록 도와줍니다.
+AWS Organizations를 사용하면 계정 생성을 자동화하고, 비즈니스 요구 사항을 반영하는 계정 그룹을 생성하고, 거버넌스를 위해 이러한 그룹에 정책을 적용할 수 있습니다. 모든 AWS 계정에 대해 단일 결제 방법을 설정하여 결제를 간소화할 수도 있습니다. 다른 AWS 서비스와의 통합링크 Organizations로 조직의 계정 간에 중앙 구성 및 리소스 공유를 정의할 수 있습니다. AWS Organizations는 모든 AWS 고객이 추가 비용 없이 사용할 수 있습니다.
+더 나은 리소스 격리를 위해 규제 제한(SCP 사용)에 따라 부서별로 계정을 만들고 별도의 계정별 서비스 제한을 가져야 합니다.
+AWS Organizations를 사용하면 계정에서 허용되는 서비스와 작업을 제한할 수 있습니다. 서비스 제어 정책(SCP)을 사용하여 AWS Identity and Access Management(IAM) 사용자 및 역할에 권한 가드레일을 적용할 수 있습니다.</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>오답:</p>
+<ul>
+<li>결제에 태그를 사용하지 않음<br>
+청구 목적으로 AWS 리소스를 분류하려면 태그 표준을 사용해야 합니다.</li>
+<li>여러 계정에서 CloudTrail 비활성화<br>
+거버넌스, 규정 준수, 위험 및 감사 목적으로 모든 계정의 활동을 모니터링하려면 CloudTrail을 활성화해야 합니다.</li>
+<li>AWS 계정 생성 자동화를 위해 AWS Organizations를 사용하지 않음<br>
+AWS Organizations는 AWS 계정 생성 및 관리를 자동화하여 IT 운영을 단순화하도록 돕습니다. Organizations API를 사용하면 프로그래밍 방식으로 새 계정을 만들고 그룹에 새 계정을 추가할 수 있습니다. 그룹에 연결된 정책은 새 계정에 자동으로 적용됩니다.</li>
+</ul>
+</blockquote>
+<h4 id="%F0%9F%93%8D5-%EB%8B%A4%EC%9D%8C-%EC%A4%91-%ED%95%98%EC%9D%B4%EB%B8%8C%EB%A6%AC%EB%93%9C-%ED%81%B4%EB%9D%BC%EC%9A%B0%EB%93%9C-%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98%EB%A5%BC-%EA%B0%80%EC%A7%80%EA%B3%A0-%EC%9E%88%EC%9C%BC%EB%A9%B0-ec2-%EC%9D%B8%EC%8A%A4%ED%84%B4%EC%8A%A4-%EB%B0%8F-%EC%98%A8%ED%94%84%EB%A0%88%EB%AF%B8%EC%8A%A4-%EC%84%9C%EB%B2%84%EC%97%90-%EB%8C%80%ED%95%9C-%EC%84%9C%EB%B2%84-%EB%A1%9C%EA%B7%B8%EB%A5%BC-%EC%A4%91%EC%95%99-%EC%A7%91%EC%A4%91%ED%99%94%ED%95%98%EB%A0%A4%EA%B3%A0-%ED%95%98%EB%8A%94-it-%ED%9A%8C%EC%82%AC%EC%97%90-%EA%B0%80%EC%9E%A5-%ED%9A%A8%EA%B3%BC%EC%A0%81%EC%9D%B8-%EC%82%AC%EC%9A%A9-%EC%82%AC%EB%A1%80%EB%8A%94-%EB%AC%B4%EC%97%87%EC%9D%BC%EA%B9%8C%EC%9A%94">📍5. 다음 중 하이브리드 클라우드 아키텍처를 가지고 있으며 EC2 인스턴스 및 온프레미스 서버에 대한 서버 로그를 중앙 집중화하려고 하는 IT 회사에 가장 효과적인 사용 사례는 무엇일까요?</h4>
+<ul>
+<li><input type="checkbox" id="checkbox20" checked="true"><label for="checkbox20"></label><mark><strong>EC2 인스턴스와 온프레미스 서버 모두에 CloudWatch Logs 사용</strong></mark></li>
+<li><input type="checkbox" id="checkbox21"><label for="checkbox21">EC2 인스턴용 CloudTrail 및 온프레미스 서버용 CloudWatch Logs 사용</label></li>
+<li><input type="checkbox" id="checkbox22"><label for="checkbox22">AWS Lambda로 EC2 인스턴스 및 온프레미스 서버에서 CloudWatch Logs로 로그 데이터 전송</label></li>
+<li><input type="checkbox" id="checkbox23"><label for="checkbox23">EC2 인스턴스용 CloudWatch Logs 및 온프레미스 서버용 CloudTrail 사용</label></li>
+</ul>
+<blockquote>
+<p>해설</p>
+<ul>
+<li>EC2 인스턴스와 온프레미스 서버 모두에 CloudWatch Logs 사용<br>
+Amazon CloudWatch Logs로 Amazon Elastic Compute Cloud(Amazon EC2) 인스턴스, AWS CloudTrail, Route 53 및 온프레미스 서버와 같은 기타 소스에서 로그 파일을 모니터링, 저장 및 액세스할 수 있습니다.<br>
+CloudWatch Logs는 높은 확장성으로 단일 서비스의 모든 시스템, 애플리케이션 및 AWS 서비스의 로그를 중앙 집중화할 수 있습니다. 그런 쉽게 보고, 특정 오류 코드 또는 패턴을 검색하고, 특정 필드를 기반으로 필터링하거나, 향후 분석을 위해 안전하게 보관할 수 있습니다.</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>오답:</p>
+<ul>
+<li>AWS Lambda로 EC2 인스턴스 및 온프레미스 서버에서 CloudWatch Logs로 로그 데이터 전송<br>
+AWS Lambda는 서버를 프로비저닝하거나 관리하지 않고도 코드를 실행하게 해줍니다. 사용한 컴퓨팅 시간에 대해서만 비용을 지불합니다. Lambda는 EC2 인스턴스 및 온프레미스 서버의 로그를 중앙 집중화하는 데 사용할 수 없습니다.</li>
+<li>EC2 인스턴스용 CloudWatch Logs 및 온프레미스 서버용 CloudTrail 사용</li>
+<li>EC2 인스턴스용 CloudTrail 및 온프레미스 서버용 CloudWatch Logs 사용<br>
+AWS CloudTrail은 AWS 계정의 거버넌스, 규정 준수, 운영 감사 및 위험 감사를 위한 서비스입니다. CloudTrail는 AWS 인프라 전반에서 작업과 관련된 계정 활동을 기록하고 지속적으로 모니터링하고 유지합니다. CloudTrail은 AWS Management 콘솔, AWS SDK, Command Line 툴 및 기타 AWS 서비스를 통해 수행한 작업을 포함하여 AWS 계정 활동의 이벤트 기록을 제공합니다. CloudTrail은 EC2 인스턴스 또는 온프레미스 서버에 대한 서버 로그를 중앙 집중화하는 데 사용할 수 없으므로 두 옵션 모두 올바르지 않습니다.</li>
+</ul>
+</blockquote>
+<h4 id="6-%EC%88%98%EC%8B%AD%EB%A7%8C-%EA%B3%A0%EA%B0%9D%EC%9D%98-%EC%82%AC%EC%9A%A9%EB%9F%89%EC%9D%B4-%ED%81%B4%EB%9D%BC%EC%9A%B0%EB%93%9C%EC%97%90%EC%84%9C-%EC%A7%91%EA%B3%84%EB%90%A8%EC%97%90-%EB%94%B0%EB%9D%BC-aws%EA%B0%80-%EB%8D%94-%EB%82%AE%EC%9D%80-%EC%A2%85%EB%9F%89%EC%A0%9C-%EA%B0%80%EA%B2%A9%EC%9D%84-%EC%A0%9C%EA%B3%B5%ED%95%A0-%EC%88%98-%EC%9E%88%EB%8A%94-%ED%81%B4%EB%9D%BC%EC%9A%B0%EB%93%9C-%EC%BB%B4%ED%93%A8%ED%8C%85%EC%9D%98-%EC%9D%B4%EC%A0%90%EC%9D%80-%EB%AC%B4%EC%97%87%EC%9D%BC%EA%B9%8C%EC%9A%94">6. 수십만 고객의 사용량이 클라우드에서 집계됨에 따라 AWS가 더 낮은 종량제 가격을 제공할 수 있는 클라우드 컴퓨팅의 이점은 무엇일까요?</h4>
+<ul>
+<li><input type="checkbox" id="checkbox24" checked="true"><label for="checkbox24"></label><mark><strong>대규모의 경제</strong></mark></li>
+<li><input type="checkbox" id="checkbox25"><label for="checkbox25">속도와 민첩성 증가</label></li>
+<li><input type="checkbox" id="checkbox26"><label for="checkbox26">변동 비용에 대한 거래 자본 비용</label></li>
+<li><input type="checkbox" id="checkbox27"><label for="checkbox27">몇 분 만에 글로벌 진출</label></li>
+</ul>
+<blockquote>
+<p>해설</p>
+<ul>
+<li>대규모 규모의 경제<br>
+클라우드 컴퓨팅은 종량제 가격으로 인터넷링크 IT 리소스를 주문형으로 제공하는 것입니다. 물리적 데이터 센터와 서버를 구매, 소유 및 유지 관리하는 대신 필요에 따라 컴퓨팅 성능, 스토리지 및 데이터베이스와 같은 기술 서비스에 액세스할 수 있습니다.<br>
+클라우드 컴퓨팅을 사용하면 스스로 얻을 수 있는 것보다 더 낮은 가변 비용을 달성할 수 있습니다. 수십만 고객의 사용량이 클라우드에 집계되기 때문에 AWS와 같은 공급자는 더 높은 규모의 경제를 달성할 수 있으며, 이는 사용한 만큼만 지불하는 가격으로 변환됩니다.</li>
+<li><mark>클라우드 컴퓨팅 6가지 장점</mark></li>
+</ul>
+<blockquote>
+<ol>
+<li>자본 비용을 가변 비용으로 거래<br>
+데이터 센터와 서버를 어떻게 사용할 것인지 알기 전에 막대한 투자를 하는 대신 컴퓨팅 리소스를 소비할 때만 비용을 지불하고 소비한 양에 대해서만 비용을 지불할 수 있습니다.</li>
+<li>대규모 경제의 이점
+클라우드 컴퓨팅을 사용하면 스스로 얻을 수 있는 것보다 더 낮은 가변 비용을 달성 할 수 있습니다. 수십만 고객의 사용량이 클라우드에 집계되기 때문에 AWS와 같은 제공 업체는 더 높은 규모의 경제를 달성 할 수 있으며, 이는 종량제 가격을 낮출 수 있습니다.</li>
+<li>용량 추측 중지
+인프라 용량 요구에 대한 추측을 제거합니다. 애플리케이션을 배포하기 전에 용량을 결정하면 종종 값비싼 유휴 리소스에 앉아 있거나 제한된 용량을 처리하게 됩니다. 클라우드 컴퓨팅을 사용하면 이러한 문제가 사라집니다. 필요한 만큼의 용량에 액세스 할 수 있으며 몇 분 전에 알림을 받으면 필요에 따라 확장 및 축소 할 수 있습니다.</li>
+<li>속도 및 민첩성 향상
+클라우드 컴퓨팅 환경에서 클릭 한 번으로 새로운 IT 리소스를 사용할 수 있습니다. 즉, 개발자가 이러한 리소스를 사용할 수 있도록 하는 데 걸리는 시간을 몇 주에서 단 몇 분으로 단축 할 수 있습니다. 그 결과 실험 및 개발에 소요되는 비용과 시간이 현저히 낮기 때문에 조직의 민첩성이 크게 향상됩니다.</li>
+<li>데이터 센터 운영 및 유지 비용 지출 중단
+인프라가 아닌 비즈니스를 차별화하는 프로젝트에 집중하십시오. 클라우드 컴퓨팅을 사용하면 서버 랙, 스태킹 및 전원 공급의 부담이 아닌 고객에게 집중할 수 있습니다.</li>
+<li>몇 분 만에 글로벌화
+단 몇 번의 클릭만으로 전 세계 여러 지역에 애플리케이션을 쉽게 배포 할 수 있습니다. 즉, 최소한의 비용으로 고객에게 더 짧은 지연 시간과 더 나은 경험을 제공 할 수 있습니다.</li>
+</ol>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>오답:</p>
+<ul>
+<li>변동 비용에 대한 무역 자본 비용<br>
+데이터 센터와 서버를 어떻게 사용할지 알기 전에 막대한 투자를 하는 대신 컴퓨팅 리소스를 사용할 때만 비용을 지불하고 사용한 만큼만 비용을 지불하면 됩니다.</li>
+<li>속도와 민첩성 증가<br>
+클라우드 컴퓨팅 환경에서는 클릭 한 번으로 새로운 IT 리소스를 얻을 수 있습니다. 즉, 개발자가 해당 리소스를 사용할 수 있도록 하는 시간을 몇 주에서 몇 분으로 단축할 수 있습니다. 실험 및 개발에 소요되는 비용과 시간이 현저히 줄어들기 때문에 조직의 민첩성이 크게 향상됩니다.</li>
+<li>몇 분 만에 글로벌 진출<br>
+몇 번의 클릭만으로 전 세계 여러 지역에 애플리케이션을 쉽게 배포할 수 있습니다. 즉, 최소한의 비용으로 고객에게 더 낮은 지연 시간과 더 나은 경험을 제공할 수 있습니다.</li>
+<li>이 세 가지 옵션이 클라우드 컴퓨팅의 이점이기도 하지만 수십만 고객의 사용량이 클라우드에서 집계되므로 AWS가 더 낮은 종량제 가격을 제공할 수 있는 것은 대규모 규모의 경제입니다.</li>
+</ul>
+</blockquote>
+<h4 id="7-%ED%95%9C-%EC%A1%B0%EC%A7%81%EC%9D%80-%EA%B7%9C%EC%A0%95-%EB%B0%8F-%EA%B7%9C%EC%A0%95-%EC%A4%80%EC%88%98-%EC%9D%B4%EC%9C%A0%EB%A1%9C-%EC%9D%B8%ED%95%B4-%ED%81%B4%EB%9D%BC%EC%9A%B0%EB%93%9C%EC%9D%98-%EB%AA%A8%EB%93%A0-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%95%94%ED%98%B8%ED%99%94-%EC%9E%91%EC%97%85%EC%97%90-%ED%95%98%EB%93%9C%EC%9B%A8%EC%96%B4-%EC%9E%A5%EC%B9%98%EB%A5%BC-%EC%82%AC%EC%9A%A9%ED%95%B4%EC%95%BC-%ED%95%A9%EB%8B%88%EB%8B%A4-%EC%9D%B4-%EA%B7%9C%EC%A0%95-%EC%A4%80%EC%88%98-%EC%9A%94%EA%B5%AC-%EC%82%AC%ED%95%AD%EC%9D%84-%EC%B6%A9%EC%A1%B1%ED%95%98%EA%B8%B0-%EC%9C%84%ED%95%B4-%EC%96%B4%EB%96%A4-aws-%EC%84%9C%EB%B9%84%EC%8A%A4%EB%A5%BC-%EC%82%AC%EC%9A%A9%ED%95%A0-%EC%88%98-%EC%9E%88%EC%9D%84%EA%B9%8C%EC%9A%94">7. 한 조직은 규정 및 규정 준수 이유로 인해 클라우드의 모든 데이터 암호화 작업에 하드웨어 장치를 사용해야 합니다. 이 규정 준수 요구 사항을 충족하기 위해 어떤 AWS 서비스를 사용할 수 있을까요?</h4>
+<ul>
+<li><input type="checkbox" id="checkbox28" checked="true"><label for="checkbox28"></label><mark><strong>AWS CloudHSM</strong></mark></li>
+<li><input type="checkbox" id="checkbox29"><label for="checkbox29">AWS Trusted Advisor</label></li>
+<li><input type="checkbox" id="checkbox30"><label for="checkbox30">AWS Secrets Manager</label></li>
+<li><input type="checkbox" id="checkbox31"><label for="checkbox31">AWS Key Managemment Service(KMS)</label></li>
+</ul>
+<blockquote>
+<p>해설</p>
+<ul>
+<li>AWS CloudHSM<br>
+AWS CloudHSM은 AWS 클라우드 안에서 암호화 키를 쉽게 생성하고 사용할 수 있게 해주는 클라우드 기반 HSM(하드웨어 보안 모듈)입니다. CloudHSM는 FIPS 140-2 레벨 3 검증 HSM을 사용하여 암호화 키를 관리합니다. 하드웨어 프로비저닝, 소프트웨어 패치, 고가용성 및 백업과 같이 시간이 많이 소요되는 관리 작업을 자동화하는 완전 관리형 서비스입니다.</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>오답</p>
+<ul>
+<li>AWS Key Management Service (KMS)<br>
+AWS Key Management Service(KMS)를 사용하면 암호화 키를 쉽게 생성 및 관리하고 광범위한 AWS 서비스와 애플리케이션에서 사용을 제어할 수 있습니다. AWS KMS는 안전하고 탄력적인 서비스로FIPS 140-2에 따라 검증되었거나 검증 중인 하드웨어 보안 모듈을 사용하여 키를 보호합니다. KMS는 AWS 클라우드에서 데이터 암호화 작업을 위한 하드웨어 보안 모듈로 사용할 수 없습니다.</li>
+<li>AWS Secrets Manager<br>
+AWS Secrets Manager는 애플리케이션, 서비스 및 IT 리소스에 액세스하는 데 필요한 보안 기밀을 보호합니다.. 이 서비스를 사용하면 수명 주기 동안 데이터베이스 자격 증명, API 키 및 기타 기밀을 쉽게 교체, 관리 및 검색할 수 있습니다. 사용자와 애플리케이션은 Secrets Manager API를 호출하여 기밀을 검색하므로 민감한 정보를 일반 텍스트로 하드코딩할 필요가 없습니다. Secrets Manager는 AWS 클라우드에서 데이터 암호화 작업을 위한 하드웨어 보안 모듈로 사용할 수 없습니다.</li>
+<li>AWS Trusted Advisor<br>
+AWS Trusted Advisor는 비용 최적화, 보안, 내결함성, 서비스 제한 및 성능 개선에 대한 AWS 모범 사례에 따라 리소스를 프로비저닝하는 데 도움이 되는 실시간 지침을 제공하는 온라인 툴입니다. 새로운 워크플로 설정, 애플리케이션 개발 또는 지속적인 개선의 일환으로 Trusted Advisor가 정기적으로 제공하는 권장 사항링크 솔루션을 최적으로 프로비저닝할 수 있습니다.</li>
+</ul>
+</blockquote>
+<h4 id="8-%EC%BD%94%EB%93%9C%EB%A1%9C%EC%84%9C%EC%9D%98-%EC%9D%B8%ED%94%84%EB%9D%BC-%EC%9C%A0%EC%A7%80-%EA%B4%80%EB%A6%AC%EB%A5%BC-%EC%9C%84%ED%95%B4-%EB%8B%A4%EC%9D%8C-%EC%A4%91-%EC%96%B4%EB%96%A4-aws-well-architected-%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%EC%9D%98-%EC%96%B4%EB%96%A4-%EA%B8%B0%EB%91%A5%EC%9D%84-%EA%B6%8C%EC%9E%A5%ED%95%A9%EB%8B%88%EA%B9%8C">8. 코드로서의 인프라 유지 관리를 위해 다음 중 어떤 AWS Well-Architected 프레임워크의 어떤 기둥을 권장합니까?</h4>
+<ul>
+<li><input type="checkbox" id="checkbox32" checked="true"><label for="checkbox32"></label><mark><strong>운영 탁월성</strong></mark></li>
+<li><input type="checkbox" id="checkbox33"><label for="checkbox33">비용 최적화</label></li>
+<li><input type="checkbox" id="checkbox34"><label for="checkbox34">보안</label></li>
+<li><input type="checkbox" id="checkbox35"><label for="checkbox35">성능 효율성</label></li>
+</ul>
+<blockquote>
+<p>해설</p>
+<ul>
+<li>운영 탁월성<br>
+AWS Well-Architected 프레임워크는 AWS에서 시스템을 구축 중 내리는 결정들의 장단점을 이해하는 데 도움이 됩니다. 프레임워크로 클라우드를 통해 안정, 안전, 효율, 비용-효율을 두루 갖춘 시스템을 설계 운영을 위한 아키텍처 모범 사례를 배우게 됩니다. 모범 사례에 따라 아키텍처의 일괄적으로 측정 및 개선 영역을 식별할 수 있는 방법을 제공합니다.<br>
+AWS Well-Architected 프레임워크는 5가지 기둥을 기반으로 합니다.<br>
+운영 우수성, 보안, 안정성, 성능 효율성 및 비용 최적화의 운영 탁월성 기둥은 비즈니스 가치를 제공하고 지원 프로세스 및 절차의 지속적인 개선을 위해 시스템 실행 및 모니터링 기능이 포함됩니다. 클라우드에서는 애플리케이션 코드에 사용과 동일한 엔지니어링 원칙을 전체 환경에 적용할 수 있습니다. 전체 워크로드(애플리케이션, 인프라)를 코드로 정의 및 업데이트가 가능 합니다. 작업 절차 코드화와 이벤트 응답 트리거로 실행 자동화를 구현 할 수 있습니다.</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>오답:</p>
+<ul>
+<li>비용 최적화<br>
+비용 최적화는 불필요한 비용 방지에 중점을 둡니다. 주요 주제로는 비용 사용 유형 이해 및 제어와 가장 적절하고 적절한 수의 리소스 유형 선택, 사용 시간에 따른 지출 분석, 초과 지출 없는 비즈니스 요구 확장을 포함합니다.</li>
+<li>성능 효율성<br>
+성능 효율성 기둥은 IT 및 컴퓨팅 리소스의 효율 사용 여부에 중점을 둡니다. 주요 주제로는 워크로드 요구 사항에 따른 적합한 리소스 유형 및 크기 선택, 성능 모니터링, 비즈니스 요구 사항 발전에 따른 효율성 유지 정보에 따른 결정을 포함합니다.</li>
+<li>보안<br>
+보안 기둥은 정보 및 시스템 보호에 중점을 둡니다. 주요 주제에는 데이터의 기밀성 및 무결성, 권한 관리를 통한 권한 부여 대상 및 방법 결정 식별 및 관리, 시스템 보호, 보안 이벤트 감지를 위한 제어 설정을 포함합니다.</li>
+</ul>
+</blockquote>
+<h4 id="%F0%9F%93%8D9-%EB%8B%A4%EC%9D%8C-%EC%A4%91-amazon-inspector%EC%9D%98-%EA%B8%B0%EB%8A%A5%EC%9D%B4-%EC%95%84%EB%8B%8C-%EA%B2%83%EC%9D%80-%EB%AC%B4%EC%97%87%EC%9D%BC%EA%B9%8C%EC%9A%94">📍9. 다음 중 Amazon Inspector의 기능이 아닌 것은 무엇일까요?</h4>
+<ul>
+<li><input type="checkbox" id="checkbox36" checked="true"><label for="checkbox36"></label><mark><strong>구성 변경 사항 추적</strong></mark></li>
+<li><input type="checkbox" id="checkbox37"><label for="checkbox37">보안 평가 자동화</label></li>
+<li><input type="checkbox" id="checkbox38"><label for="checkbox38">의도하지 않은 네트워크 접근성에 대한 분석</label></li>
+<li><input type="checkbox" id="checkbox39"><label for="checkbox39">실행 중인 운영체제에 알려진 취약점 검사</label></li>
+</ul>
+<blockquote>
+<p>해설</p>
+<ul>
+<li>구성 변경 사항 추적<br>
+구성 변경 추적은 AWS Config의 기능입니다.<br>
+AWS Config는 감사 및 평가할 수 있는 서비스로, AWS 리소스의 구성을 평가합니다. Config는 AWS 리소스 구성을 지속적으로 모니터링하고 기록하며, 사용자가 원하는 구성에 대해 기록된 구성을 자동적으로 평가할 수 있도록 지원합니다.</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>오답</p>
+<ul>
+<li>보안 평가 자동화</li>
+<li>의도하지 않은 네트워크 접근성에 대한 분석</li>
+<li>알려진 취약점에 대해 실행 중인 운영 체제(OS) 검사<br>
+이러한 옵션은 Amazon Inspector의 모든 기능입니다.<br>
+Amazon Inspector는 AWS에 배포된 애플리케이션의 보안 및 규정 준수를 개선하는 데 도움이 되는 자동화 보안 평가 서비스입니다. Amazon Inspector는 프로그램의 노출, 취약성 및 모범 사례의 이탈 여부를 자동으로 평가합니다.<br>
+Amazon Inspector 보안 평가는 Amazon EC2 인스턴스의 의도하지 않은 네트워크 액세스 가능성과 이러한 EC2 인스턴스의 취약점을 확인하는 데 도움이 됩니다.<br>
+Amazon Inspector는 평가하려는 EC2 인스턴스의 운영 체제에 선택적으로 설치 가능한 에이전트라는 사전 정의된 소프트웨어도 제공합니다. 에이전트는 네트워크, 파일 시스템 및 프로세스 활동을 포함하여 EC2 인스턴스의 동작을 모니터링합니다. 또한 광범위한 동작 및 구성 데이터 세트(원격 분석)를 수집합니다.</li>
+</ul>
+</blockquote>
+<h4 id="%F0%9F%93%8D10-%ED%95%9C-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EB%B6%84%EC%84%9D-%ED%9A%8C%EC%82%AC%EB%8A%94-aws%EC%97%90%EC%84%9C-%EB%8F%85%EC%A0%90-%EB%B0%B0%EC%B9%98-%EB%B6%84%EC%84%9D-%EC%95%A0%ED%94%8C%EB%A6%AC%EC%BC%80%EC%9D%B4%EC%85%98%EC%9D%84-%EC%8B%A4%ED%96%89%ED%95%98%EA%B3%A0-%EC%9E%88%EC%9C%BC%EB%A9%B0-%EC%88%98%EB%B0%B1-%EA%B0%9C%EC%9D%98-ec2-%EC%9D%B8%EC%8A%A4%ED%84%B4%EC%8A%A4%EC%97%90%EC%84%9C-%EB%8F%99%EC%8B%9C%EC%97%90-%EC%95%A1%EC%84%B8%EC%8A%A4%ED%95%A0-%EC%88%98-%EC%9E%88%EB%8A%94-%EC%8A%A4%ED%86%A0%EB%A6%AC%EC%A7%80-%EC%84%9C%EB%B9%84%EC%8A%A4%EB%A1%9C-%EA%B8%B0%EC%A1%B4-%ED%8C%8C%EC%9D%BC%EC%97%90-%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%A5%BC-%EC%B6%94%EA%B0%80%ED%95%98%EB%A0%A4%EA%B3%A0-%ED%95%A9%EB%8B%88%EB%8B%A4-%ED%81%B4%EB%9D%BC%EC%9A%B0%EB%93%9C-%EC%A0%84%EB%AC%B8%EA%B0%80%EB%A1%9C%EC%84%9C-%EC%9D%B4-%EC%82%AC%EC%9A%A9-%EC%82%AC%EB%A1%80%EC%97%90-%EB%8C%80%ED%95%B4-%EC%96%B4%EB%96%A4-aws-%EC%84%9C%EB%B9%84%EC%8A%A4%EB%A5%BC-%EC%A0%9C%EC%95%88%ED%95%98%EC%8B%9C%EA%B2%A0%EC%8A%B5%EB%8B%88%EA%B9%8C">📍10. 한 데이터 분석 회사는 AWS에서 독점 배치 분석 애플리케이션을 실행하고 있으며 수백 개의 EC2 인스턴스에서 동시에 액세스할 수 있는 스토리지 서비스로 기존 파일에 데이터를 추가하려고 합니다. 클라우드 전문가로서 이 사용 사례에 대해 어떤 AWS 서비스를 제안하시겠습니까?</h4>
+<ul>
+<li><input type="checkbox" id="checkbox40" checked="true"><label for="checkbox40"></label><mark><strong>EFS</strong></mark></li>
+<li><input type="checkbox" id="checkbox41"><label for="checkbox41">EBS</label></li>
+<li><input type="checkbox" id="checkbox42"><label for="checkbox42">Instance Store</label></li>
+<li><input type="checkbox" id="checkbox43"><label for="checkbox43">S3</label></li>
+</ul>
+<blockquote>
+<p>해설</p>
+<ul>
+<li>EFS<br>
+Amazon EFS는 Amazon EC2와 함께 사용을 위한 파일 스토리지 서비스입니다. Amazon EFS는 최대 수천 개의 Amazon EC2 인스턴스에 대해 파일 시스템 인터페이스, 파일 시스템 액세스 의미 체계 및 동시에 액세스 가능한 스토리지를 제공합니다. Amazon EFS는 네트워크 파일 시스템 프로토콜을 사용합니다.</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>오답</p>
+<ul>
+<li>EBS<br>
+Amazon Elastic Block Store(EBS)는 모든 규모의 처리량 및 트랜잭션 집약적(transaction-intensive) 워크로드 모두에 대해 Amazon Elastic Compute Cloud(EC2)와 함께 사용 용도로 설계된 사용하기 쉬운 고성능 블록 스토리지 서비스입니다. EBS 볼륨은 여러 EC2 인스턴스에서 동시에 액세스할 수 없으므로 이 옵션이 올바르지 않습니다.</li>
+<li>인스턴스 스토어 (Instance Store)<br>
+인스턴스 스토어는 여러분의 인스턴스를 위해 일시적인 블록레벨 저장소를 제공합니다. 이 저장소는 호스트 컴퓨터에 물리적으로 연결된 디스크에 있습니다. 인스턴스 스토어 볼륨은 여러 EC2 인스턴스에서 동시에 액세스할 수 없으므로 이 옵션이 올바르지 않습니다.</li>
+<li>S3<br>
+Amazon Simple Storage Service(Amazon S3)는 업계 최고의 확장성, 데이터 가용성, 보안 및 성능의 객체 스토리지 서비스입니다. S3는 객체 스토리지이며 파일 추가 작업을 지원하지 않으므로 이 옵션이 올바르지 않습니다.</li>
+</ul>
+</blockquote>
+<h4 id="11-%EB%8B%A4%EC%9D%8C-aws-%EC%84%9C%EB%B9%84%EC%8A%A4-%EC%A4%91-%EC%96%B8%EC%A0%9C%EB%82%98-%EB%AC%B4%EB%A3%8C%EB%A1%9C-%EC%82%AC%EC%9A%A9%ED%95%A0-%EC%88%98-%EC%9E%88%EB%8A%94-%EC%84%9C%EB%B9%84%EC%8A%A4%EB%8A%94-%EB%AC%B4%EC%97%87%EC%9D%BC%EA%B9%8C%EC%9A%94-2%EA%B0%9C-%EC%84%A0%ED%83%9D">11. 다음 AWS 서비스 중 언제나 무료로 사용할 수 있는 서비스는 무엇일까요? (2개 선택)</h4>
+<ul>
+<li><input type="checkbox" id="checkbox44" checked="true"><label for="checkbox44"></label><mark><strong>AWS Auto Scaling</strong></mark></li>
+<li><input type="checkbox" id="checkbox45" checked="true"><label for="checkbox45"></label><mark><strong>IAM</strong></mark></li>
+<li><input type="checkbox" id="checkbox46"><label for="checkbox46">S3</label></li>
+<li><input type="checkbox" id="checkbox47"><label for="checkbox47">EC2</label></li>
+<li><input type="checkbox" id="checkbox48"><label for="checkbox48">DynamoDB</label></li>
+</ul>
+<blockquote>
+<p>해설</p>
+<ul>
+<li>Identity and Access Management (IAM) - AWS Identity and Access Management(IAM)로 AWS 서비스 및 리소스에 대한 액세스를 안전하게 관리합니다. IAM는 AWS 사용자 및 그룹을 생성 및 관리하고 권한으로 AWS 리소스에 대한 액세스를 허용 및 거부할 수 있습니다. IAM은 추가 비용 없이 제공되는 AWS 계정의 기능입니다.</li>
+<li>AWS Auto Scaling - AWS Auto Scaling은 애플리케이션을 모니터링하고 용량을 자동으로 조정하여 가장 높은 비용 효율성으로 안정적이고 예측 가능한 성능을 유지합니다. AWS Auto Scaling로 짧은 시간에 여러 서비스에 걸쳐 여러 리소스에 대한 애플리케이션 조정을 쉽게 설정할 수 있습니다. AWS Auto Scaling은 추가 비용 없이 사용할 수 있습니다. 애플리케이션을 실행하는 데 필요한 AWS 리소스와 Amazon CloudWatch 모니터링 요금만 지불하면 됩니다.</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>오답</p>
+<ul>
+<li>Elastic Compute Cloud(Amazon EC2)<br>
+Amazon Elastic Compute Cloud(Amazon EC2)는 클라우드에서 높은 보안성으로 크기 조정 가능한 컴퓨팅 용량을 제공하는 웹 서비스입니다. 개발자가 쉽게 웹 규모의 클라우드 컴퓨팅을 사용할 수 있도록 설계되었습니다. 이것은 무료 서비스가 아닙니다. 사용한 만큼 또는 선택한 요금제에 따라 비용이 청구 됩니다.</li>
+<li>단순 스토리지 서비스(Amazon S3)<br>
+Amazon Simple Storage Service(Amazon S3)는 객체 스토리지 서비스로서 최고의 확장성, 데이터 가용성, 보안 및 성능을 제공합니다. S3 서비스는 무료가 아니며 데이터에 대해 선택한 스토리지 클래스에 따라 비용을 지불해야합니다.</li>
+<li>DynamoDB<br>
+Amazon DynamoDB는 어떠한 규모에서 한 자릿수 밀리초 성능을 제공하는 키-값 및 문서 데이터베이스입니다. 인터넷 규모 애플리케이션의 보안, 백업 및 복원, 인메모리 캐싱이 내장된 완전 관리형 다중 지역, 다중 마스터, 내구성 데이터베이스입니다. DynamoDB는 무료가 아니며 DynamoDB 테이블에서 데이터를 읽고 쓰고 저장하고 활성화하기로 선택한 모든 선택적 기능도 함께 비용을 지불해야합니다.</li>
+</ul>
+</blockquote>
+<h4 id="12-%EC%8B%A4%EB%A6%AC%EC%BD%98-%EB%B0%B8%EB%A6%AC-%EA%B8%B0%EB%B0%98%EC%9D%98-%ED%97%AC%EC%8A%A4-%EC%BC%80%EC%96%B4-%EC%8A%A4%ED%83%80%ED%8A%B8%EC%97%85%EC%9D%80-amazon-s3%EC%97%90-%EC%9D%B5%EB%AA%85%EC%9D%98-%ED%99%98%EC%9E%90-%EA%B1%B4%EA%B0%95-%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%A5%BC-%EC%A0%80%EC%9E%A5%ED%95%A9%EB%8B%88%EB%8B%A4-cto%EB%8A%94-%EB%98%90%ED%95%9C-%EB%AF%BC%EA%B0%90%ED%95%9C-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%9C%A0%EC%B6%9C%EC%9D%84-%EB%B0%A9%EC%A7%80%ED%95%98%EA%B8%B0-%EC%9C%84%ED%95%B4-s3%EC%9D%98-%EB%AF%BC%EA%B0%90%ED%95%9C-%EB%8D%B0%EC%9D%B4%ED%84%B0%EA%B0%80-%EB%B0%9C%EA%B2%AC%EB%90%98%EA%B3%A0-%EC%8B%9D%EB%B3%84%EB%90%98%EB%8F%84%EB%A1%9D-%ED%95%98%EB%A0%A4%EA%B3%A0-%ED%95%A9%EB%8B%88%EB%8B%A4-%ED%81%B4%EB%9D%BC%EC%9A%B0%EB%93%9C-%EC%A0%84%EB%AC%B8%EA%B0%80%EB%A1%9C%EC%84%9C-%EC%9D%B4-%EC%82%AC%EC%9A%A9-%EC%82%AC%EB%A1%80%EB%A5%BC-%ED%95%B4%EA%B2%B0%ED%95%98%EA%B8%B0-%EC%9C%84%ED%95%B4-%EC%96%B4%EB%96%A4-aws-%EC%84%9C%EB%B9%84%EC%8A%A4%EB%A5%BC-%EC%B6%94%EC%B2%9C%ED%95%98%EC%8B%9C%EA%B2%A0%EC%8A%B5%EB%8B%88%EA%B9%8C">12. 실리콘 밸리 기반의 헬스 케어 스타트업은 Amazon S3에 익명의 환자 건강 데이터를 저장합니다. CTO는 또한 민감한 데이터 유출을 방지하기 위해 S3의 민감한 데이터가 발견되고 식별되도록 하려고 합니다. 클라우드 전문가로서 이 사용 사례를 해결하기 위해 어떤 AWS 서비스를 추천하시겠습니까?</h4>
+<ul>
+<li><input type="checkbox" id="checkbox49" checked="true"><label for="checkbox49"></label><mark><strong>Amazon Macie</strong></mark></li>
+<li><input type="checkbox" id="checkbox50"><label for="checkbox50">Amazon Polly</label></li>
+<li><input type="checkbox" id="checkbox51"><label for="checkbox51">AWS Secrets Manager</label></li>
+<li><input type="checkbox" id="checkbox52"><label for="checkbox52">AWS Glue</label></li>
+</ul>
+<blockquote>
+<p>해설</p>
+<ul>
+<li>Amazon Macie<br>
+Amazon Macie는 머신 러닝 및 패턴 매칭으로 AWS에서 민감한 데이터를 검색하고 보호하는 완전 관리형 데이터 보안 및 데이터 개인 정보 보호 서비스입니다. Macie는 암호화되지 않은 버킷, 공개적으로 액세스할 수 있는 버킷 및 AWS Organizations에서 정의하지 않은 AWS 계정과 공유되는 버킷 목록을 포함하여 Amazon S3 버킷의 인벤토리를 자동으로 제공합니다. 그런 다음 Macie는 선택한 버킷에 기계 학습 및 패턴 일치 기술을 적용하여 개인 식별 정보(PII)와 같은 민감한 데이터를 식별하고 경고합니다.</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>오답</p>
+<ul>
+<li>AWS Glue<br>
+AWS Glue는 완전 관리형 ETL(추출, 변환 및 로드) 서비스로 고객이 분석을 위해 데이터를 쉽게 준비하고 로드할 수 있게 합니다. AWS Glue 작업은 일괄 ETL 데이터 처리에 사용됩니다. AWS에서 민감한 데이터를 검색하고 보호하는 데 사용할 수 없습니다.</li>
+<li>Amazon Polly<br>
+Amazon Polly는 텍스트를 자연스러운 음성으로 변환하는 서비스로, 이를 통해 말하는 애플리케이션을 만들고 완전히 새로운 범주의 음성 지원 제품을 구축하는데 사용됩니다. Polly의 TTS(텍스트 음성 변환) 서비스는 고급 딥 러닝 기술을 사용하여 자연스럽게 음성을 합성합니다. AWS에서 민감한 데이터를 검색하고 보호하는 데 사용할 수 없습니다.</li>
+<li>AWS Secrets Manager<br>
+AWS Secrets Manager는 애플리케이션, 서비스 및 IT 리소스에 액세스할때 필요한 보안 기밀을 보호하는 데 도움이 됩니다. 이 서비스를 사용하면 수명 주기 동안 데이터베이스 자격 증명, API 키 및 기타 기밀을 쉽게 교체, 관리 및 검색할 수 있습니다. 사용자와 애플리케이션은 Secrets Manager API를 호출하여 기밀을 검색하므로 민감한 정보를 일반 텍스트로 하드코딩할 필요가 없습니다. AWS에서 민감한 데이터를 검색하고 보호하는 데 사용할 수 없습니다.</li>
+</ul>
+</blockquote>
+<h4 id="%F0%9F%93%8D13-%EA%B8%88%EC%9C%B5-%EC%84%9C%EB%B9%84%EC%8A%A4-%ED%9A%8C%EC%82%AC%EC%97%90%EC%84%9C-aws-%EA%B3%84%EC%A0%95-%ED%99%9C%EB%8F%99%EC%9D%B4-%EA%B1%B0%EB%B2%84%EB%84%8C%EC%8A%A4-%EA%B7%9C%EC%A0%95-%EC%A4%80%EC%88%98-%EB%B0%8F-%EA%B0%90%EC%82%AC-%EA%B8%B0%EC%A4%80%EC%9D%84-%EC%B6%A9%EC%A1%B1%ED%95%98%EB%8A%94%EC%A7%80-%ED%99%95%EC%9D%B8%ED%95%98%EB%A0%A4%EA%B3%A0-%ED%95%A9%EB%8B%88%EB%8B%A4-%ED%81%B4%EB%9D%BC%EC%9A%B0%EB%93%9C-%EC%A0%84%EB%AC%B8%EA%B0%80%EB%A1%9C%EC%84%9C-%EC%9D%B4-%EC%82%AC%EC%9A%A9-%EC%82%AC%EB%A1%80%EC%97%90-%EC%96%B4%EB%96%A4-aws-%EC%84%9C%EB%B9%84%EC%8A%A4%EB%A5%BC-%EC%B6%94%EC%B2%9C%ED%95%98%EC%8B%9C%EA%B2%A0%EC%8A%B5%EB%8B%88%EA%B9%8C">📍13. 금융 서비스 회사에서 AWS 계정 활동이 거버넌스, 규정 준수 및 감사 기준을 충족하는지 확인하려고 합니다. 클라우드 전문가로서 이 사용 사례에 어떤 AWS 서비스를 추천하시겠습니까?</h4>
+<ul>
+<li><input type="checkbox" id="checkbox53" checked="true"><label for="checkbox53"></label><mark><strong>CloudTrail</strong></mark></li>
+<li><input type="checkbox" id="checkbox54"><label for="checkbox54">Config</label></li>
+<li><input type="checkbox" id="checkbox55"><label for="checkbox55">CloudWatch</label></li>
+<li><input type="checkbox" id="checkbox56"><label for="checkbox56">Trusted Advisor</label></li>
+</ul>
+<blockquote>
+<p>해설</p>
+<ul>
+<li>CloudTrail<br>
+CloudTrail을 AWS Management 콘솔, AWS SDK, Command Line 툴 및 기타 AWS 서비스를 통해 수행한 작업을 포함하여 AWS 계정 활동의 이벤트 기록을 제공합니다. 또한, CloudTrail을 사용하여 AWS 인프라 전반의 작업과 관련된 계정 활동을 기록, 모니터링 및 유지할 수 있습니다.</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>오답</p>
+<ul>
+<li>Config<br>
+AWS Config는 AWS 리소스의 구성을 평가, 감사 및 평가할 수 있는 서비스입니다. Config는 AWS 리소스 구성을 지속적으로 모니터링하고 기록하는데 이를 통해 원하는 구성에 대해 기록된 구성 평가를 자동화할 수 있습니다.</li>
+<li>CloudWatch<br>
+Amazon CloudWatch는 모니터링 및 관찰 가능성 서비스를 DevOps 엔지니어, 개발자, 사이트 안정성 엔지니어(SRE) 및 IT 관리자에게 제공하기 위해 구축되었습니다. CloudWatch는 데이터와 실행 가능한 통찰력을 제공하여 애플리케이션을 모니터링하고, 시스템 전체의 성능 변화에 대응하고, 리소스 활용도를 최적화하고, 운영 상태에 대한 통합 보기를 얻습니다. Resilient 시스템을 구축하기 위한 훌륭한 서비스입니다.</li>
+<li>AWS Trusted Advisor<br>
+AWS Trusted Advisor는 비용 최적화, 보안, 내결함성(fault-tolerance), 서비스 제한 및 성능 개선에 대한 AWS 모범 사례에 따라 리소스를 프로비저닝하는 데 도움이 되는 실시간 가이드를 제공하는 온라인 툴입니다.</li>
+</ul>
+</blockquote>
+<blockquote>
+<p><mark>* Tip</mark><br>
+CloudWatch와 CloudTrail, Config 중 하나를 선택하라는 사용 사례를 볼 수 있습니다. 제 경험에서 드리는 조언들은 아래와 같습니다:<br>
+리소스 성능 모니터링, 이벤트 및 경고들에는 언제나 CloudWatch를 사용하세요.<br>
+계정별 활동 및 감사에는, CloudTrail를 사용하시면 되고,<br>
+리소스별 변경 내역, 감사 및 규정 준수 고려에는 Config를 사용하세요.</p>
+</blockquote>
+<h4 id="14-aws-marketplace%EA%B0%80-%EC%A7%80%EC%9B%90%ED%95%98%EB%8A%94-%EC%82%AC%EC%9A%A9-%EC%82%AC%EB%A1%80%EB%8A%94-%EB%8B%A4%EC%9D%8C-%EC%A4%91-%EC%96%B4%EB%96%A4-%EA%B2%83%EC%9D%BC%EA%B9%8C%EC%9A%94-2%EA%B0%9C-%EC%84%A0%ED%83%9D">14. AWS Marketplace가 지원하는 사용 사례는 다음 중 어떤 것일까요? (2개 선택)</h4>
+<ul>
+<li><input type="checkbox" id="checkbox57" checked="true"><label for="checkbox57"></label><mark><strong>AWS 고객은 AWS Marketplace 판매자가 사용자 지정 AMI에 번들로 제공한 소프트웨어를 구입할 수 있습니다.</strong></mark></li>
+<li><input type="checkbox" id="checkbox58" checked="true"><label for="checkbox58"></label><mark><strong>AWS 고객에게 SaaS 솔루션 판매</strong></mark></li>
+<li><input type="checkbox" id="checkbox59"><label for="checkbox59">타사 공급업체로부터 규정 준수 문서 구매</label></li>
+<li><input type="checkbox" id="checkbox60"><label for="checkbox60">AWS Direct Connect 연결 구매 요청 제기</label></li>
+<li><input type="checkbox" id="checkbox61"><label for="checkbox61">AWS EC2 표준 예약 인스턴스 구매</label></li>
+</ul>
+<blockquote>
+<p>해답</p>
+<ul>
+<li>AWS 고객에게 SaaS(Software as a Service) 솔루션 판매</li>
+<li>AWS 고객은 AWS Marketplace 판매자가 사용자 지정 AMI로 제공한 소프트웨어를 구입할 수 있습니다.<br>
+AWS Marketplace는 디지털 카탈로그로 AWS에서 실행되는 소프트웨어를 쉽게 찾고, 테스트하고, 구매하고, 배포할 수 있도록 해주는 독립 소프트웨어 공급업체의 수천 개의 소프트웨어 목록이 있습니다. AWS Marketplace에서는 자격을 갖춘 파트너가 AWS 고객에게 소프트웨어를 마케팅하고 판매할 수 있습니다.<br>
+AWS Marketplace는 판매자가 고객에게 소프트웨어를 제공할 수 있는 두 가지 방법은 Amazon Machine Image(AMI) 및 SaaS(Software as a Service)입니다.<br>
+Amazon 머신 이미지(AMI): AMI은 AWS Marketplace에 제품을 리스팅할 때 선호되는 옵션입니다. 파트너는 무료 또는 유료 제품을 선택할 수 있습니다. 파트너는 시간 또는 월 단위로 청구되는 유료 제품을 제공할 수 있습니다. BYOL(Bring Your Own License) 또한 사용 가능하며 기존 소프트웨어 라이선스가 있는 고객이 AWS로 쉽게 마이그레이션할 수 있습니다.</li>
+<li>SaaS(Software as a Service): AWS에서 실행되는 SaaS 솔루션을 제공하고 {제품을 AMI로 구축할 수 없는 경우) SaaS 리스팅은 파트너에게 소프트웨어를 고객에게 마케팅할 수 있는 방법을 제공합니다.</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>오답</p>
+<ul>
+<li>타사 공급업체로부터 규정 준수 문서 구매<br>
+규정 준수 문서를 제공하는 제3자 업체는 없습니다. AWS Artifact는 귀하에게 중요한 규정 준수 관련 정보를 제공하는 중앙 리소스입니다. AWS의 보안 및 규정 준수 보고서와 일부 온라인 계약에 대한 온디맨드 액세스를 제공합니다.</li>
+<li>Amazon EC2 표준 예약 인스턴스 구매<br>
+Amazon EC2 표준 예약 인스턴스는 https://console.aws.amazon.com/ec2/의 Amazon EC2 콘솔에서 구입할 수 있습니다.</li>
+<li>AWS Direct Connect 연결 구매 요청 제기<br>
+AWS Direct Connect 연결은 AWS 관리 콘솔(https://console.aws.amazon.com/directconnect/v2/home)에서 제기할 수 있습니다.</li>
+</ul>
+</blockquote>
+<h4 id="%F0%9F%93%8D15-%EB%8B%A4%EC%9D%8C-%EC%A4%91-aws-elastic-beanstalk%EB%A5%BC-%EC%84%A4%EB%AA%85%ED%95%A0-%EB%95%8C-%EA%B0%80%EC%9E%A5-%EC%A0%95%ED%99%95%ED%95%9C-%EC%84%A4%EB%AA%85%EC%9D%80-%EB%AC%B4%EC%97%87%EC%9D%BC%EA%B9%8C%EC%9A%94">📍15. 다음 중 AWS Elastic Beanstalk를 설명할 때 가장 정확한 설명은 무엇일까요?</h4>
+<ul>
+<li><input type="checkbox" id="checkbox62" checked="true"><label for="checkbox62"></label><mark><strong>웹 애플리케이션 미치 서비스를 배포하고 확장할 수 있는 PaaS입니다.</strong></mark></li>
+<li><input type="checkbox" id="checkbox63"><label for="checkbox63">웹 애플리케이션 미치 서비스를 배포하고 확장할 수 있는 IaaS입니다.</label></li>
+<li><input type="checkbox" id="checkbox64"><label for="checkbox64">애플리케이션에 필요한 리소스를 모델링하고 프로비저닝 할 수 있는 코드로서의 인프라입니다.</label></li>
+<li><input type="checkbox" id="checkbox65"><label for="checkbox65">애플리케이션에 필요한 리소스를 모델링하고 프로비저닝 할 수 있는 Pass입니다.</label></li>
+</ul>
+<blockquote>
+<p>해설</p>
+<ul>
+<li>웹 애플리케이션 및 서비스를 배포하고 확장할 수 있는 PaaS(Platform as a Service)입니다.<br>
+AWS Elastic Beanstalk를 사용하면 개발자가 AWS 클라우드에서 애플리케이션을 더욱 쉽게 배포하고 관리할 수 있습니다. 개발자가 애플리케이션을 업로드하기만 하면 Elastic Beanstalk가 용량 프로비저닝, 로드 밸런싱, 자동 크기 조정 및 애플리케이션 상태 모니터링의 배포 세부 정보를 자동으로 처리합니다.<br>
+애플리케이션과 데이터만 관리하는 서비스로서의 플랫폼입니다.</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>오답</p>
+<ul>
+<li>애플리케이션에 필요한 리소스를 모델링하고 프로비저닝할 수 있는 코드로서의 인프라입니다.<br>
+AWS CloudFormation의 정의입니다. AWS CloudFormation을 사용하면 개발자와 시스템 관리자가 관련 AWS 리소스 모음을 쉽게 생성 및 관리하고, 질서 있고 예측 가능한 방식으로 프로비저닝 및 업데이트할 수 있습니다. AWS CloudFormation 샘플 템플릿을 사용하거나 고유한 템플릿을 생성하여 애플리케이션을 실행하는 데 필요한 AWS 리소스 및 관련 종속성 또는 런타임 파라미터를 설명할 수 있습니다.</li>
+<li>애플리케이션에 필요한 리소스를 모델링하고 프로비저닝할 수 있는 PaaS(Platform as a Service)입니다.<br>
+AWS Elastic Beanstalk는 서비스로서의 플랫폼입니다. 하지만 애플리케이션에 필요한 리소스를 모델링하고 프로비저닝할 수 있는 서비스는 AWS CloudFormation입니다.</li>
+<li>웹 애플리케이션 및 서비스를 배포하고 확장할 수 있는 IaaS(Infrastructure as a Service)입니다<br>
+AWS Elastic Beanstalk를 사용하면 웹 애플리케이션과 서비스를 배포하고 확장할 수 있지만 이는 IaaS(Infrastructure as a Service)가 아닙니다. AWS Elastic Beanstalk에서는 런타임, 미들웨어 및 운영 체제를 관리하지 않습니다.</li>
+</ul>
+</blockquote>
+<h4 id="%F0%9F%93%8D16-%EB%8B%A4%EC%9D%8C-%EC%A4%91-%EB%AA%A8%EB%93%A0-aws-%EC%84%9C%EB%B9%84%EC%8A%A4-%EC%A4%91%EB%8B%A8-%EC%83%81%ED%83%9C%EC%97%90-%EB%8C%80%ED%95%9C-%EC%95%8C%EB%A6%BC%EC%9D%84-%EB%B0%9B%EA%B8%B0-%EC%9C%84%ED%95%B4-rss-%ED%94%BC%EB%93%9C%EB%A5%BC-%EA%B5%AC%EB%8F%85%ED%95%98%EB%8A%94-%EB%8D%B0-%EC%82%AC%EC%9A%A9%ED%95%A0-%EC%88%98-%EC%9E%88%EB%8A%94-aws-%EC%84%9C%EB%B9%84%EC%8A%A4%EB%8A%94-%EB%AC%B4%EC%97%87%EC%9D%BC%EA%B9%8C%EC%9A%94">📍16. 다음 중 모든 AWS 서비스 중단 상태에 대한 알림을 받기 위해 RSS 피드를 구독하는 데 사용할 수 있는 AWS 서비스는 무엇일까요?</h4>
+<ul>
+<li><input type="checkbox" id="checkbox66" checked="true"><label for="checkbox66"></label><mark><strong>AWS Service Health Dashboard</strong></mark></li>
+<li><input type="checkbox" id="checkbox67"><label for="checkbox67">AWS Personal Health Dashboard</label></li>
+<li><input type="checkbox" id="checkbox68"><label for="checkbox68">AWS SNS</label></li>
+<li><input type="checkbox" id="checkbox69"><label for="checkbox69">AWS Lambda</label></li>
+</ul>
+<blockquote>
+<p>해설</p>
+<ul>
+<li>AWS Service Health Dashboard<br>
+AWS AWS Service Health Dashboard는 AWS가 있는 모든 리전에 대해 모든 AWS 서비스의 상태 및 가용성에 대한 최신 정보를 표 형식으로 게시합니다. 이 페이지에서 확인할 수 있습니다 https://status.aws.amazon.com/ 현재 상태 정보를 가져옵니다.<br>
+AWS AWS Service Health Dashboard는 RSS 피드를 구독하여 각 서비스에 대한 중단 알림을 받을 수 있는 가능성을 제공합니다.</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>오답</p>
+<ul>
+<li>Amazon SNS<br>
+Amazon Simple Notification Service(Amazon SNS)는 마이크로서비스, 분산 시스템 및 서버리스 애플리케이션을 분리할 수 있는 고가용성, 내구성, 보안, 완전 관리형 게시/구독 메시징 서비스입니다. 알림을 전달하는 데 사용할 수 있지만 현재 서비스의 상태를 제공하지 않습니다.</li>
+<li>AWS Personal Health Dashboard<br>
+AWS Personal Health Dashboard는 AWS에서 사용자에게 영향을 줄 수 있는 이벤트를 경험할 때 알림 및 수정 지침을 제공합니다. 모든 AWS 서비스의 일반 상태에 대한 업데이트는 제공하지 않습니다</li>
+<li>AWS Lambda<br>
+AWS Lambda를 사용하면 서버를 프로비저닝하거나 관리하지 않고도 코드를 실행할 수 있습니다. 모든 AWS 서비스의 상태를 제공하지는 않습니다.</li>
+</ul>
+</blockquote>
+<blockquote>
+<p><mark>* Tip</mark><br>
+Service Health Dashboard는 AWS 서비스의 일반적인 상태를 표시하는 반면<br>
+Personal Health Dashboard는 AWS 리소스의 기반이 되는 AWS 서비스의 성능 및 가용성에 대한 개인화된 보기를 제공합니다.</p>
+</blockquote>
+<h4 id="%F0%9F%93%8D17-%EB%8B%A4%EC%9D%8C-%EC%A4%91-aws-%ED%81%B4%EB%9D%BC%EC%9A%B0%EB%93%9C-%EC%82%AC%EC%9A%A9%EC%8B%9C-%EC%96%B4%EB%96%A4-%EC%9D%B4%EC%A0%90%EC%9D%B4-%EC%9E%88%EC%9D%84%EA%B9%8C%EC%9A%94-2%EA%B0%9C-%EC%84%A0%ED%83%9D">📍17. 다음 중 AWS 클라우드 사용시 어떤 이점이 있을까요? (2개 선택)</h4>
+<ul>
+<li><input type="checkbox" id="checkbox70" checked="true"><label for="checkbox70"></label><mark><strong>속도와 민첩성 향상</strong></mark></li>
+<li><input type="checkbox" id="checkbox71" checked="true"><label for="checkbox71"></label><mark><strong>용량 걱정 불필요</strong></mark></li>
+<li><input type="checkbox" id="checkbox72"><label for="checkbox72">자본 비용에 대한 거래 운영 비용</label></li>
+<li><input type="checkbox" id="checkbox73"><label for="checkbox73">제한된 스케일링</label></li>
+<li><input type="checkbox" id="checkbox74"><label for="checkbox74">AWS가 클라우드의 보안을 담당</label></li>
+</ul>
+<blockquote>
+<p>해설</p>
+<ul>
+<li><a href="#6-%EC%88%98%EC%8B%AD%EB%A7%8C-%EA%B3%A0%EA%B0%9D%EC%9D%98-%EC%82%AC%EC%9A%A9%EB%9F%89%EC%9D%B4-%ED%81%B4%EB%9D%BC%EC%9A%B0%EB%93%9C%EC%97%90%EC%84%9C-%EC%A7%91%EA%B3%84%EB%90%A8%EC%97%90-%EB%94%B0%EB%9D%BC-aws%EA%B0%80-%EB%8D%94-%EB%82%AE%EC%9D%80-%EC%A2%85%EB%9F%89%EC%A0%9C-%EA%B0%80%EA%B2%A9%EC%9D%84-%EC%A0%9C%EA%B3%B5%ED%95%A0-%EC%88%98-%EC%9E%88%EB%8A%94-%ED%81%B4%EB%9D%BC%EC%9A%B0%EB%93%9C-%EC%BB%B4%ED%93%A8%ED%8C%85%EC%9D%98-%EC%9D%B4%EC%A0%90%EC%9D%80-%EB%AC%B4%EC%97%87%EC%9D%BC%EA%B9%8C%EC%9A%94">클라우드 컴퓨팅 이점</a></li>
+</ul>
+</blockquote>
+<blockquote>
+<p>오답</p>
+<ul>
+<li>제한된 스케일링<br>
+클라우드에서 스케일링은 제한되지 않습니다. 필요한 만큼 용량에 액세스할 수 있고 몇 분 전의 알림으로 필요에 따라 확장 또는 축소를 할 수 있습니다.</li>
+<li>AWS가 클라우드 보안을 담당<br>
+AWS는 클라우드 보안을 담당합니다. 즉, AWS는 AWS 클라우드에서 제공되는 모든 서비스의 실행하는 인프라를 보호할 책임이 있습니다.</li>
+<li>운영 비용과 자본 비용의 교환<br>
+클라우드에서는 자본 비용(CAPEX)과 운영 비용(OPEX)을 교환합니다. 데이터 센터와 서버를 어떻게 사용할지 알기 전에 막대한 투자 대신 컴퓨팅 리소스를 사용할 때 비용을 지불하고 사용한 만큼만 비용을 지불하면 됩니다.</li>
+</ul>
+</blockquote>
+<h4 id="18-%ED%81%B4%EB%9D%BC%EC%9A%B0%EB%93%9C-%EC%A0%84%EB%AC%B8%EA%B0%80%EB%8A%94-%ED%85%9C%ED%94%8C%EB%A6%BF%EC%9D%84-%EC%82%AC%EC%9A%A9%ED%95%98%EC%97%AC-%EB%AA%A8%EB%93%A0-%EC%A7%80%EC%97%AD-%EB%B0%8F-%EA%B3%84%EC%A0%95%EC%97%90-%EB%8F%99%EC%9D%BC%ED%95%9C-%EB%A6%AC%EC%86%8C%EC%8A%A4%EB%A5%BC-%EB%B0%B0%ED%8F%AC%ED%95%98%EA%B3%A0-%EB%B9%84%EC%9A%A9%EC%9D%84-%EC%98%88%EC%B8%A1%ED%95%98%EB%A0%A4%EA%B3%A0%ED%95%A9%EB%8B%88%EB%8B%A4-%EC%9D%B4-%EC%9E%91%EC%97%85%EC%9D%84-%EC%A7%80%EC%9B%90%ED%95%98%EB%8A%94-aws-%EC%84%9C%EB%B9%84%EC%8A%A4%EB%8A%94-%EB%AC%B4%EC%97%87%EC%9D%BC%EA%B9%8C%EC%9A%94">18. 클라우드 전문가는 템플릿을 사용하여 모든 지역 및 계정에 동일한 리소스를 배포하고 비용을 예측하려고합니다. 이 작업을 지원하는 AWS 서비스는 무엇일까요?</h4>
+<ul>
+<li><input type="checkbox" id="checkbox75" checked="true"><label for="checkbox75"></label><mark><strong>AWS CloudFormation</strong></mark></li>
+<li><input type="checkbox" id="checkbox76"><label for="checkbox76">AWS CodeDeploy</label></li>
+<li><input type="checkbox" id="checkbox77"><label for="checkbox77">AWS Directory Service</label></li>
+<li><input type="checkbox" id="checkbox78"><label for="checkbox78">Amazon LightSail</label></li>
+</ul>
+<blockquote>
+<p>해설</p>
+<ul>
+<li>AWS CloudFormation<br>
+AWS CloudFormation은 개발자와 시스템 관리자가 관련 AWS 리소스 모음을 쉽게 생성 및 관리하여 질서정연하고 예측 가능한 방식으로 프로비저닝 및 업데이트를할 수 있도록 지원합니다.<br>
+AWS CloudFormation 샘플 템플릿 사용 또는 고유한 템플릿을 생성하여 애플리케이션을 실행하는 데 필요한 AWS 리소스 및 관련 종속성 또는 런타임 파라미터를 설명할 수 있습니다. 이를 통해 모든 리소스에 대한 단일 정보 소스를 제공하고 조직 전체에서 사용되는 인프라 구성 요소를 표준화하여 구성 규정 준수 및 문제를 빠르게 해결할 수 있습니다.<br>
+CloudFormation 템플릿을 사용하면 리소스 비용을 예측할 수 있습니다.</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>오답</p>
+<ul>
+<li>AWS Directory Service<br>
+AWS Managed Microsoft AD라고도 하는 Microsoft Active Directory용 AWS 디렉토리 서비스를 사용하면 디렉토리 인식 워크로드와 AWS 리소스가 AWS 클라우드의 관리 Active Directory를 사용할 수 있습니다. 리소스 배포에 사용되지 않습니다.</li>
+<li>Amazon LightSail<br>
+Amazon Lightsail은 AWS를 사용하여 가상 개인 서버를 시작하고 관리하는데 쉬운 방법으로 설계되었습니다. 이 방법은 더 복잡한 리소스를 배포할 때는 가장 적합하지 않지만 CloudFormation은 가능합니다.</li>
+<li>AWS CodeDeploy<br>
+AWS CodeDeploy는 온프레미스에서 실행되는 EC2 인스턴스 및 인스턴스를 포함한 모든 인스턴스의 코드 배포를 자동화하는 서비스입니다. CloudFormation과 달리 인프라 구성 및 조정은 다루지 않습니다.</li>
+</ul>
+</blockquote>
+<h4 id="%F0%9F%93%8D19-%EB%8B%A4%EC%9D%8C-%EC%A4%91-aws-%EA%B3%84%EC%A0%95-%EC%82%AC%EC%9A%A9%EB%9F%89-%EB%B0%8F-%EB%B9%84%EC%9A%A9%EC%9D%84-%EC%98%88%EC%B8%A1%ED%95%98%EB%8A%94-%EB%8D%B0-%EC%82%AC%EC%9A%A9%ED%95%A0-%EC%88%98-%EC%9E%88%EB%8A%94-aws-%EC%84%9C%EB%B9%84%EC%8A%A4%EB%8A%94-%EB%AC%B4%EC%97%87%EC%9D%BC%EA%B9%8C%EC%9A%94">📍19. 다음 중 AWS 계정 사용량 및 비용을 예측하는 데 사용할 수 있는 AWS 서비스는 무엇일까요?</h4>
+<ul>
+<li><input type="checkbox" id="checkbox79" checked="true"><label for="checkbox79"></label><mark><strong>AWS Cost Explorer</strong></mark></li>
+<li><input type="checkbox" id="checkbox80"><label for="checkbox80">AWS Simple Monthly Calculator</label></li>
+<li><input type="checkbox" id="checkbox81"><label for="checkbox81">AWS Cost and Usage Reports</label></li>
+<li><input type="checkbox" id="checkbox82"><label for="checkbox82">AWS Budgets</label></li>
+</ul>
+<blockquote>
+<p>해설</p>
+<ul>
+<li>AWS Cost Explorer<br>
+AWS Cost Explorer에는 시간 경과에 따른 AWS 비용 및 사용량을 시각화, 이해 및 관리할 수 있는 사용하기 쉬운 인터페이스가 있습니다.<br>
+AWS Cost Explorer에는 비용이 많이 발생하는 상위 5개 AWS 서비스와 관련된 비용 및 사용량을 시각화하는 데 도움이 되는 기본 보고서가 포함되어 있으며 테이블 보기에서 모든 서비스에 대한 자세한 분석을 제공합니다. 보고서를 사용하면 시간 범위를 조정하여 비용 추세를 이해하기 위해 최대 12개월까지의 과거 데이터를 볼 수 있습니다.<br>
+AWS Cost Explorer는 예측을 지원하여 미래에 비용과 사용량이 어떻게 보일지 더 잘 파악하여 계획할 수 있습니다.</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>오답</p>
+<ul>
+<li>AWS Cost and Usage Reports<br>
+AWS Cost and Usage Reports (AWS CUR)에는 사용 가능한 가장 포괄적인 비용 및 사용 데이터 세트가 포함되어 있습니다. 비용 및 사용 보고서로 소유한 Amazon Simple Storage Service(Amazon S3) 버킷에 AWS 결제 보고서를 게시할 수 있습니다. 시간 또는 월, 제품 또는 제품 리소스 또는 직접 정의한 태그별로 비용을 분류하는 보고서를 받을 수 있습니다. AWS는 쉼표로 구분된 값(CSV) 형식으로 하루에 한 번 버킷의 보고서를 업데이트합니다. AWS Cost and Usage Reports는 AWS 계정 비용 및 사용을 예측할 수 없습니다.</li>
+<li>AWS Budgets<br>
+AWS Budgets은 비용이나 사용량이 예산 금액을 초과할 때(또는 초과할 것으로 예상되는 경우) 알림을 제공하는 사용자 지정 예산을 설정할 수 있는 기능을 제공합니다. 또한 AWS Budgets을 사용하여 예약 사용률 또는 적용 범위 목표를 설정하고 사용률이 정의한 임계값 아래로 떨어지면 알림을 받을 수 있습니다. 예산은 월별, 분기별 또는 연간 수준으로 생성할 수 있으며 시작 및 종료 날짜를 사용자 지정할 수 있습니다. 예산을 더욱 세분화하여 AWS 서비스, 연결 계정, 태그 등과 같은 여러 차원과 관련된 비용을 추적할 수 있습니다. AWS Budgets은 AWS 계정 비용 및 사용량을 예측할 수 없습니다.</li>
+<li>AWS Simple Monthly Calculator<br>
+Simple Monthly Calculator는 귀하가 제공한 특정 정보를 기반으로 AWS 서비스에 대한 예상 사용 요금을 제공합니다. 고객과 잠재 고객이 월별 AWS 청구서를 보다 효율적으로 추정하는 데 도움이 됩니다. Simple Monthly Calculator는 AWS 계정 비용 및 사용량을 예측할 수 없습니다.</li>
+</ul>
+</blockquote>
+<h4 id="20-%EC%9D%B4-%ED%9A%8C%EC%82%AC%EB%8A%94-%EA%B0%81-%EC%9C%A0%EB%8B%9B%EC%97%90-%EC%9E%90%EC%B2%B4-aws-%EA%B3%84%EC%A0%95%EC%9D%B4-%EC%9E%88%EB%8A%94-%EC%98%88%EC%95%BD-ec2-%EC%9D%B8%EC%8A%A4%ED%84%B4%EC%8A%A4%EB%A5%BC-%EC%97%AC%EB%9F%AC-%EC%9C%A0%EB%8B%9B%EC%97%90%EC%84%9C-%EC%82%AC%EC%9A%A9%EC%A4%91%EC%97%90-%EC%9E%88%EC%8A%B5%EB%8B%88%EB%8B%A4-%EA%B7%B8%EB%9F%AC%EB%82%98-%EC%9D%BC%EB%B6%80-%EC%9C%A0%EB%8B%9B%EC%97%90%EC%84%9C%EB%8A%94-%EC%98%88%EC%95%BD-%EC%9D%B8%EC%8A%A4%ED%84%B4%EC%8A%A4%EB%A5%BC-%EC%B6%A9%EB%B6%84%ED%9E%88-%ED%99%9C%EC%9A%A9%ED%95%98%EC%A7%80-%EC%95%8A%EB%8A%94-%EB%B0%98%EB%A9%B4-%EB%8B%A4%EB%A5%B8-%EC%9C%A0%EB%8B%9B%EC%97%90%EC%84%9C%EB%8A%94-%EB%8D%94-%EB%A7%8E%EC%9D%80-%EC%98%88%EC%95%BD-%EC%9D%B8%EC%8A%A4%ED%84%B4%EC%8A%A4%EA%B0%80-%ED%95%84%EC%9A%94%ED%95%A9%EB%8B%88%EB%8B%A4-cloud-practitioner%EB%A1%9C%EC%84%9C-%EB%8B%A4%EC%9D%8C-%EC%A4%91-%EA%B0%80%EC%9E%A5-%EB%B9%84%EC%9A%A9-%EC%B5%9C%EC%A0%81%ED%99%94%EB%90%9C-%EC%86%94%EB%A3%A8%EC%85%98%EC%9C%BC%EB%A1%9C-%EC%B6%94%EC%B2%9C%ED%95%A0-%EC%88%98-%EC%9E%88%EB%8A%94-%EA%B2%83%EC%9D%80-%EB%AC%B4%EC%97%87%EC%9D%BC%EA%B9%8C%EC%9A%94">20. 이 회사는 각 유닛에 자체 AWS 계정이 있는 예약 EC2 인스턴스를 여러 유닛에서 사용중에 있습니다. 그러나 일부 유닛에서는 예약 인스턴스를 충분히 활용하지 않는 반면 다른 유닛에서는 더 많은 예약 인스턴스가 필요합니다. Cloud Practitioner로서 다음 중 가장 비용 최적화된 솔루션으로 추천할 수 있는 것은 무엇일까요?</h4>
+<ul>
+<li><input type="checkbox" id="checkbox83" checked="true"><label for="checkbox83"></label><mark><strong>AWS Organizations로 모든 유닛의 AWS 계정을 관리한 다음 모든 유닛 간에 예약된 EC2 인스턴스를 공유합니다.</strong></mark></li>
+<li><input type="checkbox" id="checkbox84"><label for="checkbox84">AWS Systems Manager로 모든 유닛의 AWS 계정을 관리한 다음 모든 유닛 간에 예약된 EC2 인스턴스를 공유합니다.</label></li>
+<li><input type="checkbox" id="checkbox85"><label for="checkbox85">AWS Trusted Advisor로 모든 유닛의 AWS 계정을 관리한 다음 모든 유닛 간에 예약된 EC2 인스턴스를 공유합니다.</label></li>
+<li><input type="checkbox" id="checkbox86"><label for="checkbox86">AWS Cost Explorer로 모든 유닛의 AWS 계정을 관리한 다음 모든 유닛 간에 예약된 EC2 인스턴스를 공유합니다.</label></li>
+</ul>
+<blockquote>
+<p>해설</p>
+<ul>
+<li>AWS Organizations로 모든 유닛의 AWS 계정을 관리한 다음 모든 유닛 간에 예약된 EC2 인스턴스 공유합니다.<br>
+AWS Organizations는 중앙 결제 관리를 도와줍니다. 액세스, 규정 준수 및 보안을 제어하며, AWS 계정 간에 리소스 또한 공유할 수 있습니다. AWS Organizations은 계정 생성을 자동화하고, 비즈니스 요구 사항을 반영하는 계정 그룹을 생성하고, 거버넌스를 위해 이러한 그룹에 정책을 적용할 수 있습니다. 모든 AWS 계정에 대해 단일 결제 방법을 설정하여 결제를 간소화할 수도 있습니다. AWS Organizations는 모든 AWS 고객이 추가 비용 없이 사용할 수 있습니다.</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>오답</p>
+<ul>
+<li>AWS Trusted Advisor<br>
+AWS Trusted Advisor는 비용 최적화, 보안, 내결함성, 서비스 제한 및 성능 개선에 대한 AWS 모범 사례에 따라 리소스를 프로비저닝하는 데 도움이 되는 실시간 지침을 제공하는 온라인 툴입니다. Trusted Advisor로 여러 AWS 계정 간에 예약된 EC2 인스턴스를 공유할 수 없습니다.</li>
+<li>AWS Cost Explorer<br>
+AWS Cost Explorer를 사용하면 높은 수준과 세부적인 분석 수준에서 AWS 비용과 사용량을 탐색할 수 있으며 여러 필터링 차원(예: AWS 서비스, 리전, 연결된 계정)을 사용하여 더 자세히 알아볼 수 있습니다. 비용 탐색기로 여러 AWS 계정 간에 예약된 EC2 인스턴스를 공유할 수 없습니다.</li>
+<li>Systems Manager<br>
+Systems Manager는 통합 사용자 인터페이스를 제공하므로 여러 AWS 서비스의 운영 데이터를 통해 AWS 리소스 운영 작업을 전반적으로 자동화할 수 있습니다. Systems Manager 사용링크 Amazon EC2 인스턴스, Amazon S3 버킷 또는 Amazon RDS 인스턴스와 같은 리소스를 애플리케이션별로 그룹화하고, 모니터링 및 문제 해결을 위해 운영 데이터를 보고, 리소스 그룹에 대해 조치를 취할 수 있습니다. Systems Manager로 여러 AWS 계정 간에 예약된 EC2 인스턴스를 공유할 수 없습니다.</li>
+</ul>
+</blockquote>
+<h4 id="%F0%9F%93%8D21-%EC%96%B4%EB%8A%90-%EA%B2%8C%EC%9E%84-%ED%9A%8C%EC%82%AC%EA%B0%80-%EB%8B%A4%EC%96%91%ED%95%9C-%EC%A7%80%EC%97%AD%EC%9D%98-%EC%B5%9C%EC%A2%85-%EC%82%AC%EC%9A%A9%EC%9E%90%EC%97%90%EA%B2%8C-%ED%9B%8C%EB%A5%AD%ED%95%9C-%EC%82%AC%EC%9A%A9%EC%9E%90-%EA%B2%BD%ED%97%98%EC%9D%84-%EB%B3%B4%EC%9E%A5%ED%95%98%EA%B3%A0-%EC%8B%B6%EC%8A%B5%EB%8B%88%EB%8B%A4-%EC%9D%B4%EB%A5%BC-%EC%9C%84%ED%95%B4-%EC%9D%B4-%ED%9A%8C%EC%82%AC%EB%8A%94-%EB%81%8A%EA%B9%80%EC%9D%B4-%EC%97%86%EB%8A%94-%EC%A7%A7%EC%9D%80-%EC%A7%80%EC%97%B0-%EC%8B%9C%EA%B0%84%EC%9C%BC%EB%A1%9C-%EA%B2%8C%EC%9E%84-%ED%94%8C%EB%A0%88%EC%9D%B4%EB%A5%BC-%ED%95%A0-%EC%88%98-%EC%9E%88%EA%B2%8C-%EB%B3%B4%EC%9E%A5%ED%95%98%EB%8A%94-%EA%B8%B0%EC%88%A0%EC%84%9C%EB%B9%84%EC%8A%A4%EB%A5%BC-%EC%B0%BE%EA%B3%A0-%EC%9E%88%EC%8A%B5%EB%8B%88%EB%8B%A4-%EB%8B%A4%EC%9D%8C-%EC%A4%91-%EC%B5%9C%EC%A2%85-%EC%82%AC%EC%9A%A9%EC%9E%90%EA%B0%80-%EC%A7%A7%EC%9D%80-%EC%A7%80%EC%97%B0-%EC%8B%9C%EA%B0%84%EC%9C%BC%EB%A1%9C-%EC%95%A1%EC%84%B8%EC%8A%A4%ED%95%A0-%EC%88%98-%EC%9E%88%EA%B2%8C-%ED%95%98%EB%8A%94-aws-%EA%B8%B0%EC%88%A0%EC%84%9C%EB%B9%84%EC%8A%A4%EB%8A%94">📍21. 어느 게임 회사가 다양한 지역의 최종 사용자에게 훌륭한 사용자 경험을 보장하고 싶습니다. 이를 위해 이 회사는 끊김이 없는 짧은 지연 시간으로 게임 플레이를 할 수 있게 보장하는 기술/서비스를 찾고 있습니다. 다음 중 최종 사용자가 짧은 지연 시간으로 액세스할 수 있게 하는 AWS 기술/서비스는?</h4>
+<ul>
+<li><input type="checkbox" id="checkbox87" checked="true"><label for="checkbox87"></label><mark><strong>AWS Local Zones</strong></mark></li>
+<li><input type="checkbox" id="checkbox88"><label for="checkbox88">AWS Wavelength</label></li>
+<li><input type="checkbox" id="checkbox89"><label for="checkbox89">AWS Direct Connect</label></li>
+<li><input type="checkbox" id="checkbox90"><label for="checkbox90">AWS 엣지 로케이션</label></li>
+</ul>
+<blockquote>
+<p>해설</p>
+<ul>
+<li>AWS Local Zones<br>
+AWS Local Zones를 통해 더 많은 최종 사용자에게 더 가까운 위치에서 컴퓨팅 및 스토리지 서비스와 같은 AWS 서비스를 사용할 수 있습니다. 이를 통해 로컬에서 실행되는 애플리케이션에 대한 액세스의 지연 시간이 크게 단축됩니다. AWS Local Zones는 또한 Amazon의 매우 높은 대역폭의 중복 프라이빗 네트워크를 통해 상위 리전에 연결되어 AWS Local Zones에서 실행되는 애플리케이션이 나머지 AWS 서비스에 빠르고, 안전하고, 원활한 액세스를 제공합니다.<br>
+지연 시간이 짧은 요구 사항을 위해 최종 사용자에게 더 가까운 위치에 워크로드를 배포해야 하는 경우 AWS Local Zones를 사용합니다. AWS Local Zones는 인터넷 연결되어 있으며 AWS Direct Connect를 지원하므로 Local Zone에 생성된 리소스는 매우 짧은 지연 시간으로 로컬 최종 사용자에게 서비스를 제공할 수 있습니다.</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>오답</p>
+<ul>
+<li>AWS 엣지 로케이션(Edge Locations)<br>
+AWS 엣지 로케이션은 CloudFront가 사용자 어디에 있든 콘텐츠를 더 빠르게 전달하기 위해 콘텐츠 복사본을 캐시에 저장하는 위치입니다.</li>
+<li>AWS Wavelength<br>
+AWS Wavelength는 AWS 클라우드를 5G 엣지 로케이션으로 이루어진 글로벌 네트워크로 확장합니다. 이를 통해 개발자는 초저지연 시간이 필요한 완전히 새로운 수준의 애플리케이션을 혁신하고 구축할 수 있습니다. Wavelength Zones는 AWS 상위 리전에 대한 고대역폭 보안 연결을 제공하여 동일한 API와 도구 세트를 통해 개발자가 AWS 리전의 모든 서비스에 원활하게 연결할 수 있게 합니다.</li>
+<li>AWS Direct Connect<br>
+AWS Direct Connect는 인터넷을 우회하여 네트워크를 AWS에 직접 연결하는 클라우드 서비스이며, 보다 일관되고 짧은 지연 시간 성능을 제공합니다. 새 연결을 구성할 때, AWS Direct Connect Delivery Partner에서 제공하는 호스팅 연결을 선택하거나 AWS 전용 연결을 선택해서 전 세계 100개 이상의 AWS Direct Connect 지역에 배포할 수 있습니다. AWS Direct Connect는 끊김이 없이 높은 대역폭과 짧은 지연 시간 액세스를 제공하며 일반적으로 온프레미스 데이터 센터와 AWS 네트워크 간에 사용합니다. Direct Connect는 주어진 요구 사항에 비해 지나칩니다.</li>
+</ul>
+</blockquote>
+<h4 id="%F0%9F%93%8D22-%ED%81%B4%EB%9D%BC%EC%9A%B0%EB%93%9C-%EC%A0%84%EB%AC%B8%EA%B0%80%EB%8A%94-%EB%A6%AC%EC%86%8C%EC%8A%A4%EB%A5%BC-%EC%82%AC%EC%9A%A9%ED%95%98%EB%8A%94-%EC%95%A0%ED%94%8C%EB%A6%AC%EC%BC%80%EC%9D%B4%EC%85%98%EC%97%90-%EC%98%81%ED%96%A5%EC%9D%84-%EC%A4%84-%EC%88%98-%EC%9E%88%EB%8A%94-%EB%AC%B8%EC%A0%9C%EB%A5%BC-%EC%8B%A0%EC%86%8D%ED%95%98%EA%B2%8C-%ED%8C%8C%EC%95%85%ED%95%98%EA%B8%B0-%EC%9C%84%ED%95%B4-%EB%A6%AC%EC%86%8C%EC%8A%A4%EC%9D%98-%EC%9A%B4%EC%98%81-%ED%86%B5%EC%B0%B0%EB%A0%A5%EC%9D%84-%ED%99%95%EB%B3%B4%ED%95%98%EA%B3%A0%EC%9E%90-%ED%95%A9%EB%8B%88%EB%8B%A4-%EC%9D%B4-%EC%9E%91%EC%97%85%EC%97%90-%EB%8F%84%EC%9B%80%EC%9D%B4-%EB%90%98%EB%8A%94-aws-%EC%84%9C%EB%B9%84%EC%8A%A4%EB%8A%94-%EB%AC%B4%EC%97%87%EC%9D%BC%EA%B9%8C%EC%9A%94">📍22. 클라우드 전문가는 리소스를 사용하는 애플리케이션에 영향을 줄 수 있는 문제를 신속하게 파악하기 위해 리소스의 운영 통찰력을 확보하고자 합니다. 이 작업에 도움이 되는 AWS 서비스는 무엇일까요?</h4>
+<ul>
+<li><input type="checkbox" id="checkbox91" checked="true"><label for="checkbox91"></label><mark><strong>AWS Systems Manager</strong></mark></li>
+<li><input type="checkbox" id="checkbox92"><label for="checkbox92">AWS Personal Health Dashboard</label></li>
+<li><input type="checkbox" id="checkbox93"><label for="checkbox93">Amazon Inspector</label></li>
+<li><input type="checkbox" id="checkbox94"><label for="checkbox94">AWS Trusted Advisor</label></li>
+</ul>
+<blockquote>
+<p>해설</p>
+<ul>
+<li>AWS Systems Manager<br>
+AWS Systems Manager를 사용하면 여러 AWS 서비스의 운영 데이터를 중앙 집중화하고 전체 AWS 리소스에서 작업을 자동화할 수 있습니다. 애플리케이션, 애플리케이션 스택의 다양한 계층 또는 운영 및 개발 환경과 같은 논리적 리소스 그룹을 생성할 수 있습니다.<br>
+Systems Manager로 리소스 그룹을 선택하고 리소스 그룹의 최근 API 활동, 리소스 구성 변경 사항, 관련 알림, 작동 경고, 소프트웨어 인벤토리 및 패치 규정 준수 상태를 볼 수 있습니다. 운영상의 필요에 따라 각 리소스 그룹에 대해 작업을 수행할 수도 있습니다. Systems Manager는 AWS 리소스를 중앙에서 보고 관리할 수 있는 공간을 제공하므로 작업을 완벽하게 파악하고 제어할 수 있습니다.</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>오답</p>
+<ul>
+<li>Amazon Inspector<br>
+Amazon Inspector는 AWS에 배포된 애플리케이션의 보안 및 규정 준수를 개선하는 데 도움이 되는 자동화 보안 평가 서비스입니다. AWS 리소스에 대한 운영 통찰력을 얻는 데 사용되지 않습니다.</li>
+<li>AWS Personal Health Dashboard<br>
+AWS Personal Health Dashboard는 AWS에서 사용자에게 영향을 줄 수 있는 이벤트 발생시 알림 및 수정 지침을 제공합니다. AWS 리소스에 대한 운영 통찰력을 얻는 데 사용되지 않습니다.</li>
+<li>AWS Trusted Advisor<br>
+AWS Trusted Advisor는 AWS 환경을 최적화하여 비용을 절감하고 성능을 향상 시키며 보안을 개선하는 데 도움이 되는 온라인 리소스입니다. Trusted Advisor는 AWS 모범 사례에 따라 리소스를 프로비저닝 할 수 있도록 도움이 되는 실시간 지침을 제공합니다. AWS 리소스에 대한 운영 통찰력을 얻는 데 사용되지 않습니다.</li>
+</ul>
+</blockquote>
+<h4 id="23-%EB%8B%A4%EC%9D%8C-%EC%A4%91-aws%EC%9D%98-%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88-%EC%84%9C%EB%B9%84%EC%8A%A4%EB%8A%94-%EB%AC%B4%EC%97%87%EC%9D%BC%EA%B9%8C%EC%9A%94">23. 다음 중 AWS의 컨테이너 서비스는 무엇일까요?</h4>
+<ul>
+<li><input type="checkbox" id="checkbox95" checked="true"><label for="checkbox95"></label><mark><strong>AWS Fargate</strong></mark></li>
+<li><input type="checkbox" id="checkbox96"><label for="checkbox96">AWS Elastic Beanstalk</label></li>
+<li><input type="checkbox" id="checkbox97"><label for="checkbox97">Amazon SageMaker</label></li>
+<li><input type="checkbox" id="checkbox98"><label for="checkbox98">Amazon Simple Notification Service</label></li>
+</ul>
+<blockquote>
+<p>해설</p>
+<ul>
+<li>AWS Fargate<br>
+AWS Fargate는 Amazon Elastic Container Service(ECS) 및 Amazon Elastic Kubernetes Service(EKS)와 함께 작동하는 컨테이너용 서버리스 컴퓨팅 엔진입니다. Fargate를 사용하면 애플리케이션 구축에 집중할 수 있습니다. Fargate를 사용하면 서버를 프로비저닝하고 관리할 필요가 없고, 애플리케이션별로 리소스를 지정하고 비용을 지불할 수 있으며, 설계에 따른 애플리케이션 격리를 통해 보안이 향상됩니다.</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>오답</p>
+<ul>
+<li>AWS Elastic Beanstalk<br>
+AWS Elastic Beanstalk는 웹 애플리케이션 및 서비스를 배포하고 확장하기 위한 사용하기 쉬운 서비스입니다. 코드를 업로드하기만 하면 Elastic Beanstalk가 용량 프로비저닝, 로드 밸런싱, 자동 크기 조정에서 애플리케이션 상태 모니터링에 이르기까지 배포를 자동으로 처리합니다. Beanstalk는 서버를 프로비저닝하므로 서버리스 서비스가 아닙니다.</li>
+<li>Amazon Simple Notification Service<br>
+Amazon Simple Notification Service(SNS)는 마이크로서비스, 분산 시스템 및 서버리스 애플리케이션을 분리할 수 있는 고가용성, 내구성, 보안, 완전 관리형 게시/구독 메시징 서비스입니다.</li>
+<li>Amazon SageMaker<br>
+Amazon SageMaker는 모든 개발자와 데이터 과학자에게 기계 학습(ML) 모델을 빠르게 구축, 교육 및 배포할 수 있는 기능을 제공하는 완전 관리형 서비스입니다. SageMaker는 기계 학습 프로세스의 각 단계에서 무거운 작업을 제거하여 고품질 모델을 더 쉽게 개발할 수 있도록 합니다.</li>
+</ul>
+</blockquote>
+<h4 id="24-%EC%98%A8%ED%94%84%EB%A0%88%EB%AF%B8%EC%8A%A4-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%84%BC%ED%84%B0%EC%99%80-aws-%ED%81%B4%EB%9D%BC%EC%9A%B0%EB%93%9C%EB%A5%BC-%EA%B2%B0%ED%95%A9%ED%95%98%EC%97%AC-it-%EC%9D%B8%ED%94%84%EB%9D%BC%EB%A5%BC-%EB%B0%B0%ED%8F%AC%ED%95%98%EB%8A%94-%EC%A1%B0%EC%A7%81%EC%9D%98-%EB%B0%B0%ED%8F%AC-%EB%AA%A8%EB%8D%B8%EC%9D%84-%EC%96%B4%EB%96%BB%EA%B2%8C-%EB%B6%84%EB%A5%98%ED%95%98%EC%8B%9C%EA%B2%A0%EC%8A%B5%EB%8B%88%EA%B9%8C">24. 온프레미스 데이터 센터와 AWS 클라우드를 결합하여 IT 인프라를 배포하는 조직의 배포 모델을 어떻게 분류하시겠습니까?</h4>
+<ul>
+<li><input type="checkbox" id="checkbox99" checked="true"><label for="checkbox99"></label><mark><strong>하이브리드 배포</strong></mark></li>
+<li><input type="checkbox" id="checkbox100"><label for="checkbox100">클라우드 배포</label></li>
+<li><input type="checkbox" id="checkbox101"><label for="checkbox101">비공개 배포</label></li>
+<li><input type="checkbox" id="checkbox102"><label for="checkbox102">혼합 배포</label></li>
+</ul>
+<blockquote>
+<p>해설</p>
+<ul>
+<li>하이브리드 배포<br>
+하이브리드 배포는 온프레미스 인프라를 클라우드에 연결합니다. 클라우드와 기존 온프레미스 인프라 간에 조직의 인프라를 클라우드로 확장하는 동시에 클라우드 리소스를 내부 시스템에 연결하는 것이 하이브리드 배포의 가장 일반적인 방법입니다.</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>오답</p>
+<ul>
+<li>클라우드 배포<br>
+이러한 유형의 배포의 경우 클라우드 기반 응용 프로그램이 클라우드에 완전히 배포되고 응용 프로그램의 모든 부분이 클라우드에서 실행됩니다. 클라우드의 애플리케이션은 기존 인프라에서 마이그레이션되었으며 클라우드에서 생성되었거나 클라우드 컴퓨팅의 이점을 활용합니다.</li>
+<li>비공개 배포<br>
+이 배포 모델는 가상화 기술을 사용하여 리소스를 온프레미스에 배포합니다. 온프레미스 배포는 클라우드 컴퓨팅의 많은 이점을 제공하지 않지만 때때로 전용 리소스를 제공할 수 있는 기능이 필요합니다.</li>
+<li>혼합 배포<br>
+구성에 관련한 답변이며 햇갈리게 하기 위해 추가되었습니다.</li>
+</ul>
+</blockquote>
+<h4 id="25-%EB%8B%A4%EC%9D%8C-%EC%A4%91-%EC%97%AC%ED%96%89%EC%9D%98-%ED%8E%B8%EC%9D%98%EB%A5%BC-%EC%9C%84%ED%95%B4-%EC%8B%A4%EC%A0%9C-%EC%9E%A5%EC%B9%98%EB%A1%9C-mfa%EB%A5%BC-%EA%B5%AC%ED%98%84%ED%95%98%EC%A7%80-%EC%95%8A%EB%8A%94-%EA%B2%83%EC%9D%84-%EC%84%A0%ED%98%B8%ED%95%98%EB%8A%94-%EA%B8%88%EC%9C%B5-%EC%84%9C%EB%B9%84%EC%8A%A4-%EA%B8%B0%EC%97%85-%EC%A7%81%EC%9B%90%EB%93%A4%EC%97%90-%EB%8C%80%ED%95%B4-mfamulti-factor-authentication%EB%A5%BC-%ED%99%9C%EC%84%B1%ED%99%94%ED%95%A0-%EA%B3%84%ED%9A%8D%EC%9E%85%EB%8B%88%EB%8B%A4-%EC%9D%B4-%EC%82%AC%EC%9A%A9-%EC%82%AC%EB%A1%80%EC%97%90-%EA%B0%80%EC%9E%A5-%EC%A0%81%ED%95%A9%ED%95%9C-%EC%98%B5%EC%85%98%EC%9D%80-%EB%AC%B4%EC%97%87%EC%9D%BC%EA%B9%8C%EC%9A%94">25. 다음 중 여행의 편의를 위해 실제 장치로 MFA를 구현하지 않는 것을 선호하는 금융 서비스 기업 직원들에 대해 MFA(Multi-Factor Authentication)를 활성화할 계획입니다. 이 사용 사례에 가장 적합한 옵션은 무엇일까요?</h4>
+<ul>
+<li><input type="checkbox" id="checkbox103" checked="true"><label for="checkbox103"></label><mark><strong>가상 MFA 장치</strong></mark></li>
+<li><input type="checkbox" id="checkbox104"><label for="checkbox104">하드웨어 MFA 장치</label></li>
+<li><input type="checkbox" id="checkbox105"><label for="checkbox105">소프트 토큰 MFA 장치</label></li>
+<li><input type="checkbox" id="checkbox106"><label for="checkbox106">U2F 보안 키</label></li>
+</ul>
+<blockquote>
+<p>해설</p>
+<ul>
+<li>Virtual MFA device<br>
+전화 또는 기타 장치에서 실제 장치를 에뮬레이트하는 소프트웨어 앱입니다. 이 장치는 6자리 숫자 코드를 생성하는데, time-synchronize 된 일회용 암호 알고리즘을 기반의 숫자 코드 입니다. 사용자는 로그인 중 두 번째 웹 페이지에서 장치의 유효한 코드를 입력해야 합니다. 사용자에게 할당된 각 Virtual MFA device는 고유해야 합니다. 사용자는 인증을 위해 다른 사용자의 Virtual MFA device에서 코드를 입력할 수 없습니다.</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>오답</p>
+<ul>
+<li>U2F security key<br>
+컴퓨터의 USB 포트에 연결하는 장치입니다. U2F는 개방형 인증 표준으로 FIDO Alliance에서 호스팅합니다. U2F security key를 활성화하면 수동 입력 방식 대신 인증서를 입력하고 다음 장치를 눌러 로그인합니다.</li>
+<li>Hardware MFA device<br>
+time-synchronize된 일회용 암호 알고리즘을 기반으로 6자리 숫자 코드를 생성하는 하드웨어 장치로, 사용자는 로그인하는 동안 두 번째 웹 페이지에서 장치의 유효한 코드를 입력해야 합니다. 사용자에게 할당된 각 MFA 디바이스는 고유해야 합니다. 사용자는 인증을 받기 위해 다른 사용자의 장치에서 코드를 입력할 수 없습니다.</li>
+<li>소프트 토큰 MFA 장치<br>
+이것은 구성 옵션이며 헷갈리게 하기 위해 추가되었습니다.</li>
+</ul>
+</blockquote>
+<h4 id="%F0%9F%93%8D26-%EC%82%AC%EC%A7%84-%EA%B3%B5%EC%9C%A0-%EC%9B%B9-%EC%95%A0%ED%94%8C%EB%A6%AC%EC%BC%80%EC%9D%B4%EC%85%98%EC%9D%80-%EC%82%AC%EC%9A%A9%EC%9E%90%EA%B0%80-%EC%97%85%EB%A1%9C%EB%93%9C%ED%95%9C-%EC%9D%B4%EB%AF%B8%EC%A7%80%EC%9D%98-%EC%8D%B8%EB%84%A4%EC%9D%BC%EC%9D%84-amazon-s3%EC%97%90-%EC%A0%80%EC%9E%A5%ED%95%98%EB%A0%A4%EA%B3%A0-%ED%95%A9%EB%8B%88%EB%8B%A4-%EC%8D%B8%EB%84%A4%EC%9D%BC%EC%9D%80-%EA%B1%B0%EC%9D%98-%EC%82%AC%EC%9A%A9%EB%90%98%EC%A7%80-%EC%95%8A%EC%A7%80%EB%A7%8C-%EC%9B%B9-%EC%95%A0%ED%94%8C%EB%A6%AC%EC%BC%80%EC%9D%B4%EC%85%98%EC%97%90%EC%84%9C-%EC%A6%89%EC%8B%9C-%EC%95%A1%EC%84%B8%EC%8A%A4%ED%95%A0-%EC%88%98-%EC%9E%88%EC%96%B4%EC%95%BC-%ED%95%A9%EB%8B%88%EB%8B%A4-%EC%8D%B8%EB%84%A4%EC%9D%BC%EC%9D%80-%EC%86%90%EC%8B%A4%EB%90%9C-%EA%B2%BD%EC%9A%B0-%EC%89%BD%EA%B2%8C-%EB%8B%A4%EC%8B%9C-%EC%83%9D%EC%84%B1%ED%95%A0-%EC%88%98-%EC%9E%88%EC%8A%B5%EB%8B%88%EB%8B%A4-%EC%9D%B4-%EC%8D%B8%EB%84%A4%EC%9D%BC%EC%9D%84-s3%EC%97%90-%EC%A0%80%EC%9E%A5%ED%95%98%EB%8A%94-%EA%B0%80%EC%9E%A5-%EB%B9%84%EC%9A%A9-%ED%9A%A8%EC%9C%A8%EC%A0%81%EC%9D%B8-%EB%B0%A9%EB%B2%95%EC%9D%80-%EB%AC%B4%EC%97%87%EC%9D%BC%EA%B9%8C%EC%9A%94">📍26. 사진 공유 웹 애플리케이션은 사용자가 업로드한 이미지의 썸네일을 Amazon S3에 저장하려고 합니다. 썸네일은 거의 사용되지 않지만 웹 애플리케이션에서 즉시 액세스할 수 있어야 합니다. 썸네일은 손실된 경우 쉽게 다시 생성할 수 있습니다. 이 썸네일을 S3에 저장하는 가장 비용 효율적인 방법은 무엇일까요?</h4>
+<ul>
+<li><input type="checkbox" id="checkbox107" checked="true"><label for="checkbox107"></label><mark><strong>S3 One-Zone Infrequent Access로 썸네일 저장</strong></mark></li>
+<li><input type="checkbox" id="checkbox108"><label for="checkbox108">S3 Standard Infrequent Access로 썸네일 저장</label></li>
+<li><input type="checkbox" id="checkbox109"><label for="checkbox109">S3 Standard로 썸네일 저장</label></li>
+<li><input type="checkbox" id="checkbox110"><label for="checkbox110">S3 Glacier로 썸네일 저장</label></li>
+</ul>
+<blockquote>
+<p>해설</p>
+<ul>
+<li>S3 One-Zone Infrequent Access(One-Zone IA)로 썸네일 저장
+S3 One Zone-IA는 낮은 액세스 빈도를 가지고 있지만 필요할 때 빠른 액세스가 필요한 데이터에 적합합니다. 최소 3개의 가용 영역(AZ)에 데이터를 저장하는 다른 S3 스토리지 클래스와 달리 S3 One Zone-IA는 단일 AZ에 데이터를 저장하며 비용은 S3 Standard-IA보다 20% 저렴합니다. S3 One Zone-IA는 S3 Standard와 동일한 높은 내구성, 높은 처리량 및 짧은 대기 시간을 제공하며 GB당 스토리지 가격과 GB당 검색 비용이 낮습니다. S3 One Zone-IA는 S3 Standard보다 가용성이 낮지만 썸네일이 쉽게 재생성될 수 있으므로 주어진 사용 사례에 적합합니다.
+썸네일은 거의 사용되지 않지만 필요할 때 빠르게 액세스해야 하므로 S3 One Zone-IA가 이 사용 사례에 가장 적합한 선택입니다.<br>
+시험 알림:<br>
+S3의 이 측면에 대한 몇 가지 질문을 예상할 수 있으므로 S3 스토리지 클래스에 대한 이 자세한 비교를 검토하십시오.</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>오답</p>
+<ul>
+<li>S3 Standard Infrequent Access(Standard-IA)로 썸네일 저장<br>
+S3 Standard-IA 스토리지 클래스는 낮은 액세스 빈도를 가지고 있지만 필요할 때 빠른 액세스가 필요한 데이터에 적합합니다. S3 Standard-IA는 S3 Standard의 높은 내구성, 높은 처리량 및 짧은 대기 시간과 일치하며 GB당 스토리지 가격과 GB당 검색 요금이 낮습니다. S3 One Zone-IA는 S3 Standard-IA보다 20% 저렴하므로 이 옵션은 올바르지 않습니다.</li>
+<li>S3 Standard로 썸네일 저장<br>
+S3 Standard는 빈도 높은 액세스 데이터에 대해 높은 내구성, 가용성 및 성능 개체 스토리지를 제공합니다. 위에서 설명한 것처럼 S3 One Zone-IA는 S3 Standard보다 적합하므로 S3 표준을 사용하는 것은 주어진 사용 사례에서 제외됩니다.</li>
+<li>S3 Glacier로 썸네일 저장<br>
+S3 Glacier는 데이터 보관을 위한 안전하고 내구성이 있으며 저렴한 스토리지 클래스입니다. 하지만 Glacier가 One Zone-IA보다 저렴하지만 검색 시간 범위는 분에서 몇 시간이므로 이 옵션은 주어진 사용 사례에서도 제외됩니다.</li>
+</ul>
+</blockquote>
+<h4 id="27-%EB%8B%A4%EC%9D%8C-%EC%A4%91-%EC%96%B4%EB%96%A4-aws-%EC%84%9C%EB%B9%84%EC%8A%A4%EA%B0%80-ec2-%EC%9D%B8%EC%8A%A4%ED%84%B4%EC%8A%A4-%EB%B0%8F-%EC%98%A8%ED%94%84%EB%A0%88%EB%AF%B8%EC%8A%A4-%EC%9D%B8%EC%8A%A4%ED%84%B4%EC%8A%A4%EC%97%90-%EB%8C%80%ED%95%9C-%EC%BD%94%EB%93%9C-%EB%B0%B0%ED%8F%AC%EB%A5%BC-%EC%9E%90%EB%8F%99%ED%99%94%ED%95%98%EB%8A%94-%EB%8D%B0-%EC%82%AC%EC%9A%A9%ED%95%A0-%EC%88%98-%EC%9E%88%EC%9D%84%EA%B9%8C%EC%9A%94">27. 다음 중 어떤 AWS 서비스가 EC2 인스턴스 및 온프레미스 인스턴스에 대한 코드 배포를 자동화하는 데 사용할 수 있을까요?</h4>
+<ul>
+<li><input type="checkbox" id="checkbox111" checked="true"><label for="checkbox111"></label><mark><strong>AWS CodeDeploy</strong></mark></li>
+<li><input type="checkbox" id="checkbox112"><label for="checkbox112">AWS CodePipeline</label></li>
+<li><input type="checkbox" id="checkbox113"><label for="checkbox113">AWS CodeCommit</label></li>
+<li><input type="checkbox" id="checkbox114"><label for="checkbox114">AWS CloudFormation</label></li>
+</ul>
+<blockquote>
+<p>해설</p>
+<ul>
+<li>AWS CodeDeploy
+AWS CodeDeploy는 Amazon EC2 인스턴스 및 on-premises에서 실행되는 인스턴스를 포함한 모든 인스턴스의 코드 배포 자동화 서비스입니다. AWS CodeDeploy는 새로운 기능을 더 쉽고 신속하게 출시하고 배포 중 다운타임을 방지하고 애플리케이션 복잡한 업데이트 작업 처리가 가능 합니다. AWS CodeDeploy를 사용한 배포 자동화를 통해 오류 발생 여지가 있는 수동 작업이 필요하지 않으며 서비스는 인프라에 따라 확장되므로 하나 또는 수천 개의 인스턴스에 쉽게 배포할 수 있습니다.</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>오답</p>
+<ul>
+<li>AWS CodeCommit<br>
+AWS CodeCommit은 보안 Git 기반 리포지토리를 호스팅하는 관리형 소스 제어 서비스입니다. 이 서비스는 팀이 안전하고 확장성이 뛰어난 에코시스템에서 코드에 관련하여 더 쉽게 협업할 수 있도록 합니다. CodeCommit로는 자체 소스 제어 시스템 운영이나 인프라 확장에는 문제가 없이 해결 할 수 있습니다. 코드 배포를 자동화하는 데 사용할 수 없습니다.</li>
+<li>AWS CloudFormation<br>
+AWS CloudFormation는 프로그래밍 언어 또는 간단한 텍스트 파일을 사용하여 모든 리전 및 계정에서 애플리케이션에 필요한 모든 리소스를 자동화되고 안전한 방식으로 모델링 및 프로비저닝할 수 있습니다. 코드 배포를 자동화하는 데 사용할 수 없습니다.</li>
+<li>AWS CodePipeline<br>
+AWS CodePipeline은 지속 제공이 가능한 서비로, 소프트웨어 릴리스에 필요한 단계를 모델링, 시각화 및 자동화 서비스를 제공합니다. AWS CodePipeline는 코드 빌드, 사전 프로덕션 환경에 배포, 애플리케이션 테스트 및 프로덕션 릴리스를 위한 전체 릴리스 프로세스를 모델링할 수 있습니다.</li>
+</ul>
+</blockquote>
+<h4 id="28-%EB%8B%A4%EC%9D%8C-%EC%A4%91-multi-az%EA%B0%80%EC%9A%A9-%EC%98%81%EC%97%AD-%EB%B0%B0%ED%8F%AC%EC%9D%98-%EC%98%88%EB%8A%94-%EB%AC%B4%EC%97%87%EC%9D%BC%EA%B9%8C%EC%9A%94">28. 다음 중 Multi-AZ(가용 영역) 배포의 예는 무엇일까요?</h4>
+<ul>
+<li><input type="checkbox" id="checkbox115" checked="true"><label for="checkbox115"></label><mark><strong>고가용성</strong></mark></li>
+<li><input type="checkbox" id="checkbox116"><label for="checkbox116">성능 효율성</label></li>
+<li><input type="checkbox" id="checkbox117"><label for="checkbox117">수평 스케일링</label></li>
+<li><input type="checkbox" id="checkbox118"><label for="checkbox118">수직 스케일링</label></li>
+</ul>
+<blockquote>
+<p>해설</p>
+<ul>
+<li>고가용성<br>
+이 시스템은 사용 가능한 시스템은 지정된 시점에 설계된 기능을 제공합니다. 이 시스템은 가용성을 유지하면서 어느 정도의 성능 저하를 견딜 수 있는 시스템입니다. AWS 클라우드에서는 Multi-AZ에서 애플리케이션에 대한 인스턴스를 실행하여 고가용성을 가질 수 있습니다.</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>오답</p>
+<ul>
+<li>수평 스케일링<br>
+&quot;수평적으로 스케일링 가능한&quot; 시스템이란 시스템에 더 많은 컴퓨터를 추가하여 용량을 늘릴 수 있는 시스템입니다. 하나의 컴퓨터에서만 프로세스를 실행하도록 제한되는 &quot;수직적으로 확장 가능한&quot; 시스템과 다릅니다. 성능을 향상시키는 유일한 방법은 더 빠른(또는 더 많은) CPU, 메모리 또는 스토리지의 형태로 한 컴퓨터에 더 많은 리소스를 추가하는 것입니다. 수평으로 스케일링이 가능한 시스템은 작업을 병렬 처리하고 이를 여러 컴퓨터에 분산함으로써 수직 스케일링이 가능한 시스템보다 높은 성능을 가지는 경우가 많습니다. Auto Scaling Group은 AWS의 Horizontal Scaling의 예입니다.</li>
+<li>수직 스케일링<br>
+수직 확장은 싱글 노드 또는 시스템에 더 많은 리소스(예; CPU, RAM)를 추가합니다. 예- EC2 인스턴스 크기 조정.</li>
+<li>성능 효율성<br>
+컴퓨팅 리소스를 효율적으로 사용하여 시스템 요구 사항 충족 및 수요 변화와 기술이 발전함에 따라 효율성 유지 능력입니다.</li>
+</ul>
+</blockquote>
+<h4 id="%F0%9F%93%8D29-%EC%9C%A0%EB%8B%88%EC%BD%98-%EC%8A%A4%ED%83%80%ED%8A%B8%EC%97%85%EC%9D%80-%EC%9D%8C%EC%84%B1-%EA%B8%B0%EB%B0%98-%EC%9D%B8%ED%84%B0%ED%8E%98%EC%9D%B4%EC%8A%A4%EB%A5%BC-%EC%A7%80%EC%9B%90%ED%95%98%EB%8A%94-%EB%B6%84%EC%84%9D-%EC%95%A0%ED%94%8C%EB%A6%AC%EC%BC%80%EC%9D%B4%EC%85%98%EC%9D%84-%EA%B5%AC%EC%B6%95%ED%95%98%EA%B3%A0-%EC%9E%88%EC%8A%B5%EB%8B%88%EB%8B%A4-%EC%9D%91%EC%9A%A9-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8%EC%9D%80-%EC%82%AC%EC%9A%A9%EC%9E%90%EC%9D%98-%EC%9D%8C%EC%84%B1-%EA%B8%B0%EB%B0%98-%EC%9E%85%EB%A0%A5%EC%9D%84-%EB%B0%9B%EC%95%84-%EC%9D%8C%EC%84%B1%EC%9C%BC%EB%A1%9C-%EA%B7%B8-%EA%B2%B0%EA%B3%BC%EB%A5%BC-%EC%A0%84%EB%8B%AC%ED%95%A9%EB%8B%88%EB%8B%A4-%ED%81%B4%EB%9D%BC%EC%9A%B0%EB%93%9C-%EC%A0%84%EB%AC%B8%EA%B0%80%EB%A1%9C%EC%84%9C-%EC%A3%BC%EC%96%B4%EC%A7%84-%EC%82%AC%EC%9A%A9-%EC%82%AC%EB%A1%80%EC%97%90-%EC%96%B4%EB%96%A4-%EC%86%94%EB%A3%A8%EC%85%98%EC%9D%84-%EC%B6%94%EC%B2%9C%ED%95%98%EC%8B%9C%EA%B2%A0%EC%8A%B5%EB%8B%88%EA%B9%8C">📍29. 유니콘 스타트업은 음성 기반 인터페이스를 지원하는 분석 애플리케이션을 구축하고 있습니다. 응용 프로그램은 사용자의 음성 기반 입력을 받아 음성으로 그 결과를 전달합니다. 클라우드 전문가로서 주어진 사용 사례에 어떤 솔루션을 추천하시겠습니까?</h4>
+<ul>
+<li><input type="checkbox" id="checkbox119" checked="true"><label for="checkbox119"></label><mark><strong>Amazon Transcribe로 다운스트림 분석을 위한 음성을 텍스트로 변환합니다. 그런 다음 Amazon Polly로 음성링크 텍스트 결과를 전달합니다.</strong></mark></li>
+<li><input type="checkbox" id="checkbox120"><label for="checkbox120">Amazon Polly로 다운스트림 분석을 위한 음성을 텍스트로 변환합니다. 그런 다음 Amazon Transcribe로 음성링크 텍스트 결과를 전달합니다.</label></li>
+<li><input type="checkbox" id="checkbox121"><label for="checkbox121">Amazon Polly 다운스트림 분석을 위한 음성을 텍스트로 변환합니다. 그런 다음 Amazon Translate로 음성링크 텍스트 결과를 전달합니다.</label></li>
+<li><input type="checkbox" id="checkbox122"><label for="checkbox122">Amazon Translate 다운스트림 분석을 위한 음성을 텍스트로 변환합니다. 그런 다음 Amazon Polly로 음성링크 텍스트 결과를 전달합니다.</label></li>
+</ul>
+<blockquote>
+<p>해설</p>
+<ul>
+<li>Amazon Transcribe로 다운스트림 분석을 위한 음성을 텍스트로 변환한 다음 Amazon Polly로 음성링크 텍스트 결과를 전달합니다.
+Amazon Transcribe로 애플리케이션에 음성 텍스트 변환 기능을 추가할 수 있습니다. Amazon Transcribe는 딥 러닝 프로세스인 ASR(자동 음성 인식)을 사용하여 음성을 텍스트로 빠르고 정확하게 변환합니다. Amazon Transcribe로 고객 서비스 호출을 기록하고, 자막 및 자막을 자동화하고, 미디어 자산에 대한 메타데이터를 생성할 수 있습니다.<br>
+Amazon Polly로 텍스트를 생생한 음성으로 변환하여 말하는 애플리케이션을 만들 수 있습니다. Polly의 TTS(텍스트 음성 변환) 서비스는 고급 딥 러닝 기술을 사용하여 자연스러운 음성을 합성합니다.</li>
+</ul>
+</blockquote>
+<h4 id="%F0%9F%93%8D30-%EB%8B%A4%EC%9D%8C-aws-%EC%84%9C%EB%B9%84%EC%8A%A4-%EC%A4%91-aws-%ED%81%B4%EB%9D%BC%EC%9A%B0%EB%93%9C%EC%97%90%EC%84%9C-well-architected-%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%EC%9D%98-%EC%95%88%EC%A0%95%EC%84%B1-pillar%EC%97%90-%EB%8C%80%ED%95%9C-aws-foundation-%EC%84%9C%EB%B9%84%EC%8A%A4%EC%9D%98-%EC%9D%BC%EB%B6%80%EB%8A%94-%EB%AC%B4%EC%97%87%EC%9D%BC%EA%B9%8C%EC%9A%94-2%EA%B0%9C-%EC%84%A0%ED%83%9D">📍30. 다음 AWS 서비스 중 AWS 클라우드에서 Well-Architected 프레임워크의 안정성 Pillar에 대한 AWS Foundation 서비스의 일부는 무엇일까요? (2개 선택)</h4>
+<ul>
+<li><input type="checkbox" id="checkbox123" checked="true"><label for="checkbox123"></label><mark><strong>AWS Service Quotas</strong></mark></li>
+<li><input type="checkbox" id="checkbox124" checked="true"><label for="checkbox124"></label><mark><strong>AWS Truted Advisor</strong></mark></li>
+<li><input type="checkbox" id="checkbox125"><label for="checkbox125">AWS CloudTrail</label></li>
+<li><input type="checkbox" id="checkbox126"><label for="checkbox126">AWS CloudFormation</label></li>
+<li><input type="checkbox" id="checkbox127"><label for="checkbox127">Amazon CloudWatch</label></li>
+</ul>
+<blockquote>
+<p>해설</p>
+<ul>
+<li>기초는 AWS Well-Architected 프레임워크의 안정성 기둥의 일부입니다. AWS는 시스템을 설계하기 전에 안정성에 영향을 미치는 기본 요구 사항을 마련해야 한다고 말합니다. 기반의 일부인 서비스는 Amazon VPC, AWS Trusted Advisor, AWS 서비스 할당량(이전에는 AWS 서비스 제한이라고 함)입니다.</li>
+<li>AWS Trusted Advisor는 비용 최적화, 보안, 내결함성(fault-tolerance), 서비스 제한 및 성능 개선에 대한 AWS 모범 사례에 따라 리소스를 프로비저닝하는 데 도움이 되는 실시간 가이드를 제공하는 온라인 툴입니다. 새로운 workflow 설정, 애플리케이션 개발 또는 지속적인 개선의 일환으로 Trusted Advisor가 정기적으로 제공하는 권장 사항링크 솔루션을 최적으로 프로비저닝할 수 있습니다. 모든 AWS 고객은 AWS 환경의 보안과 성능을 높이는 데 도움이 되는 7가지 핵심 Trusted Advisor 검사에 액세스할 수 있습니다. Trusted Advisor는 AWS로 마이그레이션하고 AWS 클라우드에서 애플리케이션을 관리하는 데 사용할 수 없습니다.</li>
+<li>서비스 할당량은 중앙에서 AWS 서비스 할당량을 보고 관리할 수 있습니다. AWS에서 제한이라고도 불리는 할당량은 AWS 계정의 리소스, 작업 및 항목의 최대값입니다. 각 AWS 서비스는 할당량을 정의하고 해당 할당량의 기본값을 설정합니다.</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>오답</p>
+<ul>
+<li>AWS CloudTrail<br>
+AWS CloudTrail은 AWS 계정의 거버넌스, 규정 준수, 운영 감사 및 위험 감사를 위한 서비스입니다. CloudTrail는 AWS 인프라 전반에서 작업과 관련된 계정 활동을 기록하고 지속적으로 모니터링하고 유지합니다. CloudTrail은 AWS Management 콘솔, AWS SDK, Command Line 툴 및 기타 AWS 서비스로 수행한 작업 포함, AWS 계정 활동의 이벤트 기록을 제공합니다. 계정별 활동 및 감사에는 CloudTrail이 적합합니다.</li>
+<li>AWS CloudFormation<br>
+AWS CloudFormation는 여러분의 클라우드 환경에서 AWS 및 써드파티 애플리케이션을 모델링 및 프로비저녕 할 수있도록 하는 공용 언어를 제공합니다. 프로그래밍 언어 또는 간단한 텍스트 파일을 사용하여 모든 리전 및 계정에서 애플리케이션에 필요한 모든 리소스를 자동화하고 안전한 방식으로 모델링 및 프로비저닝할 수 있습니다. 코드 형태의 인프라를 생각하세요; CloudFormation입니다.</li>
+<li>Amazon CloudWatch<br>
+Amazon CloudWatch는 모니터링 및 관찰 가능성 서비스를 DevOps 엔지니어, 개발자, 사이트 안정성 엔지니어(SRE) 및 IT 관리자에게 제공하기 위해 구축되었습니다. CloudWatch는 데이터와 실행 가능한 통찰력을 제공하여 애플리케이션을 모니터링하고, 시스템 전체의 성능 변화에 대응하고, 리소스 활용도를 최적화하고, 운영 상태에 대한 통합 보기를 얻습니다. Resilient 시스템을 구축하기 위한 훌륭한 서비스입니다. 리소스 성능 모니터링, 이벤트 및 경고에는 CloudWatch 사용하시면 됩니다.</li>
+</ul>
+</blockquote>
+<h4 id="31-amazon-ec2%EC%9D%98-%EC%95%A0%ED%94%8C%EB%A6%AC%EC%BC%80%EC%9D%B4%EC%85%98%EC%9D%B4-%ED%95%AD%EC%83%81-%ED%98%84%EC%9E%AC-%ED%8A%B8%EB%9E%98%ED%94%BD-%EC%88%98%EC%9A%94%EB%A5%BC-%EC%B2%98%EB%A6%AC%ED%95%98%EA%B8%B0%EC%97%90-%EC%A0%81%EC%A0%88%ED%95%9C-%EC%96%91%EC%9D%98-%EC%9A%A9%EB%9F%89%EC%9D%84-%EA%B0%96%EB%8F%84%EB%A1%9D-%EB%B3%B4%EC%9E%A5%ED%95%98%EB%8A%94-%EC%97%94%ED%84%B0%ED%8B%B0%EB%8A%94-%EB%AC%B4%EC%97%87%EC%9D%BC%EA%B9%8C%EC%9A%94">31. Amazon EC2의 애플리케이션이 항상 현재 트래픽 수요를 처리하기에 적절한 양의 용량을 갖도록 보장하는 엔터티는 무엇일까요?</h4>
+<ul>
+<li><input type="checkbox" id="checkbox128" checked="true"><label for="checkbox128"></label><mark><strong>Auto Scaling</strong></mark></li>
+<li><input type="checkbox" id="checkbox129"><label for="checkbox129">Multi AZ deployment</label></li>
+<li><input type="checkbox" id="checkbox130"><label for="checkbox130">Network Load Balancer</label></li>
+<li><input type="checkbox" id="checkbox131"><label for="checkbox131">Application Load Balancer</label></li>
+</ul>
+<blockquote>
+<p>해설</p>
+<ul>
+<li>Auto Scaling<br>
+Auto Scaling을 사용하면 애플리케이션의 로드를 처리하는 데 사용할 수 있는 Amazon EC2 인스턴스의 수를 올바르게 확보할 수 있습니다. Auto Scaling 그룹이라고 하는 EC2 인스턴스 모음을 생성합니다. 각 Auto Scaling 그룹에서 최소 인스턴스 수를 지정할 수 있으며 Amazon EC2 Auto Scaling은 그룹이 이 크기 아래로 떨어지지 않도록 합니다.</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>오답</p>
+<ul>
+<li>Multi AZ deployment<br>
+가용 영역을 사용하면 중단 없이 영역 간에 자동으로 장애 조치되는 애플리케이션 및 데이터베이스를 설계하고 운영할 수 있습니다. EC2 인스턴스의 Multi-AZ 배포는 고가용성을 제공했지만 리소스 확장에는 도움이 되지 않습니다.</li>
+<li>Network Load Balancer<br>
+Network Load Balancer는 극한의 성능이 요구되는 TCP(Transmission Control Protocol), UDP(User Datagram Protocol) 및 TLS(Transport Layer Security) 트래픽의 로드 밸런싱에 가장 적합합니다. 트래픽을 분산하고 리소스를 확장하지 않습니다.</li>
+<li>Application Load Balancer<br>
+Application Load Balancer는 클라이언트의 단일 연락 창구 역할을 합니다. 로드 밸런서는 수신 애플리케이션 트래픽을 여러 가용 영역의 EC2 인스턴스와 같은 여러 대상에 분산합니다. 트래픽을 분산하고 리소스를 확장하지 않습니다.</li>
+</ul>
+</blockquote>
+<h4 id="%F0%9F%93%8D32-%EB%8B%A4%EC%9D%8C-aws-%EC%9D%B8%EC%A6%9D-%EB%A9%94%EC%BB%A4%EB%8B%88%EC%A6%98-%EC%A4%91-%EC%BB%B4%ED%93%A8%ED%84%B0%EC%9D%98-usb-%ED%8F%AC%ED%8A%B8%EC%97%90-%EC%97%B0%EA%B2%B0%ED%95%A0-%EC%88%98-%EC%9E%88%EB%8A%94-mfamulti-factor-authentication-%EB%94%94%EB%B0%94%EC%9D%B4%EC%8A%A4%EB%A5%BC-%EC%A7%80%EC%9B%90%ED%95%98%EB%8A%94-%EA%B2%83%EC%9D%80-%EB%AC%B4%EC%97%87%EC%9D%BC%EA%B9%8C%EC%9A%94">📍32. 다음 AWS 인증 메커니즘 중 컴퓨터의 USB 포트에 연결할 수 있는 MFA(Multi-Factor Authentication) 디바이스를 지원하는 것은 무엇일까요?</h4>
+<ul>
+<li><input type="checkbox" id="checkbox132" checked="true"><label for="checkbox132"></label><mark><strong>U2F 보안키</strong></mark></li>
+<li><input type="checkbox" id="checkbox133"><label for="checkbox133">SMS 문자 세시지 기반 MFA</label></li>
+<li><input type="checkbox" id="checkbox134"><label for="checkbox134">가상 MFA 장치</label></li>
+<li><input type="checkbox" id="checkbox135"><label for="checkbox135">하드웨어 MFA 장치</label></li>
+</ul>
+<blockquote>
+<p>해설</p>
+<ul>
+<li>U2F security key<br>
+U2F(Universal 2nd Factor) 보안 키는 컴퓨터의 USB 포트에 연결할 수 있는 장치입니다. U2F는 FIDO Alliance에서 호스팅하는 개방형 인증 표준입니다. U2F security key를 활성화하면 수동으로 코드를 입력하는 대신 자격 증명을 입력한 다음 장치를 눌러 로그인합니다.</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>오답</p>
+<ul>
+<li>가상 MFA 장치<br>
+이것은 전화 또는 기타 장치에서 실행되고 물리적 장치를 에뮬레이트하는 소프트웨어 앱입니다. 장치는 시간 동기화된 일회용 암호 알고리즘을 기반으로 6자리 숫자 코드를 생성합니다. 사용자는 로그인하는 동안 두 번째 웹 페이지에서 장치의 유효한 코드를 입력해야 합니다. 사용자에게 할당된 각 Virtual MFA device는 고유해야 합니다.</li>
+<li>하드웨어 MFA 장치<br>
+이것은 시간 동기화된 1회용 암호 알고리즘을 기반으로 6자리 숫자 코드를 생성하는 하드웨어 장치입니다. 사용자는 로그인하는 동안 두 번째 웹 페이지에서 장치의 유효한 코드를 입력해야 합니다. 사용자에게 할당된 각 MFA 디바이스는 고유해야 합니다. 사용자는 인증을 받기 위해 다른 사용자의 장치에서 코드를 입력할 수 없습니다.</li>
+<li>SMS 문자 메시지 기반 MFA<br>
+IAM 사용자 설정에 사용자의 SMS 호환 모바일 장치 전화번호가 포함되는 MFA 유형입니다. 사용자가 로그인하면 AWS는 SMS 문자 메시지로 6자리 숫자 코드를 사용자의 모바일 디바이스로 보냅니다. 사용자는 로그인하는 동안 두 번째 웹페이지에 해당 코드를 입력해야 합니다.</li>
+</ul>
+</blockquote>
+<h4 id="33-%EB%8B%A4%EC%9D%8C-%EC%A4%91-%EC%97%AC%EB%9F%AC-aws-%EA%B3%84%EC%A0%95-%EB%B0%8F-%EB%A6%AC%EC%A0%84%EC%97%90%EC%84%9C-%EB%8F%99%EC%9D%BC%ED%95%9C-aws-%EC%9D%B8%ED%94%84%EB%9D%BC%EB%A5%BC-%ED%94%84%EB%A1%9C%EB%B9%84%EC%A0%80%EB%8B%9D%ED%95%98%EB%8A%94-%EB%8D%B0-%EC%82%AC%EC%9A%A9%ED%95%A0-aws-%EC%84%9C%EB%B9%84%EC%8A%A4%EB%8A%94-%EB%AC%B4%EC%97%87%EC%9D%BC%EA%B9%8C%EC%9A%94">33. 다음 중 여러 AWS 계정 및 리전에서 동일한 AWS 인프라를 프로비저닝하는 데 사용할 AWS 서비스는 무엇일까요?</h4>
+<ul>
+<li><input type="checkbox" id="checkbox136" checked="true"><label for="checkbox136"></label><mark><strong>AWS CloudFormation</strong></mark></li>
+<li><input type="checkbox" id="checkbox137"><label for="checkbox137">AWs OpsWorks</label></li>
+<li><input type="checkbox" id="checkbox138"><label for="checkbox138">AWS Systems Manager</label></li>
+<li><input type="checkbox" id="checkbox139"><label for="checkbox139">AWS CodeDeploy</label></li>
+</ul>
+<blockquote>
+<p>해설</p>
+<ul>
+<li>AWS CloudFormation<br>
+AWS CloudFormation을 사용하면 프로그래밍 언어 또는 간단한 텍스트 파일을 사용하여 모든 리전 및 계정에서 애플리케이션에 필요한 모든 리소스를 자동화되고 안전한 방식으로 모델링 및 프로비저닝할 수 있습니다. 스택은 단일 단위로 관리할 수 있는 AWS 리소스 모음입니다. 즉, 스택을 생성, 업데이트 또는 삭제하여 리소스 컬렉션을 생성, 업데이트 또는 삭제할 수 있습니다.<br>
+AWS CloudFormation StackSets는 단일 작업으로 여러 계정 및 리전에서 스택을 생성, 업데이트 또는 삭제할 수 있도록 하여 스택 기능을 확장합니다. 관리자 계정을 사용하여 AWS CloudFormation 템플릿을 정의 및 관리하고 지정된 리전에서 선택한 대상 계정에 스택을 프로비저닝하기 위한 기반으로 템플릿을 사용합니다.</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>오답</p>
+<ul>
+<li>AWS CodeDeploy<br>
+AWS CodeDeploy는 Amazon EC2, AWS Fargate, AWS Lambda 및 온프레미스 서버와 같은 다양한 컴퓨팅 서비스에 대한 소프트웨어 배포를 자동화하는 완전 관리형 배포 서비스입니다. AWS CodeDeploy를 사용하면 새로운 기능을 더 쉽게 신속하게 출시하고, 애플리케이션 배포 중 가동 중지 시간을 방지하고, 애플리케이션 업데이트의 복잡성을 처리할 수 있습니다. 이 서비스로 AWS 인프라를 프로비저닝할 수 없습니다.</li>
+<li>AWS OpsWorks<br>
+AWS OpsWorks는 Chef 및 Puppet의 관리형 인스턴스를 제공하는 구성 관리 서비스입니다. OpsWorks를 사용하면 Chef 및 Puppet을 사용하여 Amazon EC2 인스턴스 또는 온프레미스 컴퓨팅 환경에서 서버를 구성, 배포 및 관리하는 방법을 자동화할 수 있습니다. 서버에서 명령을 실행하거나 패치를 관리하는 데 OpsWorks를 사용할 수 없습니다. 이 서비스로 AWS 인프라를 프로비저닝할 수 없습니다.</li>
+<li>AWS Systems Manager<br>
+AWS Systems Manager는 AWS의 인프라에 대한 가시성과 제어 기능을 제공합니다. Systems Manager는 통합 사용자 인터페이스를 제공하므로 여러 AWS 서비스의 운영 데이터를 보고 AWS 리소스 전반에서 운영 작업을 자동화할 수 있습니다. Systems Manager를 사용하면 Amazon EC2 인스턴스, Amazon S3 버킷 또는 Amazon RDS 인스턴스와 같은 리소스를 애플리케이션별로 그룹화하고, 모니터링 및 문제 해결을 위해 운영 데이터를 보고, 리소스 그룹에 대해 조치를 취할 수 있습니다. 이 서비스로 AWS 인프라를 프로비저닝할 수 없습니다.</li>
+</ul>
+</blockquote>
+<h4 id="%F0%9F%93%8D34-%EB%8B%A4%EC%9D%8C-%EC%A4%91-%EC%98%A8%ED%94%84%EB%A0%88%EB%AF%B8%EC%8A%A4-%EC%95%A0%ED%94%8C%EB%A6%AC%EC%BC%80%EC%9D%B4%EC%85%98%EC%9D%B4-aws-%ED%81%B4%EB%9D%BC%EC%9A%B0%EB%93%9C%EC%9D%98-%EB%8D%B0%EC%9D%B4%ED%84%B0%EC%97%90-%EC%95%A1%EC%84%B8%EC%8A%A4%ED%95%A0-%EC%88%98-%EC%9E%88%EB%8F%84%EB%A1%9D-%ED%95%98%EB%8A%94-hybrid-storage-%EC%84%9C%EB%B9%84%EC%8A%A4%EB%8A%94-%EB%AC%B4%EC%97%87%EC%9D%BC%EA%B9%8C%EC%9A%94">📍34. 다음 중 온프레미스 애플리케이션이 AWS 클라우드의 데이터에 액세스할 수 있도록 하는 hybrid storage 서비스는 무엇일까요?</h4>
+<ul>
+<li><input type="checkbox" id="checkbox140" checked="true"><label for="checkbox140"></label><mark><strong>AWS Storage Gateway</strong></mark></li>
+<li><input type="checkbox" id="checkbox141"><label for="checkbox141">AWS Direct Connect</label></li>
+<li><input type="checkbox" id="checkbox142"><label for="checkbox142">AWS Snowball</label></li>
+<li><input type="checkbox" id="checkbox143"><label for="checkbox143">Amazon EBS</label></li>
+</ul>
+<blockquote>
+<p>해설</p>
+<ul>
+<li>AWS Storage Gateway<br>
+AWS Storage Gateway는 기존 온프레미스 환경을 AWS 클라우드와 연결하는 Hybrid Storage 서비스입니다. 고객은 Storage Gateway로 스토리지 관리 단순화와 주요 하이브리드 클라우드 스토리지 사용에 대한 비용 절감화를 실현합니다. 여기에는 테이프 백업을 클라우드로 이동하고, 클라우드 지원 파일 공유를 통해 온프레미스 스토리지를 줄이고, 온프레미스 애플리케이션을 위해 AWS에서 데이터에 대한 짧은 지연 시간 액세스를 제공하는 것은 물론 다양한 마이그레이션, 보관, 처리 및 재해 복구 사용 사례가 포함됩니다.<br>
+AWS Storage Gateway 서비스는 세 가지 유형의 게이트웨이-테이프 게이트웨이, 파일 게이트웨이 및 볼륨 게이트웨이-를 통해 온프레미스 애플리케이션을 클라우드 스토리지에 원활하게 연결하고 지연 시간이 짧은 액세스를 위해 로컬로 데이터를 캐싱(caching) 합니다.</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>오답</p>
+<ul>
+<li>AWS Direct Connect
+AWS Direct Connect는 원격 네트워크에서 VPC로 전용 프라이빗 연결을 생성하는데 이때 이 연결은 개인 연결이며 공용 인터넷을 사용하지 않습니다. 설정하는 데는 최소 한 달이 걸립니다. Direct Connect는 연결 서비스이며 온프레미스 애플리케이션에 대한 AWS 클라우드 기반 스토리지 액세스를 제공하는 데 사용할 수 없습니다.</li>
+<li>AWS Snowball<br>
+AWS Snowball는 AWS 서비스 안팎으로 테라바이트에서 페타바이트의 데이터를 빠르게 이동하는 데이터 전송 솔루션이며 이때 물리적 전송을 위해 안전하게 설계된 스토리지 디바이스를 사용합니다. Snowball을 사용하여 온프레미스 애플리케이션에 대한 AWS 클라우드 기반 스토리지 액세스를 제공할 수 없습니다.</li>
+<li>Amazon EBS<br>
+Amazon Elastic Block Store(EBS)는 사용하기 쉬운 고성능 블록 스토리지 서비스로서 모든 규모의 처리량 및 트랜잭션 집약적 워크로드 모두에 대해 Amazon Elastic Compute Cloud(EC2) 인스턴스와 함께 사용하도록 설계되었습니다. EBS로 온프레미스 애플리케이션에 대한 AWS 클라우드 기반 스토리지 액세스를 제공할 수 없습니다.</li>
+</ul>
+</blockquote>
+<h4 id="35-%EB%8B%A4%EC%9D%8C-%EC%A4%91-%EC%82%AC%EC%9D%B4%EB%B2%84-%EB%B3%B4%EC%95%88-%EA%B8%B0%EA%B4%80%EC%97%90%EC%84%9C-aws-%ED%81%B4%EB%9D%BC%EC%9A%B0%EB%93%9C%EB%A5%BC-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B3%A0-aws%EC%9D%98-%EC%82%AC%EC%A0%84-%EC%8A%B9%EC%9D%B8-%EC%97%86%EC%9D%B4-%EC%9E%90%EC%B2%B4-aws-%EC%9D%B8%ED%94%84%EB%9D%BC%EC%97%90%EC%84%9C-%EB%B3%B4%EC%95%88-%ED%8F%89%EA%B0%80%EB%A5%BC-%EC%88%98%ED%96%89%ED%95%98%EB%8A%94-%EA%B4%80%ED%96%89%EC%9D%84-%EC%84%A4%EB%AA%85%ED%95%98%EA%B1%B0%EB%82%98-%EC%B4%89%EC%A7%84%ED%95%98%EB%8A%94-%EA%B2%83%EC%9D%80-%EB%AC%B4%EC%97%87%EC%9D%BC%EA%B9%8C%EC%9A%94">35. 다음 중 사이버 보안 기관에서 AWS 클라우드를 사용하고 AWS의 사전 승인 없이 자체 AWS 인프라에서 보안 평가를 수행하는 관행을 설명하거나 촉진하는 것은 무엇일까요?</h4>
+<ul>
+<li><input type="checkbox" id="checkbox144" checked="true"><label for="checkbox144"></label><mark><strong>침투 테스트</strong></mark></li>
+<li><input type="checkbox" id="checkbox145"><label for="checkbox145">네트워크 스트레스 테스트</label></li>
+<li><input type="checkbox" id="checkbox146"><label for="checkbox146">AWS Secrets Manager</label></li>
+<li><input type="checkbox" id="checkbox147"><label for="checkbox147">Amazon Inspector</label></li>
+</ul>
+<blockquote>
+<p>해설</p>
+<ul>
+<li>침투 테스트<br>
+AWS 고객은 AWS 인프라에 대해 보안 평가 또는 침투 테스트를 몇 가지 일반적인 AWS 서비스에 대한 사전 승인 없이 수행할 수 있습니다. 고객은 AWS 인프라 또는 AWS 서비스 자체에 대한 보안 평가를 수행할 수 없습니다.</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>오답</p>
+<ul>
+<li>네트워크 스트레스 테스트<br>
+AWS는 특정 의도된 대상 애플리케이션에 대량의 합법적 또는 테스트 트래픽을 보내는 경우 &quot;네트워크 스트레스 테스트&quot;로 간주합니다. 엔드포인트와 인프라는 이 트래픽을 처리할 수 있을 것으로 예상됩니다.</li>
+<li>Amazon Inspector<br>
+Amazon Inspector는 Amazon EC2 인스턴스의 의도하지 않은 네트워크 액세스 가능성과 해당 EC2 인스턴스의 취약성을 확인하는 데 도움이 되는 자동화된 보안 평가 서비스입니다. Amazon Inspector 평가는 일반적인 보안 모범 사례 및 취약성 정의에 매핑된 사전 정의된 규칙 패키지로 제공됩니다.</li>
+<li>AWS Secrets Manager<br>
+AWS Secrets Manager는 애플리케이션, 서비스 및 IT 리소스 액세스에 필요한 보안 기밀을 보호합니다. 이 서비스는 수명 주기 중 데이터베이스 인증, API 키 및 기타 기밀들을 쉽게 교체, 관리 및 검색합니다. 사용자와 애플리케이션은 Secrets Manager API를 호출하여 기밀을 검색하므로 민감한 정보를 일반 텍스트로 하드코딩할 필요가 없습니다.</li>
+</ul>
+</blockquote>
+<h4 id="36-%ED%9A%8C%EC%82%AC%EC%97%90%EC%84%9C-%EB%B9%84%EC%9A%A9-%ED%95%A0%EB%8B%B9%EC%9D%84-%EC%9C%84%ED%95%B4-%EB%B6%80%EC%84%9C%EB%B3%84%EB%A1%9C-aws-%EC%84%9C%EB%B9%84%EC%8A%A4-%EB%B9%84%EC%9A%A9%EC%9D%84-%EB%B6%84%EB%A6%AC%ED%95%98%EB%A0%A4%EA%B3%A0-%ED%95%A9%EB%8B%88%EB%8B%A4-%EB%8B%A4%EC%9D%8C-%EC%A4%91-%EC%9D%B4-%EC%9E%91%EC%97%85%EC%9D%84-%EC%88%98%ED%96%89%ED%95%98%EB%8A%94-%EA%B0%80%EC%9E%A5-%EA%B0%84%EB%8B%A8%ED%95%9C-%EB%B0%A9%EB%B2%95%EC%9D%80-%EB%AC%B4%EC%97%87%EC%9D%BC%EA%B9%8C%EC%9A%94">36. 회사에서 비용 할당을 위해 부서별로 AWS 서비스 비용을 분리하려고 합니다. 다음 중 이 작업을 수행하는 가장 간단한 방법은 무엇일까요?</h4>
+<ul>
+<li><input type="checkbox" id="checkbox148" checked="true"><label for="checkbox148"></label><mark><strong>부서별 태그 생성</strong></mark></li>
+<li><input type="checkbox" id="checkbox149"><label for="checkbox149">부서별 계정 생성</label></li>
+<li><input type="checkbox" id="checkbox150"><label for="checkbox150">모든 부서에 대해 하나이 계정을 만들고 이 계정을 공유</label></li>
+<li><input type="checkbox" id="checkbox151"><label for="checkbox151">부서별로 다른 VPC 생성</label></li>
+</ul>
+<blockquote>
+<p>해설</p>
+<ul>
+<li>부서별 태그 생성<br>
+AWS 리소스에 태그 형태로 메타데이터를 할당 할 수 있습니다. 각 태그에 구성된 레이블은 사용자 정의 키와 값으로 구성되었습니다. 태그를 사용하면 리소스의 관리, 식별, 구성 검색 및 필터링이 가능합니다. 리소스 분류를 용도, 소유자, 환경 또는 기타 기준으로 태그를 만들어 분류할 수 있습니다<br>
+일반적으로 AWS 비용을 비용 센터/사업부, 고객 또는 프로젝트와 같은 비즈니스 태그로 기존 비용 할당 차원과 연결합니다. 하지만 비용 할당 보고서에는 모든 태그가 포함될 수 있습니다. 이를 통해 비용을 특정 애플리케이션, 환경 또는 컴플라이언스 프로그램과 같은 기술 또는 보안 차원과 연결할 수 있습니다.</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>오답</p>
+<ul>
+<li>부서별 다른 계정 만들기<br>
+사용자는 여러 부서에 속할 수 있습니다. 따라서 부서별로 다른 계정이 있다는 것은 일부 사용자가 여러 개의 계정을 가지고 있는 것을 의미합니다. 이는 실제 사용자 1명 = 계정 1개라는 보안 모범 사례에 반합니다. 또한 각 부서별 비용추적 태그를 설정하는 것이 훨씬 간단합니다.</li>
+<li>모든 부서는 하나의 계정을 만들고 이 계정을 공유<br>
+계정을 공유하는 것은 보안 모범 사례가 아니므로 권장하지 않습니다.</li>
+<li>부서별 다른 VPC 생성<br>
+서로 다른 VPC를 생성하는 것은 비용을 분리하는 것에 도움이 되지 않습니다.</li>
+</ul>
+</blockquote>
+<h4 id="37-e-commerce-%ED%9A%8C%EC%82%AC%EC%9D%98-devops-%ED%8C%80%EC%9D%80-%EB%A7%88%EC%9D%B4%ED%81%AC%EB%A1%9C%EC%84%9C%EB%B9%84%EC%8A%A4-%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98%EB%A1%9C-%EA%B5%AC%EC%B6%95%EB%90%9C-%EC%84%9C%EB%B2%84%EB%A6%AC%EC%8A%A4-%EC%95%A0%ED%94%8C%EB%A6%AC%EC%BC%80%EC%9D%B4%EC%85%98%EC%9D%98-%EC%84%B1%EB%8A%A5-%EB%AC%B8%EC%A0%9C%EB%A5%BC-%EB%94%94%EB%B2%84%EA%B7%B8debug%ED%95%98%EB%A0%A4%EA%B3%A0-%ED%95%A9%EB%8B%88%EB%8B%A4-%ED%81%B4%EB%9D%BC%EC%9A%B0%EB%93%9C-%EC%A0%84%EB%AC%B8%EA%B0%80%EB%A1%9C%EC%84%9C-%EC%9D%B4-%EC%82%AC%EC%9A%A9-%EC%82%AC%EB%A1%80%EB%A5%BC-%ED%95%B4%EA%B2%B0%ED%95%98%EA%B8%B0-%EC%9C%84%ED%95%B4-%EC%96%B4%EB%96%A4-aws-%EC%84%9C%EB%B9%84%EC%8A%A4%EB%A5%BC-%EC%B6%94%EC%B2%9C%ED%95%98%EC%8B%9C%EA%B2%A0%EC%8A%B5%EB%8B%88%EA%B9%8C">37. E-Commerce 회사의 DevOps 팀은 마이크로서비스 아키텍처로 구축된 서버리스 애플리케이션의 성능 문제를 디버그(debug)하려고 합니다. 클라우드 전문가로서 이 사용 사례를 해결하기 위해 어떤 AWS 서비스를 추천하시겠습니까?</h4>
+<ul>
+<li><input type="checkbox" id="checkbox152" checked="true"><label for="checkbox152"></label><mark><strong>AWS X-Ray</strong></mark></li>
+<li><input type="checkbox" id="checkbox153"><label for="checkbox153">AWs Trusted Advisor</label></li>
+<li><input type="checkbox" id="checkbox154"><label for="checkbox154">AWS CloudFormation</label></li>
+<li><input type="checkbox" id="checkbox155"><label for="checkbox155">Amazon Pinpoint</label></li>
+</ul>
+<blockquote>
+<p>해설</p>
+<ul>
+<li>AWS X-Ray<br>
+AWS X-Ray로 마이크로서비스 아키텍처(microservices architecture)로 구축된 애플리케이션과 같은 서버리스 및 분산 애플리케이션들을 분석 및 디버그할 수 있습니다. X-Ray를 사용하면 성능 문제 및 오류의 원인을 찾고 해결하기 위해 애플리케이션과 기본 서비스가 수행되는 방식을 이해할 수 있습니다.</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>오답</p>
+<ul>
+<li>AWS Trusted Advisor<br>
+AWS Trusted Advisor는 비용 최적화, 보안, 내결함성(fault-tolerance), 서비스 제한 및 성능 개선에 대한 AWS 모범 사례에 따라 리소스를 프로비저닝하는 데 도움이 되는 실시간 가이드를 제공하는 온라인 툴입니다. 새로운 workflow 설정, 애플리케이션 개발 또는 지속적인 개선의 일환으로 Trusted Advisor가 정기적으로 제공하는 권장 사항링크 솔루션을 최적으로 프로비저닝할 수 있습니다. 모든 AWS 고객은 AWS 환경의 보안과 성능을 높이는 데 도움이 되는 7가지 핵심 Trusted Advisor 검사에 액세스할 수 있습니다. Trusted Advisor는 AWS로 마이그레이션하고 AWS 클라우드에서 애플리케이션을 관리하는 데 사용할 수 없습니다.</li>
+<li>Amazon Pinpoint<br>
+Amazon Pinpoint는 마케팅 담당자와 개발자가 고객 중심의 참여 경험을 고객 사용 데이터를 캡처하여 실시간 통찰력을 도출함으로써 제공할 수 있습니다. 마이크로서비스 아키텍처로 구축된 이 서버리스 애플리케이션의 성능 문제를 디버그하는 데 Pinpoint를 사용할 수 없습니다.</li>
+<li>AWS CloudFormation<br>
+AWS CloudFormation는 프로그래밍 언어 또는 간단한 텍스트 파일을 사용하여 모든 리전 및 계정에서 애플리케이션에 필요한 모든 리소스를 자동화되고 안전한 방식으로 모델링 및 프로비저닝할 수 있습니다. 인프라를 마치 코드로 생각하시면 CloudFormation를 사용하시면 됩니다. CloudFormation은 마이크로서비스 아키텍처로 구축된 이 서버리스 애플리케이션의 성능 문제를 디버그하는 데 사용할 수 없습니다.</li>
+</ul>
+</blockquote>
+<h3 id="38-aws-organizations%EB%8A%94-%EB%8B%A4%EC%9D%8C-%EC%A4%91-%EC%96%B4%EB%96%A4-%EC%9D%B4%EC%A0%90%EC%9D%84-%EC%A0%9C%EA%B3%B5%ED%95%A0%EA%B9%8C%EC%9A%94-2%EA%B0%9C-%EC%84%A0%ED%83%9D">38. AWS Organizations는 다음 중 어떤 이점을 제공할까요? (2개 선택)</h3>
+<ul>
+<li><input type="checkbox" id="checkbox156" checked="true"><label for="checkbox156"></label><mark><strong>멤버 AWS 계정에서 집계된 Amazon EC2 및 Amazon S3의 대량 할인</strong></mark></li>
+<li><input type="checkbox" id="checkbox157" checked="true"><label for="checkbox157"></label><mark><strong>멤버 AWS 계정간에 예약된 EC2 인스턴스 공유</strong></mark></li>
+<li><input type="checkbox" id="checkbox158"><label for="checkbox158">멤버 AWS 계정 전반에 걸쳐 EC2 인스턴스의 취약점 확인</label></li>
+<li><input type="checkbox" id="checkbox159"><label for="checkbox159">멤버 AWS 계정 전반에 걸쳐 EC2 인스턴스에 패치 배포</label></li>
+<li><input type="checkbox" id="checkbox160"><label for="checkbox160">멤버 AWS 계정 전체에서 EC2 인스턴스에 패치 배포</label></li>
+</ul>
+<blockquote>
+<p>해설</p>
+<ul>
+<li>멤버 AWS 계정에서 집계된 Amazon EC2 및 Amazon S3의 대량 할인</li>
+<li>멤버 AWS 계정 간에 예약된 EC2 인스턴스 공유<br>
+AWS Organizations는 결제를 중앙에서 관리할 수 있도록 도와줍니다. 액세스, 규정 준수 및 보안을 제어합니다. AWS 계정에서 예약된 EC2 인스턴스와 같은 리소스를 공유할 수 있습니다.<br>
+AWS Organizations를 사용하면 계정 생성을 자동화하고, 비즈니스 요구 사항을 반영하는 계정 그룹을 생성하고, 거버넌스를 위해 이러한 그룹에 정책을 적용할 수 있습니다. 모든 AWS 계정에 대해 단일 결제 방법을 설정하여 결제를 간소화할 수도 있습니다. AWS Organizations는 모든 AWS 고객이 추가 비용 없이 사용할 수 있습니다.<br>
+AWS Organizations로 통합 결제를 통해 조직의 모든 AWS 계정에 대해 단일 결제 방법을 설정할 수 있습니다. 통합 결제를 사용하면 모든 계정에서 발생한 요금을 통합적으로 볼 수 있을 뿐만 아니라 Amazon EC2 및 Amazon S3에 대한 대량 할인과 같은 집계된 사용량의 요금 혜택을 누릴 수 있습니다.</li>
+</ul>
+</blockquote>
+<h4 id="%F0%9F%93%8D39-aws-%EC%84%9C%EB%B9%84%EC%8A%A4%EC%97%90-%EB%AC%B8%EC%A0%9C%EA%B0%80-%EB%B0%9C%EC%83%9D%ED%95%A0-%EB%95%8C-%EB%B9%84%EC%A6%88%EB%8B%88%EC%8A%A4%EC%97%90-%EB%AF%B8%EC%B9%98%EB%8A%94-%EC%98%81%ED%96%A5%EC%9D%84-%EC%8B%A0%EC%86%8D%ED%95%98%EA%B2%8C-%ED%8F%89%EA%B0%80%ED%95%A0-%EC%88%98-%EC%9E%88%EB%8F%84%EB%A1%9D-%ED%81%B4%EB%9D%BC%EC%9A%B0%EB%93%9C-%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98%EC%9D%98-%EC%9D%BC%EB%B6%80%EC%9D%B8-aws-%EC%84%9C%EB%B9%84%EC%8A%A4-%EC%83%81%ED%83%9C%EC%97%90-%EB%8C%80%ED%95%9C-%EA%B0%9C%EC%9D%B8%ED%99%94%EB%90%9C-%EB%B3%B4%EA%B8%B0%EB%A5%BC-%EC%A0%9C%EA%B3%B5%ED%95%98%EB%8A%94-%EC%84%9C%EB%B9%84%EC%8A%A4%EB%8A%94-%EB%AC%B4%EC%97%87%EC%9D%BC%EA%B9%8C%EC%9A%94">📍39. AWS 서비스에 문제가 발생할 때 비즈니스에 미치는 영향을 신속하게 평가할 수 있도록 클라우드 아키텍처의 일부인 AWS 서비스 상태에 대한 개인화된 보기를 제공하는 서비스는 무엇일까요?</h4>
+<ul>
+<li><input type="checkbox" id="checkbox161" checked="true"><label for="checkbox161"></label><mark><strong>AWS Personal Health Dashborad</strong></mark></li>
+<li><input type="checkbox" id="checkbox162"><label for="checkbox162">AWS Service Health Dashboard</label></li>
+<li><input type="checkbox" id="checkbox163"><label for="checkbox163">Amazon CloudWatch</label></li>
+<li><input type="checkbox" id="checkbox164"><label for="checkbox164">AWS Inspector</label></li>
+</ul>
+<blockquote>
+<p>해설</p>
+<ul>
+<li>AWS Personal Health Dashboard<br>
+AWS Personal Health Dashboard는 AWS에서 사용자에게 영향을 줄 수 있는 이벤트를 경험할 때 알림 및 수정 지침을 제공합니다. Personal Health Dashboard를 사용하면 AWS 리소스의 상태가 변경되면 알림이 트리거되어 이벤트 가시성과 문제를 신속하게 진단하고 해결하는 데 도움이 되는 지침을 제공합니다.</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>오답</p>
+<ul>
+<li>Amazon Inspector<br>
+Amazon Inspector는 AWS에 배포된 애플리케이션의 보안 및 규정 준수를 개선하는 데 도움이 되는 자동화된 보안 평가 서비스입니다. Amazon Inspector는 노출, 취약성 및 모범 사례의 편차에 대해 애플리케이션을 자동으로 평가합니다. Amazon Inspector는 DDoS(분산 서비스 거부) 공격을 방지하는 데 사용할 수 없습니다. AWS 리소스의 상태를 제공할 수 없습니다.</li>
+<li>Amazon CloudWatch<br>
+Amazon CloudWatch는 DevOps 엔지니어, 개발자, 사이트 안정성 엔지니어(SRE) 및 IT 관리자를 위해 구축된 모니터링 및 관찰 가능성 서비스입니다. CloudWatch는 데이터와 실행 가능한 통찰력을 제공하여 애플리케이션을 모니터링하고, 시스템 전체의 성능 변화에 대응하고, 리소스 활용도를 최적화하고, 운영 상태에 대한 통합 보기를 얻습니다. 이것은 Resilient 시스템을 구축하기 위한 훌륭한 서비스입니다. 리소스 성능 모니터링, 이벤트 및 경고를 생각하십시오. CloudWatch를 생각해 보세요. AWS 리소스의 상태를 제공할 수 없습니다.</li>
+<li>AWS Service Health Dashboard<br>
+AWS AWS Service Health Dashboard는 AWS가 있는 모든 리전에 대해 모든 AWS 서비스의 상태 및 가용성에 대한 최신 정보를 표 형식으로 게시합니다. 이 페이지(https://status.aws.amazon.com/)에서 언제든지 현재 상태 정보를 확인하거나 RSS 피드를 구독하여 각 서비스 중단 알림을 받을 수 있습니다.</li>
+</ul>
+</blockquote>
+<h4 id="%F0%9F%93%8D40-%EC%96%B4%EB%96%A4-aws-route-53-%EB%9D%BC%EC%9A%B0%ED%8C%85-%EC%A0%95%EC%B1%85%EC%9C%BC%EB%A1%9C-%ED%8A%B8%EB%9E%98%ED%94%BD%EC%9D%84-%EC%97%AC%EB%9F%AC-%EB%A6%AC%EC%86%8C%EC%8A%A4%EB%A1%9C-%EB%9D%BC%EC%9A%B0%ED%8C%85%ED%95%98%EA%B3%A0-%EA%B0%81-%EB%A6%AC%EC%86%8C%EC%8A%A4%EB%A1%9C-%EB%9D%BC%EC%9A%B0%ED%8C%85%EB%90%98%EB%8A%94-%ED%8A%B8%EB%9E%98%ED%94%BD%EC%9D%98-%EC%96%91%EC%9D%84-%EC%84%A0%ED%83%9D%ED%95%98%EB%8A%94%EB%8D%B0-%EC%82%AC%EC%9A%A9%ED%95%B4%EC%95%BC-%ED%95%A0%EA%B9%8C%EC%9A%94">📍40. 어떤 AWS Route 53 라우팅 정책으로 트래픽을 여러 리소스로 라우팅하고 각 리소스로 라우팅되는 트래픽의 양을 선택하는데 사용해야 할까요?</h4>
+<ul>
+<li><input type="checkbox" id="checkbox165" checked="true"><label for="checkbox165"></label><mark><strong>가중치 기반 라우팅 정책</strong></mark></li>
+<li><input type="checkbox" id="checkbox166"><label for="checkbox166">단순 라우팅 정책</label></li>
+<li><input type="checkbox" id="checkbox167"><label for="checkbox167">장애 조치 라우팅 정책</label></li>
+<li><input type="checkbox" id="checkbox168"><label for="checkbox168">지연 시간 기반 라우팅 정책</label></li>
+</ul>
+<blockquote>
+<p>해설</p>
+<ul>
+<li>가중치 기반 라우팅 정책<br>
+Amazon Route 53은 가용성과 확장성이 높은 클라우드 DNS(Domain Name System) 웹 서비스입니다. 개발자와 기업이 www.example.com과 같은 이름을 컴퓨터가 서로 연결하는 데 사용하는 192.0.2.1과 같은 숫자 IP 주소로 변환하여 최종 사용자를 인터넷 애플리케이션으로 라우팅하는 매우 안정적이고 비용 효율적인 방법을 제공할수 있도록 설계되었습니다.<br>
+가중치 기반 라우팅는 여러 리소스를 단일 도메인 이름(example.com) 또는 하위 도메인 이름(acme.example.com)과 연결하고 각 리소스로 라우팅되는 트래픽 양을 선택할 수 있습니다. 또한, 로드 밸런싱 및 소프트웨어의 새 버전 테스트를 포함하여 다양한 목적에 유용할 수 있습니다. 가중치 기반 라우팅을 구성하려면 각 리소스에 대해 동일한 이름과 유형을 가진 레코드를 생성합니다. 각 리소스에 보낼 트래픽 양에 해당하는 상대적 가중치를 각 레코드에 할당합니다. Amazon Route 53은 그룹의 모든 레코드에 대한 총 가중치의 비율로 레코드에 할당한 가중치를 기반으로 리소스에 트래픽을 보냅니다.</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>오답</p>
+<ul>
+<li>장애 조치 라우팅 정책<br>
+Active-Passive 장애 조치를 구성하려는 경우에 사용됩니다.</li>
+<li>단순 라우팅 정책<br>
+일반적으로 트래픽을 단일 리소스(예: 웹사이트용 웹 서버)로 라우팅합니다.</li>
+<li>지연 시간 라우팅 정책<br>
+여러 AWS 리전에 리소스가 있고 최고의 지연 시간을 제공하는 리전으로 트래픽을 라우팅하려는 경우에 사용됩니다.</li>
+</ul>
+</blockquote>
+<h4 id="%F0%9F%93%8D41-%EB%8B%A4%EC%9D%8C-%EC%A4%91-aws-%EC%84%9C%EB%B9%84%EC%8A%A4-%EC%A4%91-%EC%9D%B8%ED%94%84%EB%9D%BC%EB%A5%BC-%EB%B6%84%EC%84%9D%ED%95%98%EC%97%AC-%EC%97%B0%EA%B2%B0%EB%90%98%EC%A7%80-%EC%95%8A%EC%95%98%EA%B1%B0%EB%82%98-%ED%99%9C%EC%9A%A9%EB%8F%84%EA%B0%80-%EB%82%AE%EC%9D%80-ebs-%EB%B3%BC%EB%A5%A8%EC%9D%84-%EC%8B%9D%EB%B3%84%ED%95%98%EB%8A%94-%EB%8D%B0-%EB%8F%84%EC%9B%80%EC%9D%B4-%EB%90%98%EB%8A%94-%EA%B2%83%EC%9D%80-%EB%AC%B4%EC%97%87%EC%9D%BC%EA%B9%8C%EC%9A%94">📍41. 다음 중 AWS 서비스 중 인프라를 분석하여 연결되지 않았거나 활용도가 낮은 EBS 볼륨을 식별하는 데 도움이 되는 것은 무엇일까요?</h4>
+<ul>
+<li><input type="checkbox" id="checkbox169" checked="true"><label for="checkbox169"></label><mark><strong>AWS Trusted Advisor</strong></mark></li>
+<li><input type="checkbox" id="checkbox170"><label for="checkbox170">Amazon CloudWatch</label></li>
+<li><input type="checkbox" id="checkbox171"><label for="checkbox171">AWS 구성</label></li>
+<li><input type="checkbox" id="checkbox172"><label for="checkbox172">Amazon Inspector</label></li>
+</ul>
+<blockquote>
+<p>해설</p>
+<ul>
+<li>AWS Trusted Advisor<br>
+AWS Trusted Advisor는 비용 최적화, 보안, 내결함성(fault-tolerance), 서비스 제한 및 성능 개선에 대한 AWS 모범 사례에 따라 리소스를 프로비저닝하는 데 도움이 되는 실시간 가이드를 제공하는 온라인 툴입니다. 로운 workflow 설정, 애플리케이션 개발 또는 지속적인 개선의 일환으로 Trusted Advisor가 정기적으로 제공하는 권장 사항링크 솔루션을 최적으로 프로비저닝할 수 있습니다.<br>
+AWS Trusted Advisor는 Amazon Elastic Block Store(Amazon EBS) 볼륨 구성 확인링크 볼륨이 충분히 사용되지 않을 시 경고할 수 있습니다. 볼륨이 생성되면 요금이 부과됩니다. 볼륨이 일정 기간 동안 연결되지 않은 상태로 있거나 활용 활동이 매우 낮은 경우(부트 볼륨 제외) 볼륨이 사용되지 않을 수 있습니다.</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>오답</p>
+<ul>
+<li>AWS 구성<br>
+AWS Config는 AWS 리소스 구성 평가, 감사 및 평가를 위한 서비스입니다. Config는 AWS 리소스 구성을 지속적으로 모니터링과 기록링크 원하는 구성에 대해 기록된 구성 평가를 자동화합니다. 리소스별 기록, 감사 및 규정 준수에는 구성을 떠올리세요.</li>
+<li>Amazon CloudWatch<br>
+Amazon CloudWatch는 모니터링 및 관찰 가능성 서비스를 DevOps 엔지니어, 개발자, 사이트 안정성 엔지니어(SRE) 및 IT 관리자에게 제공하기 위해 구축되었습니다. CloudWatch는 데이터와 실행 가능한 통찰력을 제공하여 애플리케이션을 모니터링하고, 시스템 전체의 성능 변화에 대응하고, 리소스 활용도를 최적화하고, 운영 상태에 대한 통합 보기를 얻습니다. CloudWatch 이벤트는 프로그래밍 방식 작업을 트리거하는 규칙을 설정하며 볼륨, 스냅샷 또는 암호화 키 상태의 변경에 대한 응답합니다. (사용률이 낮은 볼륨 사용은 제외).</li>
+<li>Amazon Inspector<br>
+Amazon Inspector는 자동화된 보안 평가 서비스로 Amazon EC2 인스턴스에 배포된 애플리케이션의 보안 및 규정 준수를 개선하는 데 도움이 됩니다. Amazon Inspector는 노출, 취약성 및 모범 사례의 편차에 대해 애플리케이션을 자동으로 평가합니다. 인프라 추적 서비스가 아닌 보안 평가 서비스입니다.</li>
+</ul>
+</blockquote>
+<h4 id="%F0%9F%93%8D42-amazon-web-services-%EC%9B%B9-%EC%84%9C%EB%B9%84%EC%8A%A4%EC%97%90%EC%84%9C-%EA%B8%88%EC%A7%80%EB%90%9C-%EC%82%AC%EC%9A%A9%EC%97%90-%EB%8C%80%ED%95%B4-%EC%84%A4%EB%AA%85%ED%95%98%EB%8A%94-%EC%A0%95%EC%B1%85%EC%9D%80-%EB%AC%B4%EC%97%87%EC%9D%BC%EA%B9%8C%EC%9A%94">📍42. Amazon Web Services 웹 서비스에서 금지된 사용에 대해 설명하는 정책은 무엇일까요?</h4>
+<ul>
+<li><input type="checkbox" id="checkbox173" checked="true"><label for="checkbox173"></label><mark><strong>AWS Acceptable Use 정책</strong></mark></li>
+<li><input type="checkbox" id="checkbox174"><label for="checkbox174">AWS Fiar Use 정책</label></li>
+<li><input type="checkbox" id="checkbox175"><label for="checkbox175">AWS Trusted Advisor</label></li>
+<li><input type="checkbox" id="checkbox176"><label for="checkbox176">AWS Applicable Use 정책</label></li>
+</ul>
+<blockquote>
+<p>해설</p>
+<ul>
+<li>AWS Acceptable Use Policy<br>
+AWS Acceptable Use Policy은 Amazon Web Services, Inc. 및 그 계열사(&quot;서비스&quot;)와 http://aws.amazon.com에 있는 웹 사이트(&quot;AWS 사이트&quot;)에서 설명합니다. 이 정책은 https://aws.amazon.com/aup/에 있으며 필요에 따라 AWS가 업데이트합니다.</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>오답</p>
+<ul>
+<li>AWS Trusted Advisor<br>
+AWS Trusted Advisor는 비용 최적화, 보안, 내결함성(fault-tolerance), 서비스 제한 및 성능 개선에 대한 AWS 모범 사례에 따라 리소스를 프로비저닝하는 데 도움이 되는 실시간 가이드를 제공하는 온라인 툴입니다. 새로운 workflow 설정, 애플리케이션 개발 또는 지속적인 개선의 일환으로 Trusted Advisor가 정기적으로 제공하는 권장 사항링크 솔루션을 최적으로 프로비저닝할 수 있습니다. 모든 AWS 고객은 AWS 환경의 보안과 성능을 높이는 데 도움이 되는 7가지 핵심 Trusted Advisor 검사에 액세스할 수 있습니다. Trusted Advisor는 AWS로 마이그레이션하고 AWS 클라우드에서 애플리케이션을 관리하는 데 사용할 수 없습니다.</li>
+<li>AWS Fair Use Policy - 혼동을 주기 위해 만들어진 보기입니다.</li>
+<li>AWS Applicable Use Policy - 혼동을 주기 위해 만들어진 보기입니다.</li>
+</ul>
+</blockquote>
+<h4 id="43-%EC%9D%B4-%EC%8A%A4%ED%83%80%ED%8A%B8%EC%97%85%EC%9D%80-%EC%9E%A5%EA%B8%B0%EA%B0%84-%EB%8F%99%EC%95%88-%EA%B0%80%EB%8A%A5%ED%95%9C-%EC%B5%9C%EC%A0%80-%EB%B9%84%EC%9A%A9%EC%9C%BC%EB%A1%9C-ec2-%EC%9D%B8%EC%8A%A4%ED%84%B4%EC%8A%A4%EB%A5%BC-%ED%94%84%EB%A1%9C%EB%B9%84%EC%A0%80%EB%8B%9D%ED%95%98%EA%B3%A0-%EC%8B%B6%EC%A7%80%EB%A7%8C-%EC%9D%B8%EC%8A%A4%ED%84%B4%EC%8A%A4%EA%B0%80-%EC%A4%91%EB%8B%A8%EB%90%98%EC%96%B4%EC%84%A0-%EC%95%88%EB%90%A9%EB%8B%88%EB%8B%A4-%ED%81%B4%EB%9D%BC%EC%9A%B0%EB%93%9C-%EC%A0%84%EB%AC%B8%EA%B0%80%EB%A1%9C%EC%84%9C-%EB%8B%A4%EC%9D%8C-%EC%A4%91-%EC%96%B4%EB%96%A4-%EC%98%B5%EC%85%98%EC%9D%84-%EC%B6%94%EC%B2%9C%ED%95%98%EC%8B%9C%EA%B2%A0%EC%8A%B5%EB%8B%88%EA%B9%8C">43. 이 스타트업은 장기간 동안 가능한 최저 비용으로 EC2 인스턴스를 프로비저닝하고 싶지만 인스턴스가 중단되어선 안됩니다. 클라우드 전문가로서 다음 중 어떤 옵션을 추천하시겠습니까?</h4>
+<ul>
+<li><input type="checkbox" id="checkbox177" checked="true"><label for="checkbox177"></label><mark><strong>예약 인스턴스</strong></mark></li>
+<li><input type="checkbox" id="checkbox178"><label for="checkbox178">전용 호스트</label></li>
+<li><input type="checkbox" id="checkbox179"><label for="checkbox179">스팟 인스턴스</label></li>
+<li><input type="checkbox" id="checkbox180"><label for="checkbox180">온디맨드 인스턴스</label></li>
+</ul>
+<blockquote>
+<p>해설</p>
+<ul>
+<li>예약 인스턴스<br>
+예약 인스턴스는 온디맨드 인스턴스 요금에 비해 Amazon EC2 비용을 크게 절감(최대 75%)합니다. 예약 인스턴스는 물리적 인스턴스가 아니라 계정에서 온디맨드 인스턴스 사용에 적용되는 결제 할인입니다. 1년 또는 3년 약정으로 예약 인스턴스를 구매할 수 있으며 3년 약정은 더 큰 할인을 제공합니다. 예약 인스턴스는 중단할 수 없습니다. 따라서 이것이 정답입니다.</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>오답</p>
+<ul>
+<li>온디맨드 인스턴스<br>
+온디맨드 인스턴스는 온디맨드로 사용하는 인스턴스입니다. 수명 주기를 제어할 수 있습니다. 시작, 중지, 최대 절전 모드, 시작, 재부팅 또는 종료 시점을 결정합니다. 온디맨드 인스턴스를 구매할 때 장기 약정이 필요하지 않습니다. 만약 선결제가 없으며 온디맨드 인스턴스가 실행되는 시간(초)에 대해서만 비용을 지불합니다. 온디맨드 인스턴스 실행에 대한 초당 가격은 고정되어 있습니다. 온디맨드 인스턴스는 중단할 수 없습니다. 그러나 온디맨드 인스턴스는 예약 인스턴스만큼 비용 효율적이지 않으므로 이 옵션이 올바르지 않습니다.</li>
+<li>스팟 인스턴스<br>
+스팟 인스턴스는 온디맨드 가격보다 저렴하게 사용할 수 있는 미사용 EC2 인스턴스입니다. 스팟 인스턴스를 사용하면 미사용 EC2 인스턴스를 대폭 할인(최대 90%)으로 요청할 수 있으므로 Amazon EC2 비용을 크게 낮출 수 있습니다. 스팟 인스턴스는 데이터 분석, 일괄 작업, 백그라운드 처리 및 선택적 작업에 적합합니다. 이는 단기간에 종료될 수 있으므로 특정 시점에 실행해야 하는 중요한 워크로드에는 적합하지 않습니다. 따라서 이 옵션은 주어진 사용 사례에 대해 올바르지 않습니다.</li>
+<li>전용 호스트<br>
+Amazon EC2 전용 호스트는 Amazon EC2에서 Microsoft 및 Oracle과 같은 공급업체의 적격 소프트웨어 라이선스를 사용할 수 있으므로 AWS의 탄력성, 단순성 및 탄력성링크 라이선스 사용의 유연성과 비용 효율성을 얻을 수 있습니다. Amazon EC2 전용 호스트는 사용자 전용의 물리적 서버이므로 기업 규정 준수 요구 사항을 해결하는 데 도움이 될 수 있습니다. 온디맨드 인스턴스에 비해 비용 효율적이지 않습니다. 따라서 이 옵션은 올바르지 않습니다.</li>
+</ul>
+</blockquote>
+<h4 id="%F0%9F%93%8D44-rds-%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4%EB%A5%BC-%EC%9D%BD%EA%B8%B0-%EC%A0%84%EC%9A%A9-%EB%B3%B5%EC%A0%9C%EB%B3%B8-%EA%B5%AC%EC%84%B1read-replica-configuration%EC%97%90%EC%84%9C-%EB%B0%B0%ED%8F%AC%ED%95%A0-%EB%95%8C%EC%9D%98-%EC%A3%BC%EC%9A%94-%EC%9D%B4%EC%A0%90%EC%9D%80-%EB%AC%B4%EC%97%87%EC%9D%BC%EA%B9%8C%EC%9A%94">📍44. RDS 데이터베이스를 읽기 전용 복제본 구성(Read Replica Configuration)에서 배포할 때의 주요 이점은 무엇일까요?</h4>
+<ul>
+<li><input type="checkbox" id="checkbox181" checked="true"><label for="checkbox181"></label><mark><strong>읽기 전용 복제본으로 데이터베이스 확장성 향상</strong></mark></li>
+<li><input type="checkbox" id="checkbox182"><label for="checkbox182">읽기 전용 복제본으로 데이터베이스 가용성 향상</label></li>
+<li><input type="checkbox" id="checkbox183"><label for="checkbox183">읽기 전용 복제본으로 데이터베이스 사용 비용 절감</label></li>
+<li><input type="checkbox" id="checkbox184"><label for="checkbox184">읽기 전용 복제본은 지역 장애로부터 데이터베이스를 보호합니다.</label></li>
+</ul>
+<blockquote>
+<p>해설</p>
+<ul>
+<li>읽기 전용 복제본을 사용한 데이터베이스 확장성 향상<br>
+Amazon Relational Database Service(Amazon RDS)는 클라우드에서 관계형 데이터베이스를 쉽게 설정, 운영 및 확장할 수 있습니다. 읽기 전용 복제본링크 마스터 데이터베이스와 동기화, 읽기 전용 복사본을 생성할 수 있습니다. 읽기 전용 복제본은 읽기 성능 향상 시킵니다. 성능 향상에는 사용자와 더 가까운 다른 AWS 리전에 읽기 전용 복제본을 배치할 수도 있습니다. 읽기 전용 복제본은 리소스의 수평 확장의 예입니다.</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>오답</p>
+<ul>
+<li>읽기 전용 복제본과 데이터베이스 가용성 향상<br>
+Amazon RDS Multi-AZ 배포는 RDS 데이터베이스(DB) 인스턴스의 관한 향상된 가용성과 내구성을 제공하므로 프로덕션 데이터베이스 워크로드에 자연스럽게 잘 맞습니다. Multi-AZ DB 인스턴스를 프로비저닝은 Amazon RDS 기본 DB 인스턴스 생성을 자동화하며 다른 가용 영역(AZ)의 대기 인스턴스에 데이터를 동기식으로 복제합니다. 읽기 전용 복제본은 데이터베이스 가용성을 향상시킬 수 없습니다.</li>
+<li>읽기 전용 복제본은 지역 장애(regional failure)로부터 데이터베이스를 보호합니다.<br>
+지역 장애로부터 보호를 위해선 다중 지역 배포 구성에서 RDS를 사용해야 합니다. 읽기 전용 복제본은 지역 장애로부터 보호할 수 없습니다.</li>
+<li>읽기 전용 복제본으로 데이터베이스 사용 비용 절감<br>
+읽기 전용 복제본이 있는 RDS는 표준 배포와 비교했을때, 데이터베이스 비용을 증가시킵니다. 따라서 이 옵션은 올바르지 않습니다.</li>
+</ul>
+</blockquote>
+<h4 id="%F0%9F%93%8D45-aws%EB%A1%9C-%EB%A7%88%EC%9D%B4%EA%B7%B8%EB%A0%88%EC%9D%B4%EC%85%98%ED%95%98%EA%B3%A0-aws-%ED%81%B4%EB%9D%BC%EC%9A%B0%EB%93%9C%EC%97%90%EC%84%9C-%EC%95%A0%ED%94%8C%EB%A6%AC%EC%BC%80%EC%9D%B4%EC%85%98%EC%9D%84-%EA%B4%80%EB%A6%AC%ED%95%98%EB%8A%94-%EB%B0%A9%EB%B2%95%EC%97%90-%EB%8C%80%ED%95%9C-%EC%A0%84%EB%AC%B8%EC%A0%81%EC%9D%B8-%EC%A1%B0%EC%96%B8%EC%9D%84-%EC%96%BB%EA%B3%A0%EC%9E%90%ED%95%98%EB%8A%94-%EB%8B%A4%EA%B5%AD%EC%A0%81-%EA%B8%B0%EC%97%85%EC%9D%B4-%EC%9E%88%EC%8A%B5%EB%8B%88%EB%8B%A4-%EB%8B%A4%EC%9D%8C-%EC%A4%91-%EC%9D%B4-%EA%B3%84%EC%95%BD%EC%97%90-%EC%B6%94%EC%B2%9C%ED%95%A0-%EC%97%94%ED%8B%B0%ED%8B%B0%EB%8A%94-%EC%96%B4%EB%96%A4-%EA%B2%83-%EC%9D%BC%EA%B9%8C%EC%9A%94">📍45. AWS로 마이그레이션하고 AWS 클라우드에서 애플리케이션을 관리하는 방법에 대한 전문적인 조언을 얻고자하는 다국적 기업이 있습니다. 다음 중 이 계약에 추천할 엔티티는 어떤 것 일까요?</h4>
+<ul>
+<li><input type="checkbox" id="checkbox185" checked="true"><label for="checkbox185"></label><mark><strong>APN 컨설팅 파트너</strong></mark></li>
+<li><input type="checkbox" id="checkbox186"><label for="checkbox186">컨시지어 지원팀</label></li>
+<li><input type="checkbox" id="checkbox187"><label for="checkbox187">APN 기술 파트너</label></li>
+<li><input type="checkbox" id="checkbox188"><label for="checkbox188">AWS Trusted Advisor</label></li>
+</ul>
+<blockquote>
+<p>해설</p>
+<ul>
+<li>APN 컨설팅 파트너<br>
+AWS 파트너 네트워크(APN)는 글로벌 파트너 프로그램으로, Amazon Web Services를 활용하여 고객을 위한 솔루션과 서비스를 구축하는 기술 및 컨설팅 비즈니스 입니다.<br>
+APN 컨설팅 파트너는 또한 모든 유형과 규모의 고객이 AWS에서 워크로드와 애플리케이션을 설계, 건축, 구축, 마이그레이션 및 관리하여 AWS 클라우드로의 마이그레이션을 가속화할 수 있도록 지원하는 전문 서비스 펌(firm)입니다.</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>오답</p>
+<ul>
+<li>APN 기술 파트너<br>
+APN 기술 파트너는 AWS 클라우드 안에서 호스팅되거나 AWS 클라우드와 통합되는 하드웨어, 연결 서비스 또는 소프트웨어 솔루션을 제공합니다. APN 기술 파트너는 AWS로 마이그레이션하고 AWS 클라우드에서 애플리케이션을 관리하지 않습니다.</li>
+<li>AWS Trusted Advisor<br>
+AWS Trusted Advisor는 비용 최적화, 보안, 내결함성(fault-tolerance), 서비스 제한 및 성능 개선에 대한 AWS 모범 사례에 따라 리소스를 프로비저닝하는 데 도움이 되는 실시간 가이드를 제공하는 온라인 툴입니다. 새로운 workflow 설정, 애플리케이션 개발 또는 지속적인 개선의 일환으로 Trusted Advisor가 정기적으로 제공하는 권장 사항링크 솔루션을 최적으로 프로비저닝할 수 있습니다. 모든 AWS 고객은 AWS 환경의 보안과 성능을 높이는 데 도움이 되는 7가지 핵심 Trusted Advisor 검사에 액세스할 수 있습니다. Trusted Advisor는 AWS로 마이그레이션하고 AWS 클라우드에서 애플리케이션을 관리하는 데 사용할 수 없습니다.</li>
+<li>컨시어지 지원팀<br>
+컨시어지 지원 팀은 AWS 결제 및 계정 전문가로 엔터프라이즈 계정 작업을 전문으로 지원합니다. 청구 및 계정 문의를 빠르고 효율적으로 해결해 드립니다. 컨시어지 지원 팀은 엔터프라이즈 지원 플랜에만 사용할 수 있습니다. 컨시어지 지원 팀은 AWS로 마이그레이션하고 AWS 클라우드에서 애플리케이션을 관리하는 데 도움을 줄 수 없습니다.</li>
+</ul>
+</blockquote>
+<h4 id="46-%EB%8B%A4%EC%9D%8C-%EC%A4%91-%EC%97%AC%EB%9F%AC-aws-%EA%B3%84%EC%A0%95-%EB%B0%8F-%EB%A6%AC%EC%A0%84%EC%97%90%EC%84%9C-%EB%8F%99%EC%9D%BC%ED%95%9C-aws-%EC%9D%B8%ED%94%84%EB%9D%BC%EB%A5%BC-%ED%94%84%EB%A1%9C%EB%B9%84%EC%A0%80%EB%8B%9D%ED%95%98%EB%8A%94-%EB%8D%B0-%EC%82%AC%EC%9A%A9%ED%95%A0-aws-%EC%84%9C%EB%B9%84%EC%8A%A4%EB%8A%94-%EB%AC%B4%EC%97%87%EC%9D%BC%EA%B9%8C%EC%9A%94">46. 다음 중 여러 AWS 계정 및 리전에서 동일한 AWS 인프라를 프로비저닝하는 데 사용할 AWS 서비스는 무엇일까요?</h4>
+<ul>
+<li><input type="checkbox" id="checkbox189" checked="true"><label for="checkbox189"></label><mark><strong>AWS CloudFormation</strong></mark></li>
+<li><input type="checkbox" id="checkbox190"><label for="checkbox190">AWS CodeDeploy</label></li>
+<li><input type="checkbox" id="checkbox191"><label for="checkbox191">AWS OpsWorks</label></li>
+<li><input type="checkbox" id="checkbox192"><label for="checkbox192">AWS Systems Manager</label></li>
+</ul>
+<blockquote>
+<p>해설</p>
+<ul>
+<li>AWS CloudFormation<br>
+AWS CloudFormation을 사용하면 프로그래밍 언어 또는 간단한 텍스트 파일을 사용하여 모든 리전 및 계정에서 애플리케이션에 필요한 모든 리소스를 자동화되고 안전한 방식으로 모델링 및 프로비저닝할 수 있습니다. 스택은 단일 단위로 관리할 수 있는 AWS 리소스 모음입니다. 즉, 스택을 생성, 업데이트 또는 삭제하여 리소스 컬렉션을 생성, 업데이트 또는 삭제할 수 있습니다.<br>
+AWS CloudFormation StackSets는 단일 작업으로 여러 계정 및 리전에서 스택을 생성, 업데이트 또는 삭제할 수 있도록 하여 스택 기능을 확장합니다. 관리자 계정을 사용하여 AWS CloudFormation 템플릿을 정의 및 관리하고 지정된 리전에서 선택한 대상 계정에 스택을 프로비저닝하기 위한 기반으로 템플릿을 사용합니다.</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>오답</p>
+<ul>
+<li>AWS CodeDeploy<br>
+AWS CodeDeploy는 Amazon EC2, AWS Fargate, AWS Lambda 및 온프레미스 서버와 같은 다양한 컴퓨팅 서비스에 대한 소프트웨어 배포를 자동화하는 완전 관리형 배포 서비스입니다. AWS CodeDeploy를 사용하면 새로운 기능을 더 쉽게 신속하게 출시하고, 애플리케이션 배포 중 가동 중지 시간을 방지하고, 애플리케이션 업데이트의 복잡성을 처리할 수 있습니다. 이 서비스로 AWS 인프라를 프로비저닝할 수 없습니다.</li>
+<li>AWS OpsWorks<br>
+AWS OpsWorks는 Chef 및 Puppet의 관리형 인스턴스를 제공하는 구성 관리 서비스입니다. OpsWorks를 사용하면 Chef 및 Puppet을 사용하여 Amazon EC2 인스턴스 또는 온프레미스 컴퓨팅 환경에서 서버를 구성, 배포 및 관리하는 방법을 자동화할 수 있습니다. 서버에서 명령을 실행하거나 패치를 관리하는 데 OpsWorks를 사용할 수 없습니다. 이 서비스로 AWS 인프라를 프로비저닝할 수 없습니다.</li>
+<li>AWS Systems Manager<br>
+AWS Systems Manager는 AWS의 인프라에 대한 가시성과 제어 기능을 제공합니다. Systems Manager는 통합 사용자 인터페이스를 제공하므로 여러 AWS 서비스의 운영 데이터를 보고 AWS 리소스 전반에서 운영 작업을 자동화할 수 있습니다. Systems Manager를 사용하면 Amazon EC2 인스턴스, Amazon S3 버킷 또는 Amazon RDS 인스턴스와 같은 리소스를 애플리케이션별로 그룹화하고, 모니터링 및 문제 해결을 위해 운영 데이터를 보고, 리소스 그룹에 대해 조치를 취할 수 있습니다. 이 서비스로 AWS 인프라를 프로비저닝할 수 없습니다.</li>
+</ul>
+</blockquote>
+<h4 id="%F0%9F%93%8D47-%ED%81%B4%EB%9D%BC%EC%9A%B0%EB%93%9C-%EC%A0%84%EB%AC%B8%EA%B0%80%EB%A1%9C%EC%84%9C-%EC%98%A8%ED%94%84%EB%A0%88%EB%AF%B8%EC%8A%A4-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%84%BC%ED%84%B0%EC%97%90%EC%84%9C-aws-%ED%81%B4%EB%9D%BC%EC%9A%B0%EB%93%9C%EB%A1%9C-%EB%A7%88%EC%9D%B4%EA%B7%B8%EB%A0%88%EC%9D%B4%EC%85%98%ED%95%98%EB%A0%A4%EB%8A%94-%EA%B8%88%EC%9C%B5-%EC%84%9C%EB%B9%84%EC%8A%A4-%ED%9A%8C%EC%82%AC%EC%97%90-%EC%82%AC%EB%82%B4-it-%EC%9D%B8%ED%94%84%EB%9D%BC%EB%A5%BC-%EC%8B%A4%ED%96%89%ED%95%98%EB%8A%94-%EB%B9%84%EC%9A%A9%EA%B3%BC-aws-%ED%81%B4%EB%9D%BC%EC%9A%B0%EB%93%9C%EB%A5%BC-%EB%B9%84%EA%B5%90%ED%95%98%EB%8A%94%EB%8D%B0-%EC%96%B4%EB%96%A4-aws-%EC%84%9C%EB%B9%84%EC%8A%A4%EB%A5%BC-%EC%B6%94%EC%B2%9C%ED%95%98%EC%8B%9C%EA%B2%A0%EC%8A%B5%EB%8B%88%EA%B9%8C">📍47. 클라우드 전문가로서 온프레미스 데이터 센터에서 AWS 클라우드로 마이그레이션하려는 금융 서비스 회사에 사내 IT 인프라를 실행하는 비용과 AWS 클라우드를 비교하는데 어떤 AWS 서비스를 추천하시겠습니까?</h4>
+<ul>
+<li><input type="checkbox" id="checkbox193" checked="true"><label for="checkbox193"></label><mark><strong>AWS Pricing Calculator</strong></mark></li>
+<li><input type="checkbox" id="checkbox194"><label for="checkbox194">AWS Trusted Advisor</label></li>
+<li><input type="checkbox" id="checkbox195"><label for="checkbox195">AWS Budgets</label></li>
+<li><input type="checkbox" id="checkbox196"><label for="checkbox196">AWS Cost Explorer</label></li>
+</ul>
+<blockquote>
+<p>해설</p>
+<ul>
+<li>AWS Pricing Calculator<br>
+AWS Pricing Calculator는 사용 사례를 기반으로 AWS 서비스를 탐색하고 견적을 생성할 수 있습니다. 솔루션을 구축하기 전에 솔루션을 모델링하고 추정을 바탕으로 가격대 및 계산을 탐색하고 필요에 맞는 사용 가능한 인스턴스 유형 및 계약 조건을 찾을 수 있습니다. 이를 통해 AWS 사용에 대해 합리적인 결정을 내릴 수 있습니다. 새로운 인스턴스 및 서비스 세트를 설정하여 AWS 비용 및 사용량을 계획하거나 가격을 책정할 수 있습니다. AWS Pricing Calculator는 https://calculator.aws/#/에서 액세스할 수 있습니다.<br>
+AWS는 마이그레이션 평가기(전 TSO Logic)라는 무료 서비스를 제공합니다. 데이터를 기반으로 AWS 클라우드 계획 및 마이그레이션에 대한 비즈니스 사례를 구축할 수 있습니다.</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>오답</p>
+<ul>
+<li>AWS Trusted Advisor<br>
+AWS Trusted Advisor는 AWS 모범 사례를 따를 수 있도록 권장 사항을 제공합니다. Trusted Advisor는 검사를 통해 계정을 평가합니다. 이러한 검사는 AWS 인프라를 최적화하고 보안 및 성능의 향상과 비용 절감, 서비스 할당량을 모니터링하기 위한 방법을 식별해 줍니다. 이 서비스는 IT 인프라를 온프레미스에서 실행하는 비용과 AWS 클라우드에서 실행하는 비용을 비교하는 데 사용할 수 없습니다.</li>
+<li>AWS Cost Explorer<br>
+AWS Cost Explorer에는 AWS 비용과 사용량을 시각화해서 이해하고 관리하는 데 도움이 되는 사용하기 쉬운 인터페이스가 있습니다. AWS Cost Explorer에 포함된 기본 보고서는 가장 큰 비용의 상위 5개 AWS 서비스에 대한 가격 및 사용량을 시각화해서 보여줍니다. 또한, 모든 서비스에 대한 자세한 설명을 표 형식으로 제공합니다. 최대 12개월 이전 과거 데이터까지 볼 수 있도록 보고서 시간 범위를 조정할 수 있고, 이를 통해 비용 동향을 파악할 수 있습니다. AWS Cost Explorer는 IT 인프라를 온프레미스에서 실행하는 비용과 AWS 클라우드에서 실행하는 비용을 비교하는 데 사용할 수 없습니다.</li>
+<li>AWS Budgets<br>
+AWS Budgets를 사용하면 비용 또는 사용량이 예산 금액을 초과하거나 초과할 것으로 예상될 때 알림을 받도록 사용자 지정 예산을 설정할 수 있습니다. 또한 AWS Budgets를 사용하여 예약 사용률 또는 적용 범위 목표를 설정하고 사용률이 정의한 임곗값 아래로 떨어질 때 알림을 받을 수 있습니다. 월별, 분기별 또는 연도별로 예산을 추적할 수 있으며, 시작 날짜와 종료 날짜를 사용자 지정할 수 있습니다. 예산을 더욱 세분화하여 AWS 서비스, 연결 계정, 태그 등과 같은 복합적인 요소가 포함된 비용을 추적할 수 있습니다. AWS Budget은 IT 인프라를 온프레미스에서 실행하는 비용과 AWS 클라우드에서 실행하는 비용을 비교하는 데 사용할 수 없습니다.</li>
+</ul>
+</blockquote>
+<h4 id="%F0%9F%93%8D48-aws-%EA%B3%B5%EB%8F%99-%EC%B1%85%EC%9E%84-%EB%AA%A8%EB%8D%B8%EC%97%90-%EB%8C%80%ED%95%9C-%EC%98%AC%EB%B0%94%EB%A5%B8-%EC%84%A4%EB%AA%85%EC%9C%BC%EB%A1%9C-%EB%8B%A4%EC%9D%8C-%EC%A4%91-%EB%AC%B4%EC%97%87%EC%9D%BC%EA%B9%8C%EC%9A%94-2%EA%B0%9C-%EC%84%A0%ED%83%9D">📍48. AWS 공동 책임 모델에 대한 올바른 설명으로 다음 중 무엇일까요? (2개 선택)</h4>
+<ul>
+<li><input type="checkbox" id="checkbox197" checked="true"><label for="checkbox197"></label><mark><strong>Amazon S3와 같은 추상화된 서비스의 경우 AWS는 인프라 계층, 운영 체제 및 플랫폼을 운영합니다.</strong></mark></li>
+<li><input type="checkbox" id="checkbox198" checked="true"><label for="checkbox198"></label><mark><strong>AWS는 클라우드의 보안을 책임집니다.</strong></mark></li>
+<li><input type="checkbox" id="checkbox199"><label for="checkbox199">AWS는 AWS 제품 및 서비스에 대한 AWS 및 고객 직원 교육을 담당합니다.</label></li>
+<li><input type="checkbox" id="checkbox200"><label for="checkbox200">IaaS에 속하는 EC2와 같은 서비스의 경우 AWS는 게스트 운영 체제를 유지 관리할 책임이 있습니다.</label></li>
+<li><input type="checkbox" id="checkbox201"><label for="checkbox201">구성 관리는 고객의 책임입니다.</label></li>
+</ul>
+<blockquote>
+<p>해설</p>
+<p>보안 및 규정 준수 부분은 AWS와 고객 간의 공유되는 공동 책임입니다. 이 공유 모델은 AWS가 호스트 운영 체제 및 가상화 계층에서 서비스가 운영되는 시설의 물리적 보안에 이르기까지 구성 요소를 운영, 관리 및 제어할 때 고객의 운영 부담 완화에 도움이 될 수 있습니다.</p>
+<ul>
+<li>AWS는 클라우드 &quot;의&quot; 보안을 책임집니다.<br>
+AWS의 책임은 AWS 클라우드에서 제공되는 모든 서비스를 실행하는 인프라를 보호하는 것입니다. 이 인프라는 AWS 클라우드 서비스를 실행하는 하드웨어, 소프트웨어, 네트워킹 및 시설로 구성되어 있습니다.</li>
+</ul>
+<p>&quot;AWS는 Amazon S3와 같은 추상화된 서비스의 경우 인프라 계층, 운영 체제 및 플랫폼을 운영합니다.&quot; - Amazon S3 및 Amazon DynamoDB와 같은 추상화된 서비스의 경우 AWS는 인프라 계층, 운영 체제 및 플랫폼을 운영하고 고객은 액세스 데이터를 저장하고 검색합니다.</p>
+</blockquote>
+<blockquote>
+<p>오답</p>
+<ul>
+<li>IaaS(Infrastructure as a Service)에 해당하는 Amazon EC2와 같은 서비스의 경우 AWS는 게스트 운영 체제를 유지 관리할 책임이 있습니다.<br>
+Amazon Elastic Compute Cloud(Amazon EC2)와 같은 서비스는 IaaS(Infrastructure as a Service)로 분류되므로 고객이 필요한 모든 보안 구성 및 관리 작업을 수행해야 합니다. 고객이 게스트 운영 체제(업데이트 및 보안 패치 포함), 고객이 인스턴스에 설치한 모든 애플리케이션 소프트웨어 또는 유틸리티, 각 인스턴스에 대한 AWS 제공 방화벽(보안 그룹이라고 함)의 구성에 대한 책임이 있습니다.</li>
+<li>구성 관리는 고객의 책임입니다.<br>
+AWS는 인프라 장치의 구성을 유지 관리하지만 고객은 자신의 게스트 운영 체제, 데이터베이스 및 애플리케이션을 구성할 책임이 있습니다. 따라서 구성 관리는 공동 책임입니다.</li>
+<li>AWS는 AWS 제품 및 서비스에 대한 AWS 및 고객 직원 교육을 담당합니다.<br>
+인식 및 교육도 공동 책임이기 때문에 AWS는 AWS 직원을 교육하지만 고객은 자신의 직원을 교육해야 합니다.</li>
+</ul>
+</blockquote>
+<h4 id="49-%EB%8B%A4%EC%9D%8C-%EC%A4%91-aws%EC%97%90%EC%84%9C-%EC%A0%9C%EA%B3%B5%ED%95%98%EB%8A%94-%EC%84%9C%EB%B2%84%EB%A6%AC%EC%8A%A4-%EC%BB%B4%ED%93%A8%ED%8C%85-%EC%84%9C%EB%B9%84%EC%8A%A4%EB%8A%94-%EB%AC%B4%EC%97%87%EC%9E%85%EB%8B%88%EA%B9%8C2%EA%B0%9C-%EC%84%A0%ED%83%9D">49. 다음 중 AWS에서 제공하는 서버리스 컴퓨팅 서비스는 무엇입니까(2개 선택)</h4>
+<ul>
+<li><input type="checkbox" id="checkbox202" checked="true"><label for="checkbox202"></label><mark><strong>AWS Lambda</strong></mark></li>
+<li><input type="checkbox" id="checkbox203" checked="true"><label for="checkbox203"></label><mark><strong>AWS Fargate</strong></mark></li>
+<li><input type="checkbox" id="checkbox204"><label for="checkbox204">AWS Elastic Beanstalk</label></li>
+<li><input type="checkbox" id="checkbox205"><label for="checkbox205">EC2</label></li>
+<li><input type="checkbox" id="checkbox206"><label for="checkbox206">Amazon Lightsail</label></li>
+</ul>
+<blockquote>
+<p>해설</p>
+<ul>
+<li>서버리스는 더 많은 운영 책임을 AWS로 이전하여 민첩성과 혁신을 높일 수 있는 클라우드의 기본 아키텍처입니다. 서버리스를 사용하면 서버에 대해 생각하지 않고도 애플리케이션과 서비스를 구축하고 실행할 수 있습니다. 서버 또는 클러스터 프로비저닝, 패치 적용, 운영 체제 유지 관리 및 용량 프로비저닝과 같은 인프라 관리 작업을 제거합니다.</li>
+<li>AWS Lambda<br>
+Lambda를 사용하면 거의 모든 유형의 애플리케이션 또는 백엔드 서비스에 대한 코드를 실행할 수 있으며 모두 관리가 필요 없습니다. 코드를 업로드하기만 하면 Lambda가 고가용성으로 코드를 실행하고 확장하는 데 필요한 모든 것을 처리합니다. 다른 AWS 서비스에서 자동으로 트리거되도록 코드를 설정하거나 웹 또는 모바일 앱에서 직접 호출할 수 있습니다.
+AWS Lambda를 사용하면 서버를 프로비저닝하거나 관리하지 않고도 코드를 실행할 수 있습니다. 사용한 컴퓨팅 시간에 대해서만 비용을 지불합니다. 코드가 실행되고 있지 않을 때는 요금이 부과되지 않습니다.</li>
+<li>AWS Fargate<br>
+AWS Fargate는 Amazon Elastic Container Service(ECS) 및 Amazon Elastic Kubernetes Service(EKS)와 함께 작동하는 컨테이너용 서버리스 컴퓨팅 엔진입니다. Fargate를 사용하면 애플리케이션 구축에 집중할 수 있습니다. Fargate를 사용하면 서버를 프로비저닝하고 관리할 필요가 없고, 애플리케이션별로 리소스를 지정하고 비용을 지불할 수 있으며, 설계에 따른 애플리케이션 격리를 통해 보안이 향상됩니다.
+AWS Fargate는 컨테이너용으로 특별히 제작된 서버리스 컴퓨팅 엔진입니다. Fargate는 컨테이너를 실행하는 데 필요한 인프라를 확장하고 관리합니다.</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>오답</p>
+<ul>
+<li>Amazon Elastic Compute Cloud(EC2)<br>
+Amazon Elastic Compute Cloud(Amazon EC2)는 초당 청구를 지원하여 클라우드에서 안전하고 크기 조정 가능한 컴퓨팅 용량을 제공하는 웹 서비스입니다. AWS 클라우드에서 서버를 프로비저닝하고 기본 OS에 액세스하는 가장 쉬운 방법입니다. Amazon EC2는 새 서버 인스턴스를 확보하고 부팅하는 데 필요한 시간을 몇 분으로 단축하므로 컴퓨팅 요구 사항이 변경됨에 따라 용량을 신속하게 확장 및 축소할 수 있습니다.</li>
+<li>AWS Elastic Beanstalk<br>
+AWS Elastic Beanstalk는 웹 애플리케이션 및 서비스를 배포하고 확장하기 위한 사용하기 쉬운 서비스입니다. 코드를 업로드하기만 하면 Elastic Beanstalk가 용량 프로비저닝, 로드 밸런싱, 자동 크기 조정에서 애플리케이션 상태 모니터링에 이르기까지 배포를 자동으로 처리합니다. Beanstalk는 서버를 프로비저닝하므로 서버리스 서비스가 아닙니다.</li>
+<li>Amazon LightSail<br>
+Lightsail은 애플리케이션이나 웹 사이트를 구축하는 데 필요한 모든 기능과 함께 비용 효율적인 월간 요금제를 제공하는 사용하기 쉬운 클라우드 플랫폼입니다. Lightsail은 Linux, Windows OS 및 WordPress를 포함하여 사전 구성된 여러 원클릭 실행 운영 체제, 개발 스택 및 웹 애플리케이션을 제공합니다.</li>
+</ul>
+</blockquote>
+<h4 id="50-%EB%8B%A4%EC%9D%8C-%EC%98%B5%EC%85%98-%EC%A4%91-aws-elastic-load-balancingelb%EC%9D%98-%EC%9D%B4%EC%A0%90%EC%9D%80-%EB%AC%B4%EC%97%87%EC%9D%BC%EA%B9%8C%EC%9A%94-2%EA%B0%9C-%EC%84%A0%ED%83%9D">50. 다음 옵션 중 AWS Elastic Load Balancing(ELB)의 이점은 무엇일까요? (2개 선택)</h4>
+<ul>
+<li><input type="checkbox" id="checkbox207" checked="true"><label for="checkbox207"></label><mark><strong>고가용성</strong></mark></li>
+<li><input type="checkbox" id="checkbox208" checked="true"><label for="checkbox208"></label><mark><strong>장애 내성</strong></mark></li>
+<li><input type="checkbox" id="checkbox209"><label for="checkbox209">민첩성</label></li>
+<li><input type="checkbox" id="checkbox210"><label for="checkbox210">저장성</label></li>
+<li><input type="checkbox" id="checkbox211"><label for="checkbox211">저비용</label></li>
+</ul>
+<blockquote>
+<p>해설</p>
+<ul>
+<li>고가용성</li>
+<li>장애 내성<br>
+Elastic Load Balancing(ELB)은 들어오는 애플리케이션 트래픽을 Amazon EC2 인스턴스, 컨테이너, IP 주소와 같은 여러 대상에 자동으로 분산합니다. 단일 가용 영역 또는 여러 가용 영역에서 애플리케이션 트래픽의 다양한 로드를 처리할 수 있습니다.
+Elastic Load Balancing은 애플리케이션의 내결함성을 만드는 데 필요한 고가용성, 자동 조정 및 강력한 보안을 모두 제공하는 세 가지 유형의 로드 밸런서를 제공합니다. Application Load Balancer(HTTP 및 HTTPS 트래픽에 가장 적합), Network Load Balancer(가장 적합 TCP 트래픽의 경우) 및 Classic Load Balancer.</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>오답</p>
+<ul>
+<li>민첩성<br>
+민첩성은 새로운 IT 리소스를 클릭 한 번으로 얻을 수 있음을 의미합니다. 즉, 개발자가 해당 리소스를 사용할 수 있도록 하는 시간을 몇 주에서 몇 분으로 단축할 수 있습니다. AWS Elastic Load Balancing은 민첩성에 도움이 되지 않습니다.</li>
+<li>저비용<br>
+AWS Elastic Load Balancing은 비용 절감에 도움이 되지 않습니다.</li>
+<li>저장성<br>
+AWS Elastic Load Balancing은 스토리지 이점을 제공하지 않습니다. 보관 관련 서비스가 아닙니다.</li>
+</ul>
+</blockquote>
+<h4 id="51-%EB%8B%A4%EC%9D%8C-s3-%EC%8A%A4%ED%86%A0%EB%A6%AC%EC%A7%80-%ED%81%B4%EB%9E%98%EC%8A%A4-%EC%A4%91-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EA%B2%80%EC%83%89%EC%97%90-%EC%86%8C%EC%9A%94-%EB%90%98%EB%8A%94-%EC%8B%9C%EA%B0%84%EC%9D%B4-%EA%B0%80%EC%9E%A5-%EA%B8%B4-%EA%B2%83%EC%9D%80-%EB%AC%B4%EC%97%87%EC%9D%BC%EA%B9%8C%EC%9A%94-first-byte-latency%EB%9D%BC%EA%B3%A0-%ED%95%A8">51. 다음 S3 스토리지 클래스 중 데이터 검색에 소요 되는 시간이 가장 긴 것은 무엇일까요 (First Byte Latency라고 함)?</h4>
+<ul>
+<li><input type="checkbox" id="checkbox212" checked="true"><label for="checkbox212"></label><mark><strong>S3 Glacier Deep Archive</strong></mark></li>
+<li><input type="checkbox" id="checkbox213"><label for="checkbox213">S3 Standard</label></li>
+<li><input type="checkbox" id="checkbox214"><label for="checkbox214">S3 Glacier</label></li>
+<li><input type="checkbox" id="checkbox215"><label for="checkbox215">S3 Interlligent-Tiering</label></li>
+</ul>
+<blockquote>
+<p>해설</p>
+<ul>
+<li>&quot;S3 Glacier Deep Archive&quot;<br>
+S3 Glacier Deep Archive는 Amazon S3의 가장 저렴한 스토리지 클래스로서 1년에 한두 번 액세스할 수 있는 데이터에 대한 장기 보존 및 디지털 보존을 지원합니다. 규제 준수 요구 사항을 충족하기 위해 7-10년 또는 그 이상 동안 데이터 세트를 보존하는 금융 서비스, 의료 및 공공 부문과 같이 규제가 엄격한 산업의 고객을 위해 설계되었습니다. S3 Glacier Deep Archive는 백업 및 재해 복구 사용 사례에도 사용할 수 있습니다. 검색 시간(첫 번째 바이트 대기 시간)은 12~48시간입니다.<br>
+S3 스토리지 클래스 데이터 검색 시간은 이 그림을 검토하십시오. 실제 숫자를 외울 필요는 없습니다. S3 Glacier Deep Archive가 데이터를 검색하는 데 가장 많은 시간이 걸린다는 점만 기억하십시오.</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>오답</p>
+<ul>
+<li>S3 Standard<br>
+S3 Standard는 자주 액세스하는 데이터에 대해 높은 내구성, 가용성 및 성능 개체 스토리지를 제공합니다. S3 Standard의 검색 시간(first byte latency)은 밀리초입니다.</li>
+<li>S3 Intelligent-Tier<br>
+S3 Intelligent-Tiering 스토리지 클래스는 성능 영향이나 운영 오버헤드 없이 데이터를 가장 비용 효율적인 액세스 계층으로 자동 이동하여 비용을 최적화하도록 설계되었습니다. 두 개의 액세스 계층에 개체를 저장하여 작동합니다. 하나는 빈번한 액세스에 최적화된 계층이고 다른 하나는 빈번하지 않은 액세스에 최적화된 다른 저비용 계층입니다. S3 Intelligent-Tiering의 검색 시간(first byte latency)은 밀리초입니다.</li>
+<li>S3 Glacier<br>
+Amazon S3 Glacier는 데이터 보관 및 장기 백업을 위한 안전하고 내구성이 높으며 매우 저렴한 Amazon S3 클라우드 스토리지 클래스입니다. 99.999999999%의 내구성을 제공하고 가장 엄격한 규제 요구 사항도 충족하는 데 도움이 될 수 있는 포괄적인 보안 및 규정 준수 기능을 제공하도록 설계되었습니다. S3 Glacier의 검색 시간(first byte latency)은 몇 분 또는 몇 시간입니다.</li>
+</ul>
+</blockquote>
+<h4 id="%F0%9F%93%8D52-%EC%96%B4%EB%8A%90-%ED%9A%8C%EC%82%AC%EA%B0%80-%EC%A3%BC%EB%A0%A5-%EC%95%A0%ED%94%8C%EB%A6%AC%EC%BC%80%EC%9D%B4%EC%85%98%EC%9D%98-%EB%B3%B5%EC%9B%90%EB%A0%A5%EC%9D%84-%EA%B0%9C%EC%84%A0%ED%95%A0-%EB%AA%A9%EC%A0%81%EC%9C%BC%EB%A1%9C-%EA%B8%B0%EC%A1%B4-%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4-%EC%8B%9C%EC%8A%A4%ED%85%9C%EC%97%90%EC%84%9C-%EA%B4%80%EB%A6%AC%ED%98%95-aws-%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4-%EC%84%9C%EB%B9%84%EC%8A%A4%EB%A1%9C-%EC%A0%84%ED%99%98%ED%95%98%EC%97%AC-aws-%EB%AF%B8%EA%B5%AD-%EB%8F%99%EB%B6%80-%EB%B0%8F-%EC%84%9C%EB%B6%80-%EB%A6%AC%EC%A0%84-%EB%AA%A8%EB%91%90%EC%97%90%EC%84%9C-%EC%95%A1%ED%8B%B0%EB%B8%8C-%EC%95%A1%ED%8B%B0%EB%B8%8C-%EA%B5%AC%EC%84%B1%EC%9D%84-%EC%A7%80%EC%9B%90%ED%95%98%EA%B3%A0%EC%9E%90-%ED%95%A9%EB%8B%88%EB%8B%A4-%EA%B5%90%EC%B0%A8-%EB%A6%AC%EC%A0%84-%EC%95%A1%ED%8B%B0%EB%B8%8C-%EC%95%A1%ED%8B%B0%EB%B8%8C-%EA%B5%AC%EC%84%B1-%EC%A7%80%EC%9B%90-%EC%97%AC%EB%B6%80%EA%B0%80-%ED%9A%8C%EC%82%AC%EA%B0%80-%EC%9A%94%EA%B5%AC%ED%95%98%EB%8A%94-%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4-%EC%86%94%EB%A3%A8%EC%85%98%EC%9D%98-%EC%A3%BC%EC%9A%94-%EA%B8%B0%EC%A4%80%EC%9E%85%EB%8B%88%EB%8B%A4-%EB%8B%A4%EC%9D%8C-%EC%A4%91-%EC%9D%B4-%EC%9A%94%EA%B5%AC-%EC%82%AC%ED%95%AD%EC%97%90-%EC%A0%81%ED%95%A9%ED%95%9C-aws-%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4-%EC%84%9C%EB%B9%84%EC%8A%A4%EB%8A%94">📍52. 어느 회사가 주력 애플리케이션의 복원력을 개선할 목적으로 기존 데이터베이스 시스템에서 관리형 AWS 데이터베이스 서비스로 전환하여 AWS 미국 동부 및 서부 리전 모두에서 액티브-액티브 구성을 지원하고자 합니다. 교차 리전 액티브-액티브 구성 지원 여부가 회사가 요구하는 데이터베이스 솔루션의 주요 기준입니다. 다음 중 이 요구 사항에 적합한 AWS 데이터베이스 서비스는?</h4>
+<ul>
+<li><input type="checkbox" id="checkbox216" checked="true"><label for="checkbox216"></label><mark><strong>글로벌 테이블이 있는 DynamoDB</strong></mark></li>
+<li><input type="checkbox" id="checkbox217"><label for="checkbox217">다중 마스터 클러스터가 있는 Aurora</label></li>
+<li><input type="checkbox" id="checkbox218"><label for="checkbox218">DynamoDB Accelerator가 있는 DynamoDB</label></li>
+<li><input type="checkbox" id="checkbox219"><label for="checkbox219">MySQL을 위한 Amazon 관계형 데이터베이스 서비스</label></li>
+</ul>
+<blockquote>
+<p>해설</p>
+<ul>
+<li>글로벌 테이블이 있는 Amazon DynamoDB<br>
+Amazon DynamoDB는 모든 규모의 고성능 애플리케이션을 실행하도록 설계된 완전 관리형, 서버리스, 키-값 NoSQL 데이터베이스입니다. DynamoDB는 자체적인 보안, 지속적인 백업, 자동화된 다중 리전 복제, 메모리 내 캐싱 및 데이터 내보내기 도구를 제공합니다.<br>
+DynamoDB 글로벌 테이블은 선택한 AWS 리전에서 데이터를 자동으로 복제하고 워크로드를 수용하기 위해 용량을 자동으로 조정합니다. 전역적으로 배포된 애플리케이션은 글로벌 테이블을 사용하여 선택한 리전에서 로컬로 데이터를 액세스할 수 있으므로 10밀리초 이내의 읽기 및 쓰기 성능을 달성할 수 있습니다. DynamoDB는 회사가 요구하는 교차 리전 액티브-액티브 구성을 지원합니다.</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>오답</p>
+<ul>
+<li>DynamoDB Accelerator가 있는 Amazon DynamoDB<br>
+DynamoDB Accelerator (DAX)는 완전 관리형 인메모리 캐시를 통해 대규모 테이블에 대한 빠른 읽기 성능을 제공하는 인메모리 캐시입니다. DAX를 사용하면 DynamoDB 테이블의 읽기 성능을 최대 10배까지 개선할 수 있습니다. 초당 수백만 건의 요청이 들어와도, 읽기에 필요한 시간을 밀리초에서 마이크로초로 단축할 수 있습니다. DAX는 교차 리전 액티브-액티브 구성을 지원하지 않습니다.</li>
+<li>다중 마스터 클러스터가 있는 Amazon Aurora<br>
+Amazon Aurora (Aurora)는 MySQL 및 PostgreSQL과 호환되는 완전 관리형 및 관계형 데이터베이스 엔진입니다. 일부 워크로드에서 Aurora는 기존 애플리케이션을 거의 변경하지 않고도 MySQL 처리량의 최대 5배, PostgreSQL 처리량의 최대 3배까지 제공할 수 있습니다. 다중 마스터 클러스터에서는 모든 DB 인스턴스에 읽기/쓰기 기능이 있습니다. 현재 다중 마스터 클러스터의 모든 DB 인스턴스는 동일한 AWS 리전에 있어야 합니다. 다중 마스터 클러스터에서 교차 리전 복제본을 사용할 수 없습니다.</li>
+<li>MySQL을 위한 Amazon 관계형 데이터베이스 서비스 (Amazon RDS)<br>
+관계형 데이터베이스 서비스를 사용하면 클라우드에서 관계형 데이터베이스를 쉽게 설정, 운영 및 스케일링할 수 있습니다. Amazon RDS는 하드웨어 프로비저닝, 데이터베이스 설정, 패치 적용 및 백업과 같이 시간이 많이 소요되는 관리 작업을 자동화할 뿐만 아니라 가성비가 좋고 조정할 수 있는 용량을 제공합니다. 애플리케이션을 중점적으로 볼 수 있고, 이를 통해 애플리케이션이 필요한 빠른 성능, 고가용성, 보안 및 호환성을 구성할 수 있습니다. RDS는 교차 리전 액티브-액티브 구성을 지원하지 않습니다.</li>
+</ul>
+</blockquote>
+<h4 id="%F0%9F%93%8D53-%EB%8B%A4%EC%9D%8C-aws-support-plan-%EC%A4%91-%EC%9E%90%EC%8A%B5%ED%98%95-%EC%8B%A4%EC%8A%B5%EC%9D%B4-%ED%8F%AC%ED%95%A8%EB%90%9C-%EC%98%A8%EB%9D%BC%EC%9D%B8-%EA%B5%90%EC%9C%A1%EC%97%90-%EC%95%A1%EC%84%B8%EC%8A%A4-%ED%95%A0%EC%88%98-%EC%9E%88%EB%8A%94-%EA%B2%83%EC%9D%80-%EB%AC%B4%EC%97%87%EC%9D%BC%EA%B9%8C%EC%9A%94">📍53. 다음 AWS Support Plan 중 자습형 실습이 포함된 온라인 교육에 액세스 할수 있는 것은 무엇일까요?</h4>
+<ul>
+<li><input type="checkbox" id="checkbox220" checked="true"><label for="checkbox220"></label><mark><strong>엔터프라이즈</strong></mark></li>
+<li><input type="checkbox" id="checkbox221"><label for="checkbox221">기본</label></li>
+<li><input type="checkbox" id="checkbox222"><label for="checkbox222">개발자</label></li>
+<li><input type="checkbox" id="checkbox223"><label for="checkbox223">비즈니스</label></li>
+</ul>
+<blockquote>
+<p>해설</p>
+<ul>
+<li>엔터프라이즈 (Enterprise)<br>
+AWS는 개발자, 비즈니스 및 엔터프라이즈 지원 플랜 이렇게 세 가지 지원 플랜 제공함으로서 각 고객을 만족시킵니다. 모든 AWS 고객을 위한 기본 지원 플랜이 포함되어 있습니다.<br>
+AWS Enterprise Support는 고객이 클라우드에서 성과를 달성하고 성공을 찾는것을 목적인 둔 컨시어지와 같은 서비스를 고객에게 제공합니다. 엔터프라이즈 지원링크 자습형 실습을 통한 온라인 교육, 고품질 엔지니어의 연중무휴 기술 지원, 환경 상태를 자동으로 관리하는 툴 및 기술, 컨설팅 아키텍처 지침, 지정된 TAM(기술 계정 관리자) 사전 예방적/예방적 프로그램 및 AWS 주제 전문가에 대한 액세스를 조정합니다.</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>오답</p>
+<ul>
+<li>개발자<br>
+AWS는 AWS에서 개발자 지원을 권하는 경우는 테스트하거나 초기 개발을 수행 중이고 업무 시간 동안 기술 지원을 받고 빌드 및 테스트할 때 일반적인 아키텍처 지침을 받을 수 있는 기능을 원하는 경우입니다.</li>
+<li>비즈니스<br>
+AWS에서 비지니스 지원을 권장하는 경우는 프로덕션 워크로드가 있고 특정 사용 사례의 맥락에서 기술 지원 및 아키텍처 지침에 24x7 액세스를 원하는 경우입니다.</li>
+<li>Basic (기본)<br>
+모든 AWS 고객을 위한 기본 지원 플랜이 포함되어 있습니다.</li>
+<li>이 세 가지 지원 계획 중 어느 것도 자기 주도형 실습을 통한 온라인 교육에 대한 액세스를 제공하지 않습니다.</li>
+</ul>
+</blockquote>
+<h4 id="%F0%9F%93%8D54-%EA%B0%9C%EB%B0%9C%EC%9E%90%EB%8A%94-chef-%EB%B0%8F-puppet%EC%9D%84-%EC%82%AC%EC%9A%A9%ED%95%98%EC%97%AC-on-premises-%ED%99%98%EA%B2%BD%EC%97%90%EC%84%9C-%EC%9E%91%EC%97%85%EC%9D%84-%EC%9E%90%EB%8F%99%ED%99%94%ED%95%98%EB%A0%A4%EA%B3%A0-%ED%95%A9%EB%8B%88%EB%8B%A4-%EC%9D%B4-%EC%9E%91%EC%97%85%EC%97%90-%EB%8F%84%EC%9B%80%EC%9D%B4-%EB%90%98%EB%8A%94-aws-%EC%84%9C%EB%B9%84%EC%8A%A4%EB%8A%94-%EB%AC%B4%EC%97%87%EC%9D%BC%EA%B9%8C%EC%9A%94">📍54. 개발자는 Chef 및 Puppet을 사용하여 on-premises 환경에서 작업을 자동화하려고 합니다. 이 작업에 도움이 되는 AWS 서비스는 무엇일까요?</h4>
+<ul>
+<li><input type="checkbox" id="checkbox224" checked="true"><label for="checkbox224"></label><mark><strong>AWS OpsWorks</strong></mark></li>
+<li><input type="checkbox" id="checkbox225"><label for="checkbox225">AWS Batch</label></li>
+<li><input type="checkbox" id="checkbox226"><label for="checkbox226">AWS CodeDeploy</label></li>
+<li><input type="checkbox" id="checkbox227"><label for="checkbox227">AWS CloudFormation</label></li>
+</ul>
+<blockquote>
+<p>해설</p>
+<ul>
+<li>AWS OpsWorks<br>
+AWS OpsWorks는 Chef 및 Puppet의 관리형 인스턴스를 제공하는 구성 관리 서비스입니다. Chef 및 Puppet은 코드로 서버 구성을 자동화할 수 있는 자동화 플랫폼입니다. OpsWorks를 사용하면 Chef 및 Puppet을 사용하여 Amazon EC2 인스턴스 또는 온프레미스 컴퓨팅 환경에서 서버를 구성, 배포 및 관리하는 방법을 자동화할 수 있습니다.</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>오답</p>
+<ul>
+<li>WS CloudFormation<br>
+AWS CloudFormation은 개발자와 시스템 관리자가 관련 AWS 리소스 모음을 생성 및 관리하고, 질서 있고 예측 가능한 방식으로 프로비저닝 및 업데이트할 수 있는 쉬운 방법을 제공합니다. Chef 및 Puppet을 사용하지 않으며 AWS 리소스 조달 대상 및 방법에 더 중점을 둡니다.</li>
+<li>AWS CodeDeploy<br>
+AWS CodeDeploy는 온프레미스에서 실행되는 EC2 인스턴스 및 인스턴스를 포함하여 모든 인스턴스에 대한 코드 배포를 자동화하는 서비스입니다. Chef 및 Puppet을 사용하지 않으며 인프라 구성 및 오케스트레이션을 처리하지 않습니다.</li>
+<li>AWS Batch<br>
+AWS Batch를 사용하면 개발자, 과학자 및 엔지니어가 AWS에서 수십만 개의 배치 컴퓨팅 작업을 쉽고 효율적으로 실행할 수 있습니다. Chef 및 Puppet을 사용하여 온프레미스 환경에서 작업을 자동화하는 데 사용되지 않습니다.</li>
+</ul>
+</blockquote>
+<h4 id="%F0%9F%93%8D55-%ED%95%9C-%EC%8A%A4%ED%83%80%ED%8A%B8%EC%97%85%EC%9D%B4-aws%EC%97%90-%EC%9E%88%EB%8A%94-%EC%9D%B8%EA%B8%B0-%EC%9E%88%EB%8A%94-%EA%B8%B0%EC%88%A0%EC%9D%84-%EB%B9%A0%EB%A5%B4%EA%B2%8C-%EB%B0%B0%ED%8F%AC%ED%95%98%EA%B3%A0-%EC%8B%B6%EC%8A%B5%EB%8B%88%EB%8B%A4-%ED%81%B4%EB%9D%BC%EC%9A%B0%EB%93%9C-%EB%8B%B4%EB%8B%B9%EC%9E%90%EB%A1%9C%EC%84%9C-%EC%9D%B4-%EC%9E%91%EC%97%85%EC%97%90-aws-%ED%88%B4-%EC%A4%91-%EC%96%B4%EB%96%A4-%ED%88%B4%EC%9D%84-%EC%82%AC%EC%9A%A9%ED%95%98%EC%8B%9C%EA%B2%A0%EC%8A%B5%EB%8B%88%EA%B9%8C">📍55. 한 스타트업이 AWS에 있는 인기 있는 기술을 빠르게 배포하고 싶습니다. 클라우드 담당자로서 이 작업에 AWS 툴 중 어떤 툴을 사용하시겠습니까?</h4>
+<ul>
+<li><input type="checkbox" id="checkbox228" checked="true"><label for="checkbox228"></label><mark><strong>AWS Quick Starts references</strong></mark></li>
+<li><input type="checkbox" id="checkbox229"><label for="checkbox229">AWS Whitepapers</label></li>
+<li><input type="checkbox" id="checkbox230"><label for="checkbox230">AWS CodeDeploy</label></li>
+<li><input type="checkbox" id="checkbox231"><label for="checkbox231">AWS Forums</label></li>
+</ul>
+<blockquote>
+<p>해설</p>
+<ul>
+<li>AWS Quick Starts references<br>
+Quick Start는 AWS 솔루션 설계자와 파트너가 보안 및 고가용성을 위한 AWS 모범 사례를 기반으로 AWS에서 인기 있는 기술을 배포할 수 있도록 구축하였습니다. 이러한 액셀러레이터는 수백 개의 수동 절차를 단 몇 단계로 줄여 프로덕션 환경을 신속하게 구축하고 바로 사용할 수 있도록 하였습니다.<br>
+각 Quick Start의 가이드에는 구축을 자동화하는 AWS CloudFormation 템플릿과 아키텍처를 설명하고 단계별 구축 지침을 제공합니다.</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>오답</p>
+<ul>
+<li>AWS Forums<br>
+AWS Forums은 AWS 커뮤니티 플랫폼으로 사람들이 서로를 도울 수 있는 플랫폼입니다. AWS의 기술 배포에 사용되지 않습니다.</li>
+<li>AWS CodeDeploy<br>
+AWS CodeDeploy는 온프레미스(소프트웨어에 직접 설치)에서 실행되는 인스턴스 및 EC2 인스턴스를 포함한 모든 인스턴스에 대한 코드 배포를 하는 자동화 서비스입니다. 즉시 사용 가능한 기술을 AWS에 빠르게 배포하는 것은 적절하지 않습니다.</li>
+<li>AWS Whitepapers<br>
+AWS Whitepapers는 AWS와 AWS 커뮤니티에서 작성한 기술 콘텐츠로 클라우드에 대한 지식을 확장하기 위한 백서입니다. AWS Whitepapers에는 기술 백서, 기술 가이드, 참조 자료 및 참조 아키텍처 다이어그램이 포함됩니다. 배포에 유용한 콘텐츠를 찾을 수는 있지만 기술 배포로 하는 서비스는 아닙니다.</li>
+</ul>
+</blockquote>
+<h4 id="%F0%9F%93%8D56-%EC%96%B4%EB%8A%90-%ED%9A%8C%EC%82%AC%EC%9D%98-%EC%A3%BC%EB%A0%A5-%EC%95%A0%ED%94%8C%EB%A6%AC%EC%BC%80%EC%9D%B4%EC%85%98%EC%9D%B4-amazon-ec2-%EC%9D%B8%EC%8A%A4%ED%84%B4%EC%8A%A4%EB%A5%BC-%ED%86%B5%ED%95%B4-%EC%8B%A4%ED%96%89%EB%90%A9%EB%8B%88%EB%8B%A4-%EC%83%88%EB%A1%9C%EC%9A%B4-%EC%A0%95%EC%B1%85%EC%97%90-%EB%94%B0%EB%9D%BC-%EC%8B%9C%EC%8A%A4%ED%85%9C-%EA%B4%80%EB%A6%AC%EC%9E%90%EB%8A%94-%EC%83%88%EB%A1%9C%EC%9A%B4-%ED%8F%AC%ED%8A%B8%EB%82%98-%ED%8D%BC%EB%B8%94%EB%A6%AD-ip-%EC%A3%BC%EC%86%8C-%EC%97%86%EC%9D%B4-aws-ec2-%EC%9D%B8%EC%8A%A4%ED%84%B4%EC%8A%A4%EC%97%90-%EC%8B%9C%ED%81%90%EC%96%B4-%EC%85%B8-%EC%95%A1%EC%84%B8%EC%8A%A4%EB%A5%BC-%EC%A0%9C%EA%B3%B5%ED%95%98%EB%8A%94-%EC%B5%9C%EA%B3%A0%EC%9D%98-%EB%B0%A9%EB%B2%95%EC%9D%84-%EC%B0%BE%EA%B3%A0-%EC%9E%88%EC%8A%B5%EB%8B%88%EB%8B%A4-%EB%8B%A4%EC%9D%8C-%EC%A4%91-%EC%9D%B4-%EC%9A%94%EA%B5%AC-%EC%82%AC%ED%95%AD%EC%97%90-%EB%B6%80%ED%95%A9%ED%95%98%EB%8A%94-%EB%8F%84%EA%B5%AC%EB%82%98-%EC%84%9C%EB%B9%84%EC%8A%A4%EB%8A%94">📍56. 어느 회사의 주력 애플리케이션이 Amazon EC2 인스턴스를 통해 실행됩니다. 새로운 정책에 따라 시스템 관리자는 새로운 포트나 퍼블릭 IP 주소 없이 AWS EC2 인스턴스에 시큐어 셸 액세스를 제공하는 최고의 방법을 찾고 있습니다. 다음 중 이 요구 사항에 부합하는 도구나 서비스는?</h4>
+<ul>
+<li><input type="checkbox" id="checkbox232" checked="true"><label for="checkbox232"></label><mark><strong>AWS Systems Manager Session Manager</strong></mark></li>
+<li><input type="checkbox" id="checkbox233"><label for="checkbox233">Amazon EC2 Instance Connect</label></li>
+<li><input type="checkbox" id="checkbox234"><label for="checkbox234">Amazon Inspector</label></li>
+<li><input type="checkbox" id="checkbox235"><label for="checkbox235">Amazon Route 53</label></li>
+</ul>
+<blockquote>
+<p>해설</p>
+<ul>
+<li>AWS Systems Manager Session Manager<br>
+AWS SSM Session Manager는 완전 관리형 서비스로 대화형 브라우저 기반 셸 및 CLI를 지원합니다. 인바운드 포트를 열거나, 배스천 호스트를 유지 관리하거나, SSH 키를 관리할 필요 없이 안전하고 감사 가능한 인스턴스 관리 기능을 제공합니다. Session Manager를 통해 인스턴스에 대한 액세스 제어, 보안 강화 및 감사 가능한 액세스 제공 등 기업 정책 규정을 손쉽게 준수할 수 있습니다. 동시에 최종 사용자에게 간단한 교차 플랫폼 액세스를 제공합니다.</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>오답</p>
+<ul>
+<li>Amazon EC2 Instance Connect<br>
+Amazon EC2 Instance Connect는 시큐어 셸(SSH)을 통해 Linux 인스턴스에 간단하고 안전하게 연결할 수 있게 합니다. EC2 Instance Connect는 AWS Identity와 Access Management (IAM) 정책 및 원칙을 통해 인스턴스에 대한 SSH 액세스를 제어하므로 SSH 키를 공유하고 관리할 필요가 없습니다. Instance Connect를 사용하려면 트래픽을 위해 22번 포트가 열려있어야 합니다. 따라서, 요구 사항에 부합하는 옵션이 아닙니다.</li>
+<li>Amazon Inspector<br>
+Amazon Inspector는 자동화된 보안 평가 서비스로 AWS에 배포된 애플리케이션의 보안을 강화하고 규정을 준수할 수 있게 도움을 줍니다. Amazon Inspector는 애플리케이션에 대해 정보 노출, 취약점 및 모범 사례와의 편차를 자동으로 평가합니다. 평가를 수행한 뒤에 심각도에 따라 우선순위를 매겨 보안 문제에 대한 목록을 세부적으로 작성합니다. Inspector는 EC2 인스턴스에 시큐어 셸 액세스를 지원하지 않습니다.</li>
+<li>Amazon Route 53<br>
+Amazon Route 53은 고가용성 및 확장성을 지닌 클라우드 도메인 이름 시스템 (DNS) 웹 서비스입니다. 이 서비스는 최종 사용자를 인터넷 애플리케이션으로 라우팅할 수 있는 매우 안정적이고 가성비 좋은 방법을 개발자와 기업에 제공하기 위해 설계되었습니다. 이 서비스에서는 www.example.com과 같은 이름을 192.0.2.1과 같은 컴퓨터 간 연결에 사용되는 숫자 IP 주소로 변환합니다. Route 53은 EC2 인스턴스에 시큐어 셸 액세스를 지원하지 않습니다.</li>
+</ul>
+</blockquote>
+<h4 id="57-%EB%8B%A4%EC%9D%8C-%EC%A4%91-%EC%8A%A4%ED%82%A4%EB%A7%88%EA%B0%80-%EC%97%86%EB%8A%94-%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4%EA%B0%80-%ED%95%84%EC%9A%94%ED%95%9C-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%B2%98%EB%A6%AC-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%EC%97%90-%EC%A0%81%ED%95%A9%ED%95%9C-aws-%EC%84%9C%EB%B9%84%EC%8A%A4%EB%8A%94">57. 다음 중 스키마가 없는 데이터베이스가 필요한 데이터 처리 프로젝트에 적합한 AWS 서비스는?</h4>
+<ul>
+<li><input type="checkbox" id="checkbox236" checked="true"><label for="checkbox236"></label><mark><strong>Amazon DynamoDB</strong></mark></li>
+<li><input type="checkbox" id="checkbox237"><label for="checkbox237">Amazon RDS</label></li>
+<li><input type="checkbox" id="checkbox238"><label for="checkbox238">Amazon RedShift</label></li>
+<li><input type="checkbox" id="checkbox239"><label for="checkbox239">Amazon Aurora</label></li>
+</ul>
+<blockquote>
+<p>해설</p>
+<ul>
+<li>Amazon DynamoDB<br>
+Amazon DynamoDB는 모든 스케일에서 10밀리초 미만의 처리 성능을 제공하는 키-값 형태로 저장되는 문서 데이터베이스입니다. Amazon DynamoDB는 인터넷 규모 애플리케이션을 위한 내구성이 뛰어난 완전 관리형 데이터베이스입니다. DynamoDB는 기본 제공 보안, 백업 및 복원, 인메모리 캐시, 다중 리전, 다중 마스터를 제공합니다. DynamoDB에는 스키마가 없습니다. DynamoDB는 JSON 문서를 포함해 정형(structured) 혹은 반(semi)정형 데이터를 관리할 수 있습니다.</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>오답</p>
+<ul>
+<li>Amazon RedShift<br>
+Amazon Redshift는 대규모 데이터 세트 저장 및 분석을 위해 설계된 완전 관리형의 페타바이트 규모 클라우드 기반 데이터 웨어하우스 제품입니다. Amazon Redshift에는 잘 정의된 스키마가 필요합니다.</li>
+<li>Amazon Aurora<br>
+Amazon Aurora는 관계형 데이터베이스를 위한 AWS 서비스입니다. Aurora에는 잘 정의된 스키마가 필요합니다.</li>
+<li>Amazon RDS<br>
+Amazon RDS 관계형 데이터베이스를 위한 AWS 서비스입니다. RDS에는 잘 정의된 스키마가 필요합니다.</li>
+</ul>
+</blockquote>
+<h4 id="%F0%9F%93%8D58-%EA%B7%9C%EC%A0%95-%EC%A4%80%EC%88%98-%EC%9A%94%EA%B5%AC-%EC%82%AC%ED%95%AD%EC%9C%BC%EB%A1%9C-%EC%9D%B8%ED%95%B4-%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%8A%94-10%EB%85%84-%EB%8F%99%EC%95%88-%EC%A0%80%EC%9E%A5%EB%90%98%EC%96%B4%EC%95%BC-%ED%95%98%EB%8A%94-%ED%95%9C-%EC%9D%98%EB%A3%8C-%EA%B8%B0%EA%B8%B0-%ED%9A%8C%EC%82%AC%EA%B0%80-%EA%B3%BC%EA%B1%B0-%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%A5%BC-%EC%A0%80%EC%9E%A5%ED%95%98%EB%8A%94-%EB%82%B4%EA%B5%AC%EC%84%B1-%EC%9E%88%EA%B3%A0-%EB%B9%84%EC%9A%A9-%ED%9A%A8%EC%9C%A8%EC%A0%81%EC%9D%B8-%EB%B0%A9%EB%B2%95%EC%9D%84-%EC%B0%BE%EA%B3%A0-%EC%9E%88%EC%8A%B5%EB%8B%88%EB%8B%A4-%EB%8B%A4%EC%9D%8C-%EC%A4%91-%EC%96%B4%EB%96%A4-aws-%EC%8A%A4%ED%86%A0%EB%A6%AC%EC%A7%80-%EC%86%94%EB%A3%A8%EC%85%98%EC%9D%84-%EC%A0%9C%EC%95%88%ED%95%98%EC%8B%9C%EA%B2%A0%EC%8A%B5%EB%8B%88%EA%B9%8C">📍58. 규정 준수 요구 사항으로 인해 데이터는 10년 동안 저장되어야 하는 한 의료 기기 회사가 과거 데이터를 저장하는 내구성 있고 비용 효율적인 방법을 찾고 있습니다. 다음 중 어떤 AWS 스토리지 솔루션을 제안하시겠습니까?</h4>
+<ul>
+<li><input type="checkbox" id="checkbox240" checked="true"><label for="checkbox240"></label><mark><strong>S3 Glacier Deep Archive</strong></mark></li>
+<li><input type="checkbox" id="checkbox241"><label for="checkbox241">S3 Glacier</label></li>
+<li><input type="checkbox" id="checkbox242"><label for="checkbox242">AWS Storage Gateway</label></li>
+<li><input type="checkbox" id="checkbox243"><label for="checkbox243">Amazon EFS</label></li>
+</ul>
+<blockquote>
+<p>해설</p>
+<ul>
+<li>S3 Glacier Deep Archive<br>
+S3 Glacier Deep Archive는 Amazon S3의 가장 저렴한 스토리지 클래스로서 1년에 한두 번 액세스할 수 있는 데이터에 대한 장기 보존 및 디지털 보존을 지원합니다. 규제 준수 요구 사항을 충족하기 위해 7-10년 또는 그 이상 동안 데이터 세트를 보존하는 금융 서비스, 의료 및 공공 부문과 같이 규제가 엄격한 산업의 고객을 위해 설계되었습니다. S3 Glacier Deep Archive는 백업 및 재해 복구 사용 사례에도 사용할 수 있습니다. 검색 시간(첫 번째 바이트 대기 시간)은 12~48시간입니다.</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>오답</p>
+<ul>
+<li>S3 Glacier<br>
+Amazon S3 Glacier는 Amazon S3 클라우드 스토리지 클래스로서 데이터 보관 및 장기 백업을 위한 안전하고 내구성이 높으며 매우 저렴합니다. 99.999999999%의 내구성을 제공하고 가장 엄격한 규제 요구 사항도 충족하는 포괄적인 보안 및 규정 준수 기능을 제공합니다. Glacier Deep Archive는 주어진 사용 사례에 대해 Glacier보다 비용 최적화되어 더 적합합니다.</li>
+<li>AWS Storage Gateway<br>
+AWS Storage Gateway는 하이브리드 클라우드 스토리지 서비스로 사실상 무제한의 클라우드 스토리지에 대한 온프레미스 액세스를 제공합니다. 게이트웨이와 AWS 스토리지 간에 데이터는 SSL로 암호화됩니다(파일, 볼륨 및 테이프 게이트웨이의 세 가지 유형의 게이트웨이 모두 포함). Storage Gateway는 데이터 보관에 사용할 수 없습니다.</li>
+<li>Amazon EFS<br>
+Amazon Elastic File System(Amazon EFS)은 간단하고 확장 가능한 완전 관리형 탄력적 NFS 파일 시스템을 제공하며, AWS 클라우드 서비스 및 온프레미스 리소스와 함께 사용 할수 있습니다. 애플리케이션을 중단하지 않고 온디맨드로 페타바이트까지 확장할 수 있도록 구축되었으며, 파일을 추가 및 제거할 때 자동으로 확장 및 축소되므로 성장을 수용하기 위해 용량을 프로비저닝하고 관리할 필요가 없습니다.</li>
+</ul>
+</blockquote>
+<h4 id="%F0%9F%93%8D59-aws-compute-optimizer%EB%8A%94-%EB%8B%A4%EC%9D%8C-aws-%EB%A6%AC%EC%86%8C%EC%8A%A4%EC%97%90-%EB%8C%80%ED%95%9C-%EA%B6%8C%EC%9E%A5-%EC%82%AC%ED%95%AD-%EC%A4%91-%EC%96%B4%EB%96%A4-%EA%B2%83%EC%9D%84-%EC%A0%9C%EA%B3%B5%ED%95%A9%EB%8B%88%EA%B9%8C-2%EA%B0%9C-%EC%84%A0%ED%83%9D">📍59. AWS Compute Optimizer는 다음 AWS 리소스에 대한 권장 사항 중 어떤 것을 제공합니까? (2개 선택)</h4>
+<ul>
+<li><input type="checkbox" id="checkbox244" checked="true"><label for="checkbox244"></label><mark><strong>EC2 인스턴스, EC2 Auto Scaling 그룹</strong></mark></li>
+<li><input type="checkbox" id="checkbox245" checked="true"><label for="checkbox245"></label><mark><strong>EBS 볼륨, Lambda 함수</strong></mark></li>
+<li><input type="checkbox" id="checkbox246"><label for="checkbox246">EC2, EFS</label></li>
+<li><input type="checkbox" id="checkbox247"><label for="checkbox247">Lambda, S3</label></li>
+<li><input type="checkbox" id="checkbox248"><label for="checkbox248">EFS, Lambda</label></li>
+</ul>
+<blockquote>
+<p>해설</p>
+<ul>
+<li>Amazon EC2 인스턴스, Amazon EC2 Auto Scaling 그룹</li>
+<li>Amazon EBS 볼륨, AWS Lambda 함수
+AWS Compute Optimizer는 머신 러닝을 사용하여 과거 사용률 metrics를 분석하여 Amazon EC2 인스턴스 유형, Amazon EBS 볼륨 구성 및 AWS Lambda 함수 메모리 크기와 같은 최적의 AWS 리소스 구성을 식별합니다. AWS Compute Optimizer는 선택한 유형의 EC2 인스턴스, EC2 Auto Scaling 그룹, EBS 볼륨 및 Lambda 함수에 대한 권장 사항을 제공합니다.<br>
+Compute Optimizer는 CPU, 메모리, EBS 처리량, EBS IOPS, 디스크 처리량, 디스크 처리량, 네트워크 처리량 및 초당 네트워크 패킷(PPS) 포함, 권장 인스턴스의 각 리소스 차원에 대한 개별 성능 리스크 점수를 계산합니다.<br>
+AWS Compute Optimizer는 그룹 크기가 고정된 EC2 Auto Scaling 그룹의 EC2 인스턴스 유형 및 크기 권장 사항을 제공합니다. 즉, 원하는 값, 최소값 및 최대값이 모두 동일한 값으로 설정되고 조정 정책이 첨부되지 않습니다.<br>
+AWS Compute Optimizer는 범용(SSD)(gp3) 볼륨의 IOPS 및 처리량 권장 사항과 프로비저닝된 IOPS(io1 및 io2) 볼륨에 대한 IOPS 권장 사항을 지원합니다.<br>
+Compute Optimizer는 두 가지 범주의 Lambda 함수를 최적화합니다. 첫 번째 범주에는 메모리 크기가 과도하게 프로비저닝될 수 있는 Lambda 함수가, 두 번째 범주에는 추가 CPU 성능을 활용할 수 있는 컴퓨팅 집약적 Lambda 함수가 포함됩니다.</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>오답</p>
+<ul>
+<li>AWS Compute Optimizer는 S3 및 EFS에 대한 최적화 권장 사항을 제공하지 않으므로 오답입니다.</li>
+</ul>
+</blockquote>
+<h4 id="%F0%9F%93%8D60-%ED%95%9C-it-%ED%9A%8C%EC%82%AC%EA%B0%80-%EB%B9%84%EC%9A%A9-%EC%B5%9C%EC%A0%81%ED%99%94%EC%97%90-%EC%A7%91%EC%A4%91%ED%95%98%EB%A9%B4%EC%84%9C-%ED%99%9C%EC%9A%A9%EB%8F%84%EA%B0%80-%EB%82%AE%EC%9D%80-%EB%AA%A8%EB%93%A0-ec2-%EC%9D%B8%EC%8A%A4%ED%84%B4%EC%8A%A4%EB%A5%BC-%EC%8B%9D%EB%B3%84%ED%95%98%EB%A0%A4%EA%B3%A0-%ED%95%A9%EB%8B%88%EB%8B%A4-%EC%9D%B4-%EC%82%AC%EC%9A%A9-%EC%82%AC%EB%A1%80%EB%A5%BC-%ED%95%B4%EA%B2%B0%ED%95%98%EA%B8%B0-%EC%9C%84%ED%95%B4-%EC%96%B4%EB%96%A4-aws-%EC%84%9C%EB%B9%84%EC%8A%A4%EB%A5%BC-%EC%82%AC%EC%9A%A9%ED%95%A0-%EC%88%98-%EC%9E%88%EC%9D%84%EA%B9%8C%EC%9A%94-2%EA%B0%9C-%EC%84%A0%ED%83%9D">📍60. 한 IT 회사가 비용 최적화에 집중하면서 활용도가 낮은 모든 EC2 인스턴스를 식별하려고 합니다. 이 사용 사례를 해결하기 위해 어떤 AWS 서비스를 사용할 수 있을까요? (2개 선택)</h4>
+<ul>
+<li><input type="checkbox" id="checkbox249" checked="true"><label for="checkbox249"></label><mark><strong>AWS Cost Explorer</strong></mark></li>
+<li><input type="checkbox" id="checkbox250" checked="true"><label for="checkbox250"></label><mark><strong>AWS Trusted Advisor</strong></mark></li>
+<li><input type="checkbox" id="checkbox251"><label for="checkbox251">AWS Cost and Usage Reports</label></li>
+<li><input type="checkbox" id="checkbox252"><label for="checkbox252">AWS Budgets</label></li>
+<li><input type="checkbox" id="checkbox253"><label for="checkbox253">Amazon CloudWatch</label></li>
+</ul>
+<blockquote>
+<p>해설</p>
+<ul>
+<li>AWS Trusted Advisor<br>
+WS Trusted Advisor는 비용 최적화, 보안, 내결함성(fault-tolerance), 서비스 제한 및 성능 개선에 대한 5개의 AWS 모범 사례에 따라 리소스를 프로비저닝하는 데 도움이 되는 실시간 가이드를 제공하는 온라인 툴입니다. 새로운 workflow 설정, 애플리케이션 개발 또는 지속적인 개선의 일환으로 Trusted Advisor가 정기적으로 제공하는 권장 사항링크 솔루션을 최적으로 프로비저닝할 수 있습니다.<br>
+AWS Trusted Advisor는 지난 14일 동안 언제든지 실행 중이던 Amazon Elastic Compute Cloud(Amazon EC2) 인스턴스를 확인하고 4일 동안 일일 CPU 사용률이 10% 이하이고 네트워크 I/O가 5MB 이하인 경우에 알람을 보냅니다.</li>
+<li>AWS Cost Explorer<br>
+AWS Cost Explorer는 사용하기 쉬운 인터페이스로 이용시간에 따른 AWS 비용 및 사용량을 시각화, 이해 및 관리할 수 있도록 합니다. AWS Cost Explorer는 비용이 많이 발생하는 상위 5개 AWS 서비스, 관련된 비용 및 사용량 시각화에 관한 기본 보고서 포함, 테이블 보기에서 모든 서비스에 대한 자세한 분석을 제공합니다. 보고서는 시간 범위 조정링크 비용 추세 이해를 위해 최대 12개월까지의 과거 데이터를 볼 수 있습니다.<br>
+비용 탐색기의 적절한 크기 권장 사항 기능은 EC2 인스턴스의 크기를 줄이거나 종료하여 비용 절감 기회를 식별하는 데 도움이 됩니다. 단일 보기에서 멤버 계정 전체에서 활용도가 낮은 모든 EC2 인스턴스를 확인하여 절약할 수 있는 금액을 즉시 확인 수 있습니다.</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>오답</p>
+<ul>
+<li>AWS Cost and Usage Reports<br>
+AWS Cost and Usage Reports(AWS CUR)는 가장 포괄적인 비용 및 사용 데이터 세트가 포함되어 있습니다. 비용 및 사용 보고서로 소유한 Amazon Simple Storage Service(Amazon S3) 버킷에 AWS 결제 보고서를 게시할 수 있습니다. 시간 또는 월, 제품 또는 제품 리소스 또는 직접 정의한 태그별로 비용을 분류하는 보고서를 받을 수 있습니다. 비용 및 사용 보고서는 활용도가 낮은 EC2 인스턴스를 식별하는 데 사용할 수 없습니다.</li>
+<li>Amazon CloudWatch<br>
+Amazon CloudWatch를 사용하여 예상 요금 모니터링을 위한 경보를 생성할 수 있습니다. AWS 계정의 예상 요금 모니터링을 활성화하면 예상 요금이 계산되어 metric 데이터로 CloudWatch으로 매일 여러 번 전송됩니다. 요금이 특정 임계값을 초과하면 이메일로 알림을 받도록 선택할 수 있습니다. 리소스 성능 모니터링, 이벤트 및 경고에는 CloudWatch를 떠올리세요.. CloudWatch는 활용도가 낮은 EC2 인스턴스를 식별하는 데 사용할 수 없습니다.</li>
+<li>AWS Budgets<br>
+AWS Budgets은 사용자 지정 예산을 설정 기능링크 비용 또는 사용량 예산 금액 초과시(또는 초과 예상이 되는 경우) 알림을 제공합니다. 또한 AWS Budgets은 예약 사용률 또는 적용 범위 목표를 설정하고 사용률이 정의한 임계값 아래로 떨어지면 알림을 받을 수 있습니다. AWS Budgets은 월별, 분기별 또는 연간 단위로 생성할 수 있으며 시작 및 종료 날짜를 사용자 지정할 수 있습니다. AWS Budgets을 더욱 세분화하여 AWS 서비스, 연결 계정, 태그 등과 같은 여러 차원과 관련된 비용을 추적할 수 있습니다. AWS Budgets은 활용도가 낮은 EC2 인스턴스를 식별하는 데 사용할 수 없습니다.</li>
+</ul>
+</blockquote>
+<h4 id="61-%EC%A7%80%EC%A0%95%EB%90%9C-%EB%A6%AC%EC%A0%84%EC%97%90%EC%84%9C-ec2-%EC%9D%B8%EC%8A%A4%ED%84%B4%EC%8A%A4%EB%A5%BC-%EC%8B%9C%EC%9E%91%ED%95%98%EB%A0%A4%EA%B3%A0-%ED%95%98%EB%8A%94-aws-%EC%82%AC%EC%9A%A9%EC%9E%90%EA%B0%80-amazon-%EB%A8%B8%EC%8B%A0-%EC%9D%B4%EB%AF%B8%EC%A7%80ami%EA%B0%80-%EC%9D%B4-ec2-%EC%9D%B8%EC%8A%A4%ED%84%B4%EC%8A%A4-%EC%82%AC%EC%9A%A9%EC%9D%84-%EC%9C%84%ED%95%B4-%EC%B6%A9%EC%A1%B1%ED%95%B4%EC%95%BC-%ED%95%98%EB%8A%94-%EC%A7%80%EC%97%AD%EB%B3%84-%EC%A0%9C%EC%95%BD-%EC%A1%B0%EA%B1%B4%EC%9D%80-%EB%AC%B4%EC%97%87%EC%9D%BC%EA%B9%8C%EC%9A%94">61. 지정된 리전에서 EC2 인스턴스를 시작하려고 하는 AWS 사용자가 Amazon 머신 이미지(AMI)가 이 EC2 인스턴스 사용을 위해 충족해야 하는 지역별 제약 조건은 무엇일까요?</h4>
+<ul>
+<li><input type="checkbox" id="checkbox254" checked="true"><label for="checkbox254"></label><mark><strong>EC2 인스턴스와 동일한 리전의 AMI를 사용해야 합니다. AMI의 리전은 EC2 인스턴스의 성능과 관련이 없습니다.</strong></mark></li>
+<li><input type="checkbox" id="checkbox255"><label for="checkbox255">EC2 인스턴스의 성능을 향상시키므로 동일한 리전의 AMI를 사용해야 합니다.</label></li>
+<li><input type="checkbox" id="checkbox256"><label for="checkbox256">다른 리전의 AMI를 사용할 수 있지만 EC2 인스턴스의 성능이 저하됩니다.</label></li>
+<li><input type="checkbox" id="checkbox257"><label for="checkbox257">AMI는 글로벌 엔티티이므로 리전을 적용할 수 없습니다.</label></li>
+</ul>
+<blockquote>
+<p>해설</p>
+<ul>
+<li>EC2 인스턴스와 동일한 리전의 AMI를 사용해야 합니다. AMI의 리전은 EC2 인스턴스의 성능과 관련이 없습니다.<br>
+Amazon 머신 이미지(AMI)는 인스턴스를 시작하는 데 필요한 정보를 제공합니다. 인스턴스를 시작할 때 AMI를 지정해야 합니다. 동일한 구성의 여러 인스턴스가 필요한 경우 단일 AMI에서 여러 인스턴스를 시작할 수 있습니다.<br>
+AMI는 시작할 EC2 인스턴스와 동일한 리전은 필수 입니다. AMI가 다른 리전에 있는 경우 해당 AMI를 EC2 인스턴스를 시작하려는 리전에 복사할 수 있습니다. AMI 지역은 EC2 인스턴스의 성능과 관련이 없습니다.</li>
+</ul>
+</blockquote>
+<h4 id="62-multi-az-%EA%B5%AC%EC%84%B1%EC%97%90%EC%84%9C-rds-%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4%EB%A5%BC-%EB%B0%B0%ED%8F%ACdeploying%ED%95%A0-%EB%95%8C%EC%9D%98-%EA%B0%80%EC%9E%A5-%ED%81%B0-%EC%9D%B4%EC%A0%90%EC%9D%80-%EB%AC%B4%EC%97%87%EC%9D%BC%EA%B9%8C%EC%9A%94">62. Multi-AZ 구성에서 RDS 데이터베이스를 배포(deploying)할 때의 가장 큰 이점은 무엇일까요?</h4>
+<ul>
+<li><input type="checkbox" id="checkbox258" checked="true"><label for="checkbox258"></label><mark><strong>데이터베이스 가용성 향상</strong></mark></li>
+<li><input type="checkbox" id="checkbox259"><label for="checkbox259">데이터베이스 사용 비용 절감</label></li>
+<li><input type="checkbox" id="checkbox260"><label for="checkbox260">읽기가 많은 워크로드에 대한 데이터베이스 성능 향상</label></li>
+<li><input type="checkbox" id="checkbox261"><label for="checkbox261">리전 장애로부터 데이터베이스 보호</label></li>
+</ul>
+<blockquote>
+<p>해설</p>
+<ul>
+<li>Multi-AZ로 데이터베이스 가용성 향상<br>
+Amazon RDS Multi-AZ 배포는 RDS 데이터베이스(DB) 인스턴스에 대한 향상된 가용성과 내구성을 제공하므로 프로덕션 데이터베이스 워크로드에 가장 접합합니다. Multi-AZ DB 인스턴스를 프로비저닝하면 Amazon RDS가 자동으로 기본 DB 인스턴스를 생성하고 다른 가용 영역(AZ)의 대기 인스턴스에 데이터를 동기식으로 복제합니다.<br>
+인프라 장애가 발생하는 경우 Amazon RDS는 장애 조치가 완료되는 즉시 데이터베이스 작업을 재개할 수 있도록 대기 모드로 페일오버를 수행합니다.</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>오답</p>
+<ul>
+<li>Multi-AZ는 읽기가 많은 워크로드에 대한 데이터베이스 성능을 향상시킵니다<br>
+읽기 전용 복제본을 사용하면 마스터 데이터베이스와 동기화되는 읽기 전용 복사본을 만들 수 있습니다. 읽기 전용 복제본은 읽기 성능 향상을 위해 사용됩니다. 따라서 이 옵션은 올바르지 않습니다.</li>
+<li>Multi-AZ는 리전 장애로부터 데이터베이스를 보호합니다<br>
+지역 장애로부터 보호하려면 다중 지역 배포 구성에서 RDS를 사용해야 합니다. Multi-AZ는 지역 장애로부터 보호할 수 없습니다.</li>
+<li>Multi-AZ로 데이터베이스 사용 비용 절감<br>
+Multi-AZ RDS는 표준 배포에 비해 데이터베이스 비용을 증가시킵니다. 따라서 이 옵션은 올바르지 않습니다.</li>
+</ul>
+</blockquote>
+<h4 id="63-%ED%95%9C-%ED%9A%8C%EC%82%AC%EC%97%90%EC%84%9C-amazon-ec2-%EB%B9%84%EC%9A%A9%EC%9D%84-%EC%B5%9C%EC%A0%81%ED%99%94%ED%95%98%EB%A0%A4%EA%B3%A0-%ED%95%A9%EB%8B%88%EB%8B%A4-%EB%8B%A4%EC%9D%8C-%EC%A4%91-%EC%9D%B4-%EC%9E%91%EC%97%85%EC%97%90-%EB%8F%84%EC%9B%80%EC%9D%B4-%EB%90%98%EB%8A%94-%EC%9E%91%EC%97%85%EC%9D%80-%EB%AC%B4%EC%97%87%EC%9D%BC%EA%B9%8C%EC%9A%94-2%EA%B0%9C-%EC%84%A0%ED%83%9D">63. 한 회사에서 Amazon EC2 비용을 최적화하려고 합니다. 다음 중 이 작업에 도움이 되는 작업은 무엇일까요? (2개 선택)</h4>
+<ul>
+<li><input type="checkbox" id="checkbox262" checked="true"><label for="checkbox262"></label><mark><strong>예약 인스턴스 구매</strong></mark></li>
+<li><input type="checkbox" id="checkbox263" checked="true"><label for="checkbox263"></label><mark><strong>인스턴스 수를 수요에 맞게 조정하도록 Auto Scaling 그룹 설정</strong></mark></li>
+<li><input type="checkbox" id="checkbox264"><label for="checkbox264">인스턴스 수직 확장</label></li>
+<li><input type="checkbox" id="checkbox265"><label for="checkbox265">더 높은 AWS Support 플랜 선택</label></li>
+<li><input type="checkbox" id="checkbox266"><label for="checkbox266">자체 서버 구축</label></li>
+</ul>
+<blockquote>
+<p>해설</p>
+<ul>
+<li>수요에 맞게 인스턴스 수를 조정하도록 Auto Scaling 그룹 설정</li>
+<li>EC2 예약 인스턴스 구매<br>
+Auto Scaling 그룹에는 자동 조정 및 관리를 위해 논리적 그룹으로 취급되는 Amazon EC2 인스턴스 모음이 포함되 있습니다. 수요에 맞추어 수동 또는 자동 크기 조정을 사용하여 크기를 조정할 수 있습니다.<br>
+AWS Auto Scaling을 사용하면 AWS 서비스 사용 시 활용도와 비용 효율성의 최적화를 통해 필요한 리소스에 대한 비용만 지불할 수 있습니다.</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>오답</p>
+<ul>
+<li>EC2 인스턴스 수직 확장<br>
+EC2 인스턴스의 수직 확장(CPU, 메모리 및 스토리지를 추가하여 컴퓨터 한 대 성능 향상)은 제한적이며 수평 확장(시스템에 더 많은 컴퓨터 추가)보다 훨씬 더 많은 비용이 필요합니다</li>
+<li>더 높은 AWS Support 플랜 선택<br>
+AWS Support 플랜은 EC2 비용에 적합하지 않습니다.</li>
+<li>자체 서버 구축<br>
+자체 서버를 구축하는 것이 클라우드에서 EC2 인스턴스를 사용하는 것보다 비용이 많이 듭니다. 비용 측면에서 더 많은 비용을 지불할 가능성이 있습니다</li>
+</ul>
+</blockquote>
+<h4 id="64-%EB%8F%84%EC%BB%A4docker-%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88%EC%97%90%EC%84%9C-%EB%8F%85%EC%A0%90-%EC%95%A0%ED%94%8C%EB%A6%AC%EC%BC%80%EC%9D%B4%EC%85%98%EC%9D%84-%EC%8B%A4%ED%96%89%ED%95%98%EB%8A%94-%EC%8A%A4%ED%83%80%ED%8A%B8%EC%97%85%EC%9D%B4-%EC%9E%88%EC%8A%B5%EB%8B%88%EB%8B%A4-%ED%81%B4%EB%9D%BC%EC%9A%B0%EB%93%9C-%EC%A0%84%EB%AC%B8%EA%B0%80%EB%A1%9C%EC%84%9C-%EC%8A%A4%ED%83%80%ED%8A%B8%EC%97%85%EC%9D%B4-%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88%EB%A5%BC-%EC%8B%A4%ED%96%89%ED%95%98%EA%B3%A0-%EA%B8%B0%EB%B3%B8-%EC%84%9C%EB%B2%84%EC%97%90-%EA%B3%84%EC%86%8D-%EC%95%A1%EC%84%B8%EC%8A%A4%ED%95%A0-%EC%88%98-%EC%9E%88%EB%8F%84%EB%A1%9D-%ED%95%98%EB%A0%A4%EB%A9%B4-%EC%96%B4%EB%96%A4-aws-%EC%84%9C%EB%B9%84%EC%8A%A4%EB%A5%BC-%EC%B6%94%EC%B2%9C%ED%95%98%EC%8B%9C%EA%B2%A0%EC%8A%B5%EB%8B%88%EA%B9%8C">64. 도커(docker) 컨테이너에서 독점 애플리케이션을 실행하는 스타트업이 있습니다. 클라우드 전문가로서 스타트업이 컨테이너를 실행하고 기본 서버에 계속 액세스할 수 있도록 하려면 어떤 AWS 서비스를 추천하시겠습니까?</h4>
+<ul>
+<li><input type="checkbox" id="checkbox267" checked="true"><label for="checkbox267"></label><mark><strong>ECS</strong></mark></li>
+<li><input type="checkbox" id="checkbox268"><label for="checkbox268">Fargate</label></li>
+<li><input type="checkbox" id="checkbox269"><label for="checkbox269">Lambda</label></li>
+<li><input type="checkbox" id="checkbox270"><label for="checkbox270">ECR</label></li>
+</ul>
+<blockquote>
+<p>해설</p>
+<ul>
+<li>Amazon Elastic Container Service(Amazon ECS)<br>
+Amazon Elastic Container Service(Amazon ECS)는 클러스터에서 Docker 컨테이너를 쉽게 실행, 중지 및 관리하며 높은 확장성과 빠른 컨테이너 관리가 가능한 서비스입니다. 이것은 완전 관리형 서비스가 아니며 기본 서버를 직접 관리할 수 있습니다.</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>오답</p>
+<ul>
+<li>AWS Fargate<br>
+AWS Fargate는 컨테이너용 서버리스 컴퓨팅 엔진입니다. Amazon Elastic Container Service(ECS) 및 Amazon Elastic Kubernetes Service(EKS)와 함께 작동합니다. Fargate는 애플리케이션 구축에 집중하게 해줍니다. Fargate를 사용하면 서버를 프로비저닝하고 관리할 필요가 없고, 애플리케이션별로 리소스를 지정하고 비용을 지불할 수 있으며, 설계에 따른 애플리케이션 격리로 보안이 향상시킵니다. Fargate로는 기본 서버에 액세스할 수 없으므로 이 옵션이 올바르지 않습니다.</li>
+<li>AWS Lambda<br>
+AWS Lambda는 서버 프로비저닝 또는 관리 없이도 코드 실행이 가능한 컴퓨팅 서비스입니다. AWS Lambda는 필요에 따라 코드를 실행하고 하루에 몇 번의 요청에서 초당 수천 개의 요청으로 자동으로 확장됩니다. Lambda는 컨테이너 애플리케이션 실행을 지원하지 않습니다.</li>
+<li>완전관리형 컨테이너 레지스트리(ECR)<br>
+완전관리형 컨테이너 레지스트리로 Docker 컨테이너 이미지를 저장, 관리 및 배포할 수 있습니다. Amazon ECR을 사용하면 컨테이너 리포지토리를 운영할 필요가 없습니다. ECR은 컨테이너 애플리케이션 실행을 지원하지 않습니다.</li>
+</ul>
+</blockquote>
+<h4 id="65-%EA%B8%B0%EC%97%85%EC%97%90%EC%84%9C-%ED%83%80%EC%82%AC-%EB%B9%84%EC%A6%88%EB%8B%88%EC%8A%A4-%EC%95%A0%ED%94%8C%EB%A6%AC%EC%BC%80%EC%9D%B4%EC%85%98-%EB%B0%8F-aws-organizations%EC%97%90%EC%84%9C-%EA%B4%80%EB%A6%AC%ED%95%98%EB%8A%94-%EA%B3%84%EC%A0%95%EC%97%90-%EB%A1%9C%EA%B7%B8%EC%9D%B8%ED%95%A0-%EC%88%98-%EC%9E%88%EB%8A%94-%EC%A4%91%EC%95%99-%EC%82%AC%EC%9A%A9%EC%9E%90-%ED%8F%AC%ED%84%B8%EC%9D%84-%ED%99%95%EB%B3%B4%ED%95%98%EB%A0%A4%EA%B3%A0-%ED%95%A9%EB%8B%88%EB%8B%A4-%ED%81%B4%EB%9D%BC%EC%9A%B0%EB%93%9C-%EC%A0%84%EB%AC%B8%EA%B0%80%EB%A1%9C%EC%84%9C-%EC%9D%B4-%EC%9E%91%EC%97%85%EC%9D%84-%EC%9C%84%ED%95%B4-%EC%96%B4%EB%96%A4-aws-%EC%84%9C%EB%B9%84%EC%8A%A4%EB%A5%BC-%EC%82%AC%EC%9A%A9%ED%95%98%EC%8B%9C%EA%B2%A0%EC%8A%B5%EB%8B%88%EA%B9%8C">65. 기업에서 타사 비즈니스 애플리케이션 및 AWS Organizations에서 관리하는 계정에 로그인할 수 있는 중앙 사용자 포털을 확보하려고 합니다. 클라우드 전문가로서 이 작업을 위해 어떤 AWS 서비스를 사용하시겠습니까?</h4>
+<ul>
+<li><input type="checkbox" id="checkbox271" checked="true"><label for="checkbox271"></label><mark><strong>AWS Single Sign-On(SSO)</strong></mark></li>
+<li><input type="checkbox" id="checkbox272"><label for="checkbox272">AWS Identity and Access Management(IAM)</label></li>
+<li><input type="checkbox" id="checkbox273"><label for="checkbox273">AWS Cognito</label></li>
+<li><input type="checkbox" id="checkbox274"><label for="checkbox274">AWS Command Line Interface(CLI)</label></li>
+</ul>
+<blockquote>
+<p>해설</p>
+<ul>
+<li>AWS Single Sign-On(SSO)<br>
+AWS SSO는 여러 AWS 계정 및 비즈니스 애플리케이션에 대한 액세스를 중앙에서 관리하기 쉽고 사용자가 한 곳에서 할당된 모든 계정 및 애플리케이션에 대한 Single Sign-On 액세스를 제공 해주는 AWS 서비스입니다.<br>
+AWS SSO는 SSO 엑세스와 모든 AWS 기관 계정에 관한 권한을 중앙에서 쉽게 관리할 수 있습니다. AWS SSO는 SSO ID 저장소에서 사용자 ID 관리 및 생성을 가능하게 하며, 이미 존재하고 있는 ID 소스를 Microsoft Active Directory, Azure Active Directory (Azure AD), and Okta Universal Directory에서 연결할 수 있습니다.<br>
+AWS SSO로 중앙에서 여러 AWS 계정, SAML 지원 클라우드 애플리케이션(예: Salesforce, Office 365, Box) 및 맞춤형 사내 애플리케이션에 대한 직원의 액세스 권한을 빠르고 쉽게 할당 및 관리를 할 수 있습니다.</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>오답</p>
+<ul>
+<li>AWS Cognito<br>
+Amazon Cognito를 사용하면 웹 및 모바일 앱에 쉽고 빠르게 사용자 등록, 로그인 및 액세스 제어를 추가할 수 있습니다. Amazon Cognito를 사용하면 Facebook, Twitter 또는 Amazon과 같은 소셜 ID 공급자를 통해 SAML ID 솔루션을 사용하거나 자체 ID 시스템링크 사용자 인증도 할 수 있습니다. 고객을 위해 B2C 또는 B2B 앱을 구축하는 고객/개발자를 위한 ID 관리 솔루션입니다.</li>
+<li>AWS Identity and Access Management (IAM)<br>
+AWS Identity and Access Management (IAM) 사용시 사용자의 AWS 서비스 및 리소스에 대한 액세스 제어를 안전하게 할 수 있습니다. IAM을 사용하여 AWS 사용자 및 그룹을 생성 및 관리하고 권한을 사용하여 AWS 리소스에 대한 액세스를 허용 하거나 거부할 수 있습니다. 로그인이 아닌 사용자와 역할 관리를 위해 사용됩니다.</li>
+<li>AWS Command Line Interface (CLI)<br>
+AWS Command Line Interface (CLI)는 AWS 서비스 관리를 위한 통합 툴입니다. 하나의 툴을 다운로드하고 구성하면 명령줄에서 여러 AWS 서비스를 제어하고 스크립트를 통해 자동화할 수 있습니다. 중앙 사용자 포털이 아닙니다.</li>
+</ul>
+</blockquote>
+
+</body>
+</html>
