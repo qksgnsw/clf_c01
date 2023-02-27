@@ -4,6 +4,6 @@
 
 ```mermaid
 graph LR;
-  on-premiss{온프레미스} <-- AWS Direct Connect --> cloud{VPC}
+  {{온프레미스}} <-- AWS Direct Connect --> {{VPC}}
 ```
 
