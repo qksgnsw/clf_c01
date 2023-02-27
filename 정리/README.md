@@ -3,9 +3,6 @@
 #### AWS Direct Connect
 
 ```mermaid
-graph TD;
-    A-->B;
-    A-->C;
-    B-->D;
-    C-->D;
+graph LR;
+  온프레미스 <-- AWS Direct Connect --> VPC
 ```
