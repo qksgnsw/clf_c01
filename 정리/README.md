@@ -4,6 +4,6 @@
 
 ```mermaid
 graph LR;
-  {{온프레미스}} <-- AWS Direct Connect --> {{VPC}}
+  id1{{온프레미스}} <-- AWS Direct Connect --> id2{{VPC}}
 ```
 
